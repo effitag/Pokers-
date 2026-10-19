@@ -61,14 +61,14 @@ button{font-family:inherit;color:inherit}
 .logo{width:38px;height:38px;border-radius:50%;flex:none;background:repeating-conic-gradient(var(--brass) 0 22.5deg,var(--rail) 22.5deg 45deg);display:grid;place-items:center;box-shadow:0 2px 8px var(--shadow)}
 .logo::after{content:"";width:24px;height:24px;border-radius:50%;background:var(--felt);border:2px solid var(--brass)}
 .tabs{display:flex;gap:4px;background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:4px;overflow-x:auto;max-width:100%;scrollbar-width:none}
-.tabs button{flex:1 1 auto;border:0;background:none;padding:8px 16px;border-radius:999px;cursor:pointer;white-space:nowrap;font-size:14px;color:var(--muted);font-weight:500}
+.tabs button{flex:1 1 auto;border:0;background:none;padding:8px 14px;border-radius:999px;cursor:pointer;white-space:nowrap;font-size:14px;color:var(--muted);font-weight:500}
 .tabs button:hover{color:var(--text)}
 .tabs button[aria-selected="true"]{background:var(--brass);color:var(--brass-ink)}
 .hdr-right{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .acc-pill{font-family:var(--f-mono);font-size:13px;background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:6px 12px;color:var(--muted)}
 .acc-pill b{color:var(--text)}
 .switch{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);cursor:pointer;user-select:none;background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:5px 12px 5px 6px}
-.switch input{appearance:none;width:30px;height:18px;border-radius:999px;background:var(--line);position:relative;cursor:pointer;margin:0;transition:background .2s}
+.switch input{appearance:none;width:30px;height:18px;border-radius:999px;background:var(--line);position:relative;cursor:pointer;margin:0;transition:background .2s;flex:none}
 .switch input::after{content:"";position:absolute;top:2px;right:2px;width:14px;height:14px;border-radius:50%;background:var(--muted);transition:transform .2s,background .2s}
 .switch input:checked{background:var(--brass)}
 .switch input:checked::after{transform:translateX(-12px);background:var(--brass-ink)}
@@ -85,6 +85,8 @@ button{font-family:inherit;color:inherit}
 .scn-title{font-family:var(--f-display);font-size:21px;font-weight:400;margin:0 0 0 6px;text-wrap:balance}
 .muted{color:var(--muted)}
 .mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.small{font-size:13px}
+.plain{font-size:13.5px;color:var(--muted);margin:6px 0 0}
 
 /* ---------- cards ---------- */
 .card{--w:40px;width:var(--w);height:calc(var(--w)*1.42);border-radius:calc(var(--w)*.13);background:var(--card-face);border:1px solid var(--card-edge);display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1;box-shadow:0 2px 6px var(--shadow);flex:none;animation:deal .28s ease-out;direction:ltr}
@@ -99,9 +101,9 @@ button{font-family:inherit;color:inherit}
 @media (max-width:640px){.card.lg{--w:40px}.card.md{--w:31px}}
 
 /* ---------- table ---------- */
-.table-wrap{padding:30px 6px 40px}
+.table-wrap{padding:64px 6px 44px}
 .table{position:relative;width:100%;aspect-ratio:16/9;direction:ltr}
-@media (max-width:640px){.table{aspect-ratio:4/5}.table-wrap{padding:26px 2px 34px}}
+@media (max-width:640px){.table{aspect-ratio:4/5}.table-wrap{padding:52px 2px 40px}}
 .felt{position:absolute;inset:7% 6%;border-radius:999px;background:radial-gradient(ellipse at 50% 38%,var(--felt) 0%,var(--felt-deep) 78%);box-shadow:0 0 0 12px var(--rail),0 0 0 14px var(--rail-edge),0 18px 50px var(--shadow),inset 0 0 70px rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center}
 .felt::before{content:"";position:absolute;inset:9%;border-radius:999px;border:1px solid rgba(255,255,255,.07)}
 .center{display:flex;flex-direction:column;align-items:center;gap:10px;position:relative;z-index:1}
@@ -113,17 +115,20 @@ button{font-family:inherit;color:inherit}
 .seat .cards{display:flex;gap:3px;min-height:4px}
 .seat .cards .card:nth-child(2){margin-left:-12px;transform:rotate(5deg)}
 .seat.hero .cards .card:nth-child(2){margin-left:-8px;transform:rotate(3deg)}
-.plate{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:3px 10px;text-align:center;min-width:64px;box-shadow:0 3px 10px var(--shadow)}
-.plate b{display:block;font-size:12.5px;letter-spacing:.04em}
-.plate span{display:block;font-family:var(--f-mono);font-size:11px;color:var(--muted)}
+.plate{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:3px 10px;text-align:center;min-width:64px;box-shadow:0 3px 10px var(--shadow);direction:rtl}
+.plate b{display:block;font-size:12.5px;letter-spacing:.04em;white-space:nowrap}
+.plate span{display:block;font-family:var(--f-mono);font-size:11px;color:var(--muted);white-space:nowrap}
+.plate em{display:block;font-style:normal;font-size:10px;color:var(--brass);letter-spacing:.05em}
 .seat.hero .plate{border-color:var(--brass);background:var(--panel-2)}
 .seat.hero .plate b{color:var(--brass)}
 .seat.folded{opacity:.38}
 .seat.villain .plate{border-color:var(--raise)}
+.seat.acting .plate{box-shadow:0 0 0 2px var(--brass),0 0 20px color-mix(in srgb,var(--brass) 55%,transparent)}
+.bubble{font-family:var(--f-mono);font-size:11px;background:rgba(0,0,0,.6);border-radius:6px;padding:1px 7px;white-space:nowrap;direction:rtl;color:var(--text)}
 .bet{position:absolute;transform:translate(-50%,-50%);display:flex;align-items:center;gap:4px;font-family:var(--f-mono);font-size:12px;background:rgba(0,0,0,.4);border-radius:999px;padding:2px 8px 2px 3px;z-index:1}
 .chip{width:14px;height:14px;border-radius:50%;background:repeating-conic-gradient(var(--brass) 0 30deg,var(--on-color) 30deg 60deg);border:2px solid var(--brass)}
-.dealer{position:absolute;top:-9px;left:-9px;width:20px;height:20px;border-radius:50%;background:var(--card-face);color:var(--suit-s);font-weight:700;font-size:11px;display:grid;place-items:center;box-shadow:0 2px 5px var(--shadow);z-index:1}
-@media (max-width:640px){.table-note{display:none}.top{gap:10px}.tabs{width:100%}.tabs button{padding:8px 6px;font-size:13px}.plate{min-width:52px;padding:2px 6px}.plate b{font-size:11px}.plate span{font-size:10px}}
+.dealer{position:absolute;top:-9px;left:-9px;width:20px;height:20px;border-radius:50%;background:var(--card-face);color:var(--suit-s);font-weight:700;font-size:11px;display:grid;place-items:center;box-shadow:0 2px 5px var(--shadow);z-index:1;font-style:normal}
+@media (max-width:640px){.table-note{display:none}.plate{min-width:52px;padding:2px 6px}.plate b{font-size:11px}.plate span{font-size:10px}.plate em{display:none}.bubble{font-size:10px}}
 
 /* ---------- actions ---------- */
 .actions{display:flex;flex-direction:column;gap:12px}
@@ -147,9 +152,13 @@ button{font-family:inherit;color:inherit}
 .presets{display:flex;gap:6px;flex-wrap:wrap}
 .presets button{border:1px solid var(--line);background:var(--panel);border-radius:8px;padding:4px 10px;cursor:pointer;font-family:var(--f-mono);font-size:12.5px}
 .presets button:hover{border-color:var(--brass);color:var(--brass)}
-.sizer input[type=range]{width:100%;accent-color:var(--brass);direction:ltr}
+.sizer input[type=range],.calc input[type=range]{width:100%;accent-color:var(--brass);direction:ltr}
 .amt{font-family:var(--f-mono);font-size:15px}
 .amt b{color:var(--brass)}
+.waiting{display:flex;align-items:center;gap:10px;justify-content:center;padding:16px;border:1px dashed var(--line);border-radius:12px;color:var(--muted);font-size:14px}
+.dots i{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--brass);margin:0 2px;animation:blink 1s infinite}
+.dots i:nth-child(2){animation-delay:.2s}.dots i:nth-child(3){animation-delay:.4s}
+@keyframes blink{0%,100%{opacity:.25}50%{opacity:1}}
 
 /* ---------- coach panels ---------- */
 .verdict{display:flex;gap:12px;align-items:flex-start}
@@ -161,6 +170,23 @@ button{font-family:inherit;color:inherit}
 .reasons{margin:12px 0 0;padding:0 18px 0 0;display:flex;flex-direction:column;gap:7px;font-size:14px}
 .reasons li::marker{color:var(--brass)}
 .line-tag{display:inline-block;font-family:var(--f-mono);font-size:11.5px;border:1px solid var(--line);border-radius:6px;padding:1px 7px;margin-top:6px;color:var(--brass)}
+.explain{display:flex;flex-direction:column;gap:12px;margin-top:12px;font-size:14px}
+.ex-lbl{display:block;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:4px;font-weight:500}
+.ex-bottom{font-size:15.5px;font-weight:500;line-height:1.45}
+.ex-steps{margin:0;padding:0 20px 0 0;display:flex;flex-direction:column;gap:6px}
+.ex-steps li::marker{color:var(--brass);font-family:var(--f-mono);font-size:12px}
+.ex-example{background:var(--panel-2);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.ex-rule{border:1px dashed color-mix(in srgb,var(--brass) 55%,var(--line));border-radius:10px;padding:10px 12px}
+.ex-example p,.ex-rule p{margin:0}
+.ex-alt{margin:0;color:var(--muted)}
+.term{all:unset;cursor:help;border-bottom:1px dotted var(--brass);color:inherit}
+.term:hover{color:var(--brass)}
+.term:focus-visible{outline:2px solid var(--brass);outline-offset:1px}
+.sheet{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(16px + env(safe-area-inset-bottom,0px));width:min(540px,calc(100% - 32px));background:var(--panel-2);border:1px solid var(--brass);border-radius:14px;padding:14px 16px 14px 44px;z-index:50;box-shadow:0 14px 44px var(--shadow);direction:rtl}
+.sheet h4{margin:0;font-size:16px;color:var(--brass)}
+.sheet p{margin:6px 0 0;font-size:14px}
+.sheet .ex{color:var(--muted)}
+.sheet .close{position:absolute;top:10px;left:10px;border:1px solid var(--line);background:var(--panel);border-radius:8px;width:28px;height:28px;cursor:pointer}
 .kv{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font-size:14px;align-items:baseline}
 .kv dt{color:var(--muted)}
 .kv dd{margin:0;min-width:0}
@@ -171,15 +197,17 @@ button{font-family:inherit;color:inherit}
 .bignum{font-family:var(--f-mono);font-size:30px;font-weight:600;line-height:1.1}
 .chips{display:flex;gap:6px;flex-wrap:wrap}
 .mini-cards{display:flex;gap:3px;flex-wrap:wrap;direction:ltr;justify-content:flex-end}
-details.explain{border-top:1px solid var(--line);margin-top:12px;padding-top:10px;font-size:13.5px}
-details.explain summary{cursor:pointer;color:var(--brass);font-weight:500}
-details.explain p{margin:8px 0 0;color:var(--muted)}
+.outs-group{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;padding-block:6px;border-top:1px solid var(--line);font-size:13.5px}
+details.explain-box{border-top:1px solid var(--line);margin-top:12px;padding-top:10px;font-size:13.5px}
+details.explain-box summary{cursor:pointer;color:var(--brass);font-weight:500}
+details.explain-box p{margin:8px 0 0;color:var(--muted)}
 .hidden-note{font-size:13.5px;color:var(--muted);border:1px dashed var(--line);border-radius:10px;padding:12px;text-align:center}
-.log{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:5px;font-size:13.5px;max-height:240px;overflow:auto}
+.log{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:5px;font-size:13.5px;max-height:260px;overflow:auto}
 .log li{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 .log .st{font-weight:700;color:var(--brass);font-size:12px;letter-spacing:.05em}
-.log .hero{color:var(--text)}
+.log .hero{color:var(--text);font-weight:500}
 .log .vil{color:var(--muted)}
+.log .res{color:var(--brass)}
 .result{display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:space-between;background:var(--panel-2);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
 .result .net{font-family:var(--f-mono);font-size:20px;font-weight:600}
 .pos-net{color:var(--good)}.neg-net{color:var(--bad)}
@@ -202,12 +230,12 @@ details.explain p{margin:8px 0 0;color:var(--muted)}
 .seg button[aria-pressed="true"]{border-color:var(--brass);color:var(--brass);background:color-mix(in srgb,var(--brass) 10%,var(--panel-2))}
 .seg button:disabled{opacity:.3;cursor:not-allowed}
 .field{display:flex;flex-direction:column;gap:6px}
-.field>label{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.field>label,.field>.lbl{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 
-/* ---------- stats ---------- */
+/* ---------- stats & analysis ---------- */
 .stat-tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
 @media (max-width:760px){.stat-tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
-.tile{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.tile{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 16px;min-width:0}
 .tile .lbl{font-size:12px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
 .tile .val{font-family:var(--f-mono);font-size:30px;font-weight:600;line-height:1.2;font-variant-numeric:tabular-nums}
 .tile .sub{font-size:12.5px;color:var(--muted)}
@@ -227,8 +255,83 @@ details.explain p{margin:8px 0 0;color:var(--muted)}
 .empty h2{font-family:var(--f-display);font-weight:400;margin:0;font-size:24px}
 .empty p{margin:0;color:var(--muted);max-width:52ch}
 .linkbtn{border:1px solid var(--line);background:var(--panel-2);border-radius:10px;padding:8px 14px;cursor:pointer;font-size:14px}
+.linkbtn:hover{border-color:var(--brass)}
 .linkbtn.danger{border-color:color-mix(in srgb,var(--bad) 50%,var(--line));color:var(--bad)}
+.statrow{display:grid;grid-template-columns:minmax(0,1fr);gap:6px;padding-block:12px;border-bottom:1px solid var(--line)}
+.statrow:last-child{border-bottom:0}
+.statrow bdi{white-space:nowrap}
+.statrow-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.statrow-top b{font-family:var(--f-mono);font-size:15px}
+.meter{position:relative;height:10px;border-radius:999px;background:var(--fold);direction:ltr;margin-block:4px}
+.meter .zone{position:absolute;top:0;bottom:0;background:color-mix(in srgb,var(--good) 32%,transparent);border-radius:999px}
+.meter .mark{position:absolute;top:-4px;bottom:-4px;width:4px;border-radius:2px;transform:translateX(-50%)}
+.pill{display:inline-block;font-size:12px;border-radius:999px;padding:1px 9px;border:1px solid var(--line)}
+.pill.in{color:var(--good);border-color:color-mix(in srgb,var(--good) 50%,var(--line))}
+.pill.out{color:var(--brass);border-color:color-mix(in srgb,var(--brass) 50%,var(--line))}
+.type-card{display:flex;flex-direction:column;gap:6px}
+.type-card h2{font-family:var(--f-display);font-weight:400;font-size:26px;margin:0;color:var(--brass);text-wrap:balance}
+.tips{margin:0;padding:0 20px 0 0;display:flex;flex-direction:column;gap:10px;font-size:14.5px}
+.tips li::marker{color:var(--brass);font-family:var(--f-mono)}
+.hands{display:flex;flex-direction:column}
+.hands details{border-bottom:1px solid var(--line)}
+.hands summary{display:grid;grid-template-columns:42px 52px auto minmax(0,1fr) auto;gap:10px;align-items:center;padding-block:8px;cursor:pointer;list-style:none;font-size:13.5px}
+.hands summary::-webkit-details-marker{display:none}
+.hands .hbody{padding:4px 0 14px;display:flex;flex-direction:column;gap:12px}
+@media (max-width:640px){.hands summary{grid-template-columns:34px 44px auto auto;}.hands summary .hboard{display:none}}
+.dec{background:var(--panel-2);border:1px solid var(--line);border-radius:12px;padding:12px}
+.dec-head{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px}
+.opt{border:1px solid var(--line);background:var(--panel-2);border-radius:12px;padding:12px 14px;text-align:right;cursor:pointer;display:flex;flex-direction:column;gap:3px}
+.opt b{font-size:15px}
+.opt span{font-size:13px;color:var(--muted)}
+.opt[aria-pressed="true"]{border-color:var(--brass);background:color-mix(in srgb,var(--brass) 9%,var(--panel-2))}
+.opt[aria-pressed="true"] b{color:var(--brass)}
+.style-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.style-list div{border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:13.5px}
+.style-list b{color:var(--brass);font-family:var(--f-mono)}
+.setup-head h2{font-family:var(--f-display);font-weight:400;font-size:28px;margin:0 0 6px}
+.setup-head p{margin:0;color:var(--muted);max-width:70ch}
 .foot{font-size:12.5px;color:var(--muted);text-align:center}
+
+/* ---------- learn ---------- */
+.learn{display:grid;grid-template-columns:240px minmax(0,1fr);gap:18px;align-items:start}
+@media (max-width:860px){.learn{grid-template-columns:minmax(0,1fr)}}
+.lesson-nav{display:flex;flex-direction:column;gap:2px}
+@media (max-width:860px){.lesson-nav{flex-direction:row;overflow-x:auto;scrollbar-width:none}}
+.lesson-nav button{text-align:right;border:0;background:none;padding:8px 12px;border-radius:8px;cursor:pointer;color:var(--muted);font-size:14.5px;white-space:nowrap}
+.lesson-nav button:hover{color:var(--text)}
+.lesson-nav button[aria-current="true"]{background:var(--panel-2);color:var(--brass)}
+.lesson{display:flex;flex-direction:column;gap:14px}
+.lesson h2{font-family:var(--f-display);font-weight:400;font-size:27px;margin:0;text-wrap:balance}
+.lesson h3{font-size:16px;margin:8px 0 0;color:var(--brass);font-weight:500;letter-spacing:0;text-transform:none}
+.lesson p{margin:0;max-width:70ch}
+.lesson ul,.lesson ol{margin:0;padding:0 20px 0 0;display:flex;flex-direction:column;gap:6px;max-width:72ch}
+.rank-row{display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:12px;align-items:center;padding-block:8px;border-bottom:1px solid var(--line)}
+.rank-row .n{font-family:var(--f-mono);color:var(--muted)}
+.rank-row b{display:block}
+.rank-row span{font-size:13px;color:var(--muted)}
+@media (max-width:640px){.rank-row{grid-template-columns:22px minmax(0,1fr)}.rank-row .mini-cards{grid-column:2;justify-content:flex-start}}
+.tbl-wrap{overflow-x:auto}
+.tbl{border-collapse:collapse;font-size:14px;min-width:100%}
+.tbl th,.tbl td{text-align:right;padding:7px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+.tbl th{color:var(--muted);font-weight:500;font-size:12.5px}
+.tbl td.mono{direction:ltr;text-align:right}
+.calc{display:flex;flex-direction:column;gap:10px;background:var(--panel-2);border:1px solid var(--line);border-radius:12px;padding:14px}
+.calc label{display:flex;justify-content:space-between;font-size:14px}
+.calc label b{font-family:var(--f-mono);color:var(--brass)}
+.callout{background:var(--panel-2);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.gloss{display:flex;flex-direction:column}
+.gloss div{padding-block:10px;border-bottom:1px solid var(--line)}
+.gloss b{color:var(--brass)}
+.gloss p{margin:4px 0 0;font-size:14px}
+.gloss .ex{color:var(--muted);font-size:13.5px}
+.lesson-pager{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:12px}
+
+@media (max-width:640px){
+  .top{gap:10px}
+  .tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));width:100%;border-radius:14px}
+  .tabs button{padding:8px 4px;font-size:13px;border-radius:10px;white-space:normal;line-height:1.2}
+}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -240,7 +343,7 @@ details.explain p{margin:8px 0 0;color:var(--muted)}
 <script src="https://cdn.jsdelivr.net/npm/htm@3.1.1/dist/htm.umd.js"></script>
 <script>
 (function(){
-const { useState, useMemo, useEffect, useRef, useCallback } = React;
+const { useState, useMemo, useEffect, useRef, useCallback, useContext, createContext } = React;
 const html = htm.bind(React.createElement);
 
 /* =====================================================================
@@ -256,7 +359,10 @@ const rnd = arr => arr[Math.random() * arr.length | 0];
 const pct = x => Math.round(x * 100);
 const roundHalf = x => Math.round(x * 2) / 2;
 const fmt = n => { const r = Math.round(n * 10) / 10; return Number.isInteger(r) ? String(r) : r.toFixed(1); };
+const signed = n => (n >= 0 ? '+' : '−') + fmt(Math.abs(n));
+const iso = t => '\u2066' + t + '\u2069';   // keeps a formula, range or signed number left-to-right inside Hebrew text
 const rankLabel = r => RANK_CH[r] === 'T' ? '10' : RANK_CH[r];
+const cardOf = s => ri(s[0]) * 4 + 'shdc'.indexOf(s[1]);
 function shuffle(a){ for (let i = a.length - 1; i > 0; i--){ const j = Math.random() * (i + 1) | 0; [a[i], a[j]] = [a[j], a[i]]; } return a; }
 
 /* =====================================================================
@@ -384,7 +490,27 @@ function cachedCombos(key, set){
   if (!comboCache.has(key)) comboCache.set(key, [...set].flatMap(combosOf));
   return comboCache.get(key);
 }
-const POS_HE = { UTG:'UTG – ראשון לפעול', MP:'MP – אמצע השולחן', CO:'CO – Cutoff', BTN:'BTN – הכפתור', SB:'SB – בליינד קטן', BB:'BB – בליינד גדול' };
+
+// Pre-flop strength ordering (Chen formula) → percentile of each class (0 = best)
+function chen(cls){
+  const v = r => r === 12 ? 10 : r === 11 ? 8 : r === 10 ? 7 : r === 9 ? 6 : (r + 2) / 2;
+  const a = ri(cls[0]), b = ri(cls[1]);
+  if (a === b) return Math.max(5, v(a) * 2);
+  let s = v(a);
+  if (cls[2] === 's') s += 2;
+  const gap = a - b - 1;
+  s -= gap === 0 ? 0 : gap === 1 ? 1 : gap === 2 ? 2 : gap === 3 ? 4 : 5;
+  if (gap <= 1 && a < ri('Q')) s += 1;
+  return Math.ceil(s);
+}
+const RANKED = [...ALL_CLASSES].sort((x, y) => chen(y) - chen(x) || (y.length === 2) - (x.length === 2) || (ri(y[0]) + ri(y[1])) - (ri(x[0]) + ri(x[1])) || (y[2] === 's') - (x[2] === 's'));
+const PCT_RANK = {};
+{ let cum = 0; RANKED.forEach(c => { cum += comboCount(c); PCT_RANK[c] = cum / 1326; }); }
+function bandCombos(band){
+  const [lo, hi] = band;
+  const cls = RANKED.filter(c => PCT_RANK[c] > lo && PCT_RANK[c] - comboCount(c) / 1326 < hi);
+  return cls.length ? cls.flatMap(combosOf) : ALL_COMBOS;
+}
 
 /* =====================================================================
    4. Equity, outs, draws, board texture, hand descriptions
@@ -418,6 +544,35 @@ function equityVsRange(hole, board, range, iters){
   }
   return w / iters;
 }
+// hero vs several opponents, each holding a hand from its own range
+function equityMulti(hole, board, ranges, iters){
+  if (ranges.length <= 1) return equityVsRange(hole, board, ranges[0] || ALL_COMBOS, iters);
+  const dead = new Set([...hole, ...board]);
+  const rs = ranges.map(r => { const v = r.filter(([a, b]) => !dead.has(a) && !dead.has(b)); return v.length ? v : ALL_COMBOS.filter(([a, b]) => !dead.has(a) && !dead.has(b)); });
+  const deck = FULL_DECK.filter(c => !dead.has(c));
+  const used = new Set();
+  let w = 0, n = 0;
+  for (let it = 0; it < iters; it++){
+    used.clear();
+    const hands = [];
+    let ok = true;
+    for (const r of rs){
+      let cb, tries = 0;
+      do { cb = r[Math.random() * r.length | 0]; tries++; } while ((used.has(cb[0]) || used.has(cb[1])) && tries < 15);
+      if (used.has(cb[0]) || used.has(cb[1])){ ok = false; break; }
+      used.add(cb[0]); used.add(cb[1]); hands.push(cb);
+    }
+    if (!ok) continue;
+    const bd = board.slice();
+    while (bd.length < 5){ const c = deck[Math.random() * deck.length | 0]; if (!used.has(c) && !bd.includes(c)) bd.push(c); }
+    const hs = evalHand([...hole, ...bd]);
+    let best = -1, cnt = 0;
+    for (const h of hands){ const s = evalHand([...h, ...bd]); if (s > best){ best = s; cnt = 1; } else if (s === best) cnt++; }
+    w += hs > best ? 1 : hs === best ? 1 / (cnt + 1) : 0;
+    n++;
+  }
+  return n ? w / n : 1 / (rs.length + 1);
+}
 function classEquity(cls, range){
   const cbs = combosOf(cls);
   return cbs.reduce((s, cb) => s + equityVsRange(cb, [], range, 160), 0) / cbs.length;
@@ -440,6 +595,8 @@ function drawInfo(hole, board){
   if (comp >= 2) res.oesd = true; else if (comp === 1) res.gut = true;
   return res;
 }
+const CAT_EN = ['High Card','One Pair','Two Pair','Three of a Kind','Straight','Flush','Full House','Four of a Kind','Straight Flush'];
+const CAT_HE = ['קלף גבוה','זוג','שני זוגות','שלישייה','רצף','צבע','פול האוס','רביעייה','רצף בצבע'];
 function computeOuts(hole, board){
   if (board.length >= 5) return [];
   const dead = new Set([...hole, ...board]);
@@ -458,6 +615,19 @@ function computeOuts(hole, board){
   }
   return outs;
 }
+// outs grouped by what they make; "top pair" outs are weaker and counted apart
+function outsInfo(hole, board){
+  const all = computeOuts(hole, board), groups = {}, strong = [];
+  all.forEach(c => {
+    const nc = catOf(evalHand([...hole, ...board, c]));
+    const key = nc === 1 ? 'זוג עליון' : CAT_HE[nc];
+    if (!groups[key]) groups[key] = { label: key, cards: [], weak: nc === 1 };
+    groups[key].cards.push(c);
+    if (nc >= 2) strong.push(c);
+  });
+  const gl = Object.values(groups).sort((a, b) => a.weak - b.weak || b.cards.length - a.cards.length);
+  return { all, strong, groups: gl };
+}
 function boardTexture(board){
   const sc = [0,0,0,0]; board.forEach(c => sc[c & 3]++);
   const maxS = Math.max(...sc);
@@ -468,15 +638,13 @@ function boardTexture(board){
   for (let i = 0; i + 2 < rsA.length; i++) if (rsA[i + 2] - rsA[i] <= 4) connected = true;
   const tags = [];
   if (maxS >= 3) tags.push(board.length === 3 ? 'מונוטון – צבע אחד' : 'צבע אפשרי על הלוח');
-  else if (maxS === 2 && board.length < 5) tags.push('שני צבעים – דרואו לצבע');
+  else if (maxS === 2 && board.length < 5) tags.push('שני צבעים – דרואו לצבע אפשרי');
   else tags.push('Rainbow – בלי דרואו לצבע');
   if (paired) tags.push('לוח מזווג');
   if (connected) tags.push('מחובר – רצפים אפשריים');
   const dry = (board.length === 3 ? maxS === 1 : maxS <= 2) && !connected;
   return { dry, tags, label: dry ? 'יבש (Dry)' : 'רטוב (Wet)' };
 }
-const CAT_EN = ['High Card','One Pair','Two Pair','Three of a Kind','Straight','Flush','Full House','Four of a Kind','Straight Flush'];
-const CAT_HE = ['קלף גבוה','זוג','שני זוגות','שלישייה','רצף','צבע','פול האוס','רביעייה','רצף בצבע'];
 function describeMade(hole, board){
   const s = evalHand([...hole, ...board]), cat = catOf(s);
   const br = board.map(rankOf).sort((a, b) => b - a), hr = hole.map(rankOf);
@@ -484,10 +652,11 @@ function describeMade(hole, board){
   if (cat === 0){ name = `קלף גבוה (${rankLabel(Math.max(...hr))})`; }
   if (cat === 1){
     const pr = (s >> 16) & 15;
-    if (hr[0] === hr[1]){
+    if (!board.length){ name = 'זוג בכיס'; en = 'Pocket Pair'; }
+    else if (hr[0] === hr[1]){
       if (hr[0] > br[0]){ en = 'Overpair'; name = 'אוברפייר – זוג בכיס מעל הלוח'; }
       else { en = 'Underpair'; name = 'זוג בכיס מתחת לקלף הגבוה בלוח'; }
-    } else if (!hr.includes(pr)){ en = 'Board Pair'; name = 'הזוג על הלוח – קלף גבוה בלבד'; }
+    } else if (!hr.includes(pr)){ en = 'Board Pair'; name = 'הזוג על הלוח – לך יש רק קלף גבוה'; }
     else if (pr === br[0]){ const k = hr.find(r => r !== pr); en = 'Top Pair'; name = `זוג עליון, קיקר ${rankLabel(k)}`; }
     else if (pr === br[1]){ en = 'Middle Pair'; name = 'זוג אמצעי'; }
     else { en = 'Bottom Pair'; name = 'זוג תחתון'; }
@@ -495,12 +664,16 @@ function describeMade(hole, board){
   if (cat === 2){
     const p1 = (s >> 16) & 15, p2 = (s >> 12) & 15;
     const uses = hr.filter(r => r === p1 || r === p2).length;
-    if (!uses){ en = 'Board Two Pair'; name = 'שני זוגות על הלוח – קלף גבוה בלבד'; }
+    if (!uses){ en = 'Board Two Pair'; name = 'שני זוגות על הלוח – לך יש רק קלף גבוה'; }
     else if (hr[0] === hr[1]){ en = 'Pair + Board Pair'; name = 'זוג בכיס + זוג על הלוח'; }
   }
   if (cat === 3){ if (hr[0] === hr[1]){ en = 'Set'; name = 'סט – זוג בכיס + קלף בלוח'; } else { en = 'Trips'; name = 'טריפס – זוג בלוח + קלף שלך'; } }
   if (board.length === 5 && evalHand(board) === s) name += ' (משחק את הלוח)';
   return { cat, en, name };
+}
+function drawText(d){
+  const parts = [d.fd && 'דרואו לצבע', d.oesd && 'דרואו פתוח לרצף', d.gut && 'Gutshot'].filter(Boolean);
+  return parts.length ? ' + ' + parts.join(' + ') : '';
 }
 
 /* =====================================================================
@@ -527,28 +700,179 @@ function narrow(range, board, action, dead){
 }
 
 /* =====================================================================
-   6. Pre-flop trainer logic
+   6. Explanations — bottom line → steps → concrete example → rule of thumb
    ===================================================================== */
-function handNotes(cls){
-  const a = ri(cls[0]), b = ri(cls[1]), suited = cls[2] === 's', gap = a - b, n = [];
+function handProfile(cls){
+  const a = ri(cls[0]), b = ri(cls[1]), suited = cls[2] === 's', gap = a - b;
   if (a === b){
-    if (a >= ri('T')) n.push('זוג גבוה – יד פרימיום. מרוויחה הכי הרבה כשבונים קופה גדולה כבר בפרה-פלופ.');
-    else if (a >= ri('7')) n.push('זוג בינוני – חזק מול טווחים רחבים, אבל קשה לשחק כשמגיעים קלפים גבוהים בלוח.');
-    else n.push('זוג קטן – מרוויח בעיקר כשפוגע סט (בערך פלופ אחד מכל 8.5). צריך מחיר זול ו-Implied Odds.');
-    return n;
+    if (a >= ri('T')) return { note: 'זוג גבוה – יד פרימיום. היא מרוויחה הכי הרבה כשבונים קופה גדולה כבר לפני הפלופ.', example: 'לדוגמה: KK מול AQ מנצחת בערך 70% מהפעמים. ככל שיותר כסף נכנס עכשיו – יותר טוב לך.' };
+    if (a >= ri('7')) return { note: 'זוג בינוני – חזק מול טווחים רחבים, אבל קשה לשחק אותו כשמגיעים קלפים גבוהים בלוח.', example: 'לדוגמה: 88 על לוח K-Q-4. יש בלוח שני קלפים גבוהים ממך, וכל הימור של היריב מעמיד אותך בבעיה.' };
+    return { note: 'זוג קטן – מרוויח בעיקר כשהוא פוגע סט (שלישייה).', example: `${cls} פוגעת סט רק בערך פעם אחת מכל 8.5 פלופים (12%). כשזה קורה אפשר לזכות בקופה גדולה – לכן היא צריכה מחיר זול ויריבים שמשלמים (Implied Odds).` };
   }
-  if (a === 12 && b >= ri('Q')) n.push('AK / AQ – שני קלפים גבוהים שחוסמים את הידיים החזקות של היריב. מועמדים קלאסיים להעלאה ול-⁦3-Bet⁩.');
-  else if (a === 12 && suited && b <= ri('5')) n.push('A קטנה בצבע (Wheel Ace): חוסמת AA/AK אצל היריב ויכולה לעשות Nut Flush או רצף נמוך – מועמדת מצוינת ל-⁦3-Bet⁩ בלוף.');
-  else if (a === 12 && suited) n.push('Ax בצבע – הפוטנציאל ל-Nut Flush נותן לה משחקיות טובה גם עם קיקר בינוני.');
-  else if (a === 12) n.push(b >= ri('T') ? 'A עם קיקר גבוה – חזקה, אבל בלי צבע היא תלויה בפגיעה בזוג עליון.' : 'A אוף-סוט עם קיקר חלש נשלטת (Dominated) ע״י A עם קיקר טוב יותר – לעיתים קרובות מפסידה קופה גדולה עם זוג עליון.');
-  else if (a >= ri('T') && b >= ri('T')) n.push(suited ? 'שני קלפי ברודווי בצבע – פוגעים בזוגות עליונים, רצפים וצבעים. משחקיות מצוינת.' : 'שני קלפים גבוהים בלי צבע – טובים מול טווח רחב, אבל מול טווח חזק נשלטים ע״י AK / AQ / KQ.');
-  else if (suited && gap <= 2 && a <= ri('T')) n.push(gap === 1 ? 'מחוברים בצבע (Suited Connectors) – יד ספקולטיבית: פוגעים ברצפים ובצבעים. מתאימה לפוזיציה מאוחרת ולקופות עמוקות.' : 'כמעט-מחוברים בצבע – משחקיות סבירה, אבל חלשים יותר ממחוברים אמיתיים.');
-  else if (suited && a >= ri('J')) n.push('קלף גבוה בצבע – פוטנציאל לצבע גבוה, אבל הקיקר החלש עלול להישלט כשפוגעים זוג.');
-  else if (suited) n.push('קלפים בצבע עם פער גדול – הצבע מוסיף כ-3% Equity, אבל בלי חיבור ובלי קלף גבוה המשחקיות מוגבלת.');
-  else if (gap === 1 && b >= ri('5')) n.push('מחוברים בלי צבע – מממשים מעט Equity. רווחיים בעיקר מהכפתור.');
-  else n.push('יד חלשה – אין בה מספיק כוח או משחקיות כדי להשקיע כסף.');
-  return n;
+  if (a === 12 && b >= ri('Q')) return { note: 'AK / AQ – קלפים גבוהים שחוסמים את הידיים החזקות של היריב. מועמדים קלאסיים להעלאה ול-⁦3-Bet⁩.', example: 'לדוגמה: AK מול AQ – כשיוצא A, לשניכם זוג, אבל ה-K שלך מנצח את ה-Q שלו. אומרים ש-AK שולטת (Dominated) ב-AQ.' };
+  if (a === 12 && suited && b <= ri('5')) return { note: 'A קטנה בצבע (Wheel Ace) – חוסמת (Blocker) AA ו-AK אצל היריב, ויכולה לעשות Nut Flush או רצף נמוך. מועמדת מצוינת ל-⁦3-Bet⁩ בלוף.', example: `לדוגמה: כשאתה מחזיק ${cls}, יש ליריב פחות קומבינציות של AA ו-AK (כי A אחד אצלך). ואם יוצא לוח כמו 2-3-4, או שלושה קלפים בצבע שלך – יש לך יד חזקה מאוד.` };
+  if (a === 12 && suited) return { note: 'A בצבע – הפוטנציאל ל-Nut Flush (הצבע הכי חזק שיש) נותן לה משחקיות טובה גם עם קיקר בינוני.', example: `לדוגמה: ${cls} על לוח עם שני קלפים בצבע שלך – 9 אאוטים ל-Nut Flush, צבע שאף אחד לא יכול לנצח.` };
+  if (a === 12) return b >= ri('T')
+    ? { note: 'A עם קיקר גבוה – יד חזקה, אבל בלי צבע היא תלויה בפגיעה בזוג.', example: 'לדוגמה: AJo על לוח A-8-3 היא זוג עליון טוב. אבל מול שחקן שפתח מוקדם, יש לו לא מעט AK ו-AQ – אותו זוג עם קיקר טוב יותר.' }
+    : { note: 'A אוף-סוט (בצבעים שונים) עם קיקר חלש – נשלטת (Dominated) ע״י A עם קיקר טוב יותר.', example: `לדוגמה: ${cls} מול AK. אם יוצא A, לשניכם זוג – אבל ה-K שלו מנצח את ה-${rankLabel(b)} שלך. אתה מפסיד קופה גדולה בדיוק כשאתה מרגיש חזק.` };
+  if (a >= ri('T') && b >= ri('T')) return suited
+    ? { note: 'שני קלפי ברודווי (10 ומעלה) בצבע – פוגעים בזוגות גבוהים, ברצפים ובצבעים. משחקיות מצוינת.', example: `לדוגמה: ${cls} על לוח J-10-4 עם קלף אחד בצבע שלך: זוג, דרואו לרצף, לפעמים גם דרואו לצבע – הרבה דרכים לנצח.` }
+    : { note: 'שני קלפים גבוהים בלי צבע – טובים מול טווח רחב, אבל מול טווח חזק נשלטים ע״י AK, AQ ו-KQ.', example: `לדוגמה: ${cls} מול פתיחה מ-UTG: כשאתה פוגע זוג עליון, ליריב יש לעיתים קרובות אותו קלף עם קיקר טוב יותר.` };
+  if (suited && gap <= 2 && a <= ri('T')) return { note: gap === 1 ? 'מחוברים בצבע (Suited Connectors) – יד ספקולטיבית: פוגעים ברצפים ובצבעים, אבל ברוב הפלופים לא פוגעים כלום.' : 'כמעט-מחוברים בצבע – משחקיות סבירה, אבל חלשים יותר ממחוברים אמיתיים.', example: `לדוגמה: ${iso('8♥7♥')} על לוח ${iso('9♥ 6♣ 2♥')}: דרואו לרצף + דרואו לצבע = 15 אאוטים, יד מצוינת. אבל לוח כזה מגיע לעיתים רחוקות – לכן משחקים אותה רק בפוזיציה ובמחיר טוב.` };
+  if (suited && a >= ri('J')) return { note: 'קלף גבוה בצבע – הצבע מוסיף ערך, אבל הקיקר החלש עלול להישלט כשפוגעים זוג.', example: `לדוגמה: ${cls} על לוח ${rankLabel(a)}-8-3 היא זוג עליון, אבל עם קיקר ${rankLabel(b)} – כל ${rankLabel(a)} עם קיקר טוב יותר מנצח אותך.` };
+  if (suited) return { note: 'קלפים בצבע עם פער גדול – הצבע מוסיף רק כ-3% Equity. בלי חיבור ובלי קלף גבוה המשחקיות מוגבלת.', example: 'לדוגמה: J5 בצבע מנצחת יד אקראית רק בכ-3% יותר מ-J5 בצבעים שונים. "בצבע" לא הופך יד חלשה לטובה.' };
+  if (gap === 1 && b >= ri('5')) return { note: 'מחוברים בלי צבע – צריכים לפגוע ברצף מדויק, וזה נדיר. רווחיים בעיקר מהכפתור.', example: 'לדוגמה: 7-6 בצבעים שונים צריכה לוח כמו 8-5-2 או 9-8-3 כדי לקבל דרואו לרצף. רוב הזמן תפספס ותקפל.' };
+  return { note: 'יד חלשה – אין בה מספיק כוח או משחקיות כדי להשקיע כסף.', example: 'לדוגמה: 7-2 בצבעים שונים היא היד החלשה ביותר בפוקר – מול יד אקראית היא מנצחת רק כ-35% מהפעמים.' };
 }
+function hundredExample(E, toCall, after){
+  const wins = pct(E), paid = toCall * 100, got = wins * after, diff = got - paid;
+  return `דמיין שהמצב הזה חוזר 100 פעמים. אתה משלם ${fmt(toCall)}bb בכל פעם – סה״כ ${fmt(paid)}bb. אתה מנצח בערך ${wins} פעמים, ובכל פעם לוקח קופה של ${fmt(after)}bb – סה״כ ${fmt(got)}bb. בשורה התחתונה: ${iso(signed(diff) + 'bb')} ב-100 פעמים, כלומר ${iso(signed(diff / 100) + 'bb')} בממוצע לכל פעם. זה ה-EV של הקריאה.`;
+}
+function explainPre(scn, chosen, info, labels){
+  const { heroPos, opener, cls, best } = scn, S = [], ex = { steps: S }, hp = handProfile(cls);
+  if (!opener){
+    const n = 5 - ORDER_PRE.indexOf(heroPos), p = rangePct(RFI[heroPos]);
+    ex.bottom = best === 'raise' ? `${labels.raise} – ${cls} בטווח הפתיחה מ-${heroPos}.` : `Fold – ${cls} חלשה מדי לפתיחה מ-${heroPos}.`;
+    S.push(n === 1 ? 'כולם קיפלו אליך, ורק ה-BB נשאר אחריך.' : `כולם קיפלו אליך. אחריך נשארו עוד ${n} שחקנים, וכל אחד מהם יכול להתעורר עם יד חזקה.`);
+    S.push(`לכן מ-${heroPos} פותחים בערך ${p}% מהידיים – בערך יד אחת מכל ${Math.max(2, Math.round(100 / p))}. ${n >= 4 ? 'כשהרבה שחקנים מאחוריך – בוחרים בקפידה.' : 'פחות שחקנים מאחוריך = אפשר לפתוח יותר ידיים.'}`);
+    S.push(hp.note);
+    S.push(best === 'raise' ? `${cls} בתוך הטווח – פותחים בהעלאה.` : `${cls} מחוץ לטווח – מקפלים ומחכים ליד טובה יותר.`);
+    if (chosen === 'call') S.push('Open-Limp (רק להשוות לבליינד) נחשב טעות: אתה מוותר על הסיכוי שכולם יקפלו ותזכה מיד, ומזמין את הבליינדים לשחק בזול.');
+    ex.example = hp.example;
+    ex.rule = 'ככל שאתה קרוב יותר לכפתור (BTN) – אפשר לפתוח יותר ידיים. כשכולם קיפלו אליך: Raise או Fold, לא Limp.';
+  } else {
+    const p = rangePct(RFI[opener]);
+    ex.bottom = best === 'raise' ? `${labels.raise} – ${cls} חזקה מספיק כדי להעלות מחדש.` : best === 'call' ? `${labels.call} – ${cls} טובה מכדי לקפל, אבל לא מספיק ל-⁦3-Bet⁩.` : `Fold – ${cls} לא מספיק טובה מול הפתיחה של ${opener}.`;
+    S.push(`${opener} פתח בהעלאה. מהמיקום הזה פותחים כ-${p}% מהידיים${grp(opener) === 'EP' ? ' – טווח חזק, כי יש הרבה שחקנים אחריו.' : ' – טווח רחב, כי הוא בפוזיציה מאוחרת.'}`);
+    if (heroPos === 'BB') S.push(`אתה ב-BB וכבר שמת 1bb, אז המחיר זול: משלמים ${fmt(info.toCall)}bb כדי לזכות בקופה של ${fmt(info.pot + info.toCall)}bb – צריך רק ${pct(info.req)}% Equity. לכן מגינים רחב, למרות שתשחק מחוץ לפוזיציה.`);
+    else if (heroPos === 'SB') S.push('מה-SB תשחק מחוץ לפוזיציה, וה-BB עוד יכול להעלות מאחוריך. לכן כמעט לא קוראים: ⁦3-Bet⁩ עם הידיים הטובות, Fold עם השאר.');
+    else S.push(`Pot Odds: לקרוא ${fmt(info.toCall)}bb לקופה של ${fmt(info.pot + info.toCall)}bb ← צריך ${pct(info.req)}% Equity. בפרה-פלופ זה רק חלק מהתמונה – פוזיציה ומשחקיות קובעות כמה מה-Equity תצליח לממש.`);
+    S.push(hp.note);
+    S.push(best === 'raise' ? `${cls} בטווח ה-⁦3-Bet⁩ שלך מול ${opener}.` : best === 'call' ? `${cls} בטווח הקריאה: חזקה מכדי לקפל, אבל ⁦3-Bet⁩ יקבל המשך בעיקר מידיים טובות ממנה.` : `${cls} מחוץ לטווח ההמשך – מול הטווח של ${opener} היא מפסידה יותר מדי.`);
+    if (chosen === 'call' && best === 'raise') S.push('קריאה עם יד ל-⁦3-Bet⁩ משאירה כסף על השולחן ונותנת לשחקנים מאחוריך מחיר טוב להצטרף.');
+    if (chosen === 'raise' && best === 'call') S.push('⁦3-Bet⁩ כאן יקפל ידיים חלשות, ויקבל המשך בעיקר מידיים טובות ממך. קריאה שומרת את הטווח שלו רחב.');
+    ex.example = hp.example;
+    ex.rule = heroPos === 'BB' ? 'מה-BB מגינים רחב בזכות המחיר הזול – אבל ידיים חלשות מאוד עדיין מתקפלות.' : heroPos === 'SB' ? 'מה-SB מול פתיחה: ⁦3-Bet⁩ או Fold.' : 'מול פתיחה: ידיים חזקות ← ⁦3-Bet⁩; ידיים טובות עם משחקיות ← Call; השאר ← Fold.';
+  }
+  return ex;
+}
+const ACT_EN = { fold: 'Fold', check: 'Check', call: 'Call', bet: 'Bet', raise: 'Raise' };
+const STREET_EN = ['Flop','Turn','River'];
+const STREET_KEY = ['flop','turn','river'];
+
+// Grades a post-flop decision. c = { E, street(0-2), toCall, pot, outs(outsInfo), made, tex, draws, isPFR, nOpp, line }
+function gradeDecision(c, act, amt){
+  const n = c.nOpp || 1, fair = 1 / (n + 1), multi = n > 1;
+  const raiseT = fair + (1 - fair) * 0.44, betT = fair + (1 - fair) * 0.32, medT = fair * 0.9, airT = fair * 0.4;
+  const E = c.E, Ep = pct(E), st = c.street, strong = c.outs.strong.length, strongDraw = strong >= 8 && st < 2;
+  const S = [], ex = { steps: S };
+  let best, ok = [], sizeNote = null;
+  if (c.toCall > 0){
+    const after = c.pot + c.toCall, req = c.toCall / after;
+    const implied = strongDraw ? (st === 0 ? 0.05 : 0.04) : 0, Ee = E + implied;
+    S.push(`כמה צריך לשלם? ${fmt(c.toCall)}bb.`);
+    S.push(`כמה תהיה הקופה אחרי הקריאה? ${iso(`${fmt(c.pot)} + ${fmt(c.toCall)} = ${fmt(after)}bb`)}.`);
+    S.push(`ה-Equity המינימלי (Pot Odds): ${iso(`${fmt(c.toCall)} ÷ ${fmt(after)} = ${pct(req)}%`)}.`);
+    S.push(`ה-Equity שלך מול הידיים ש${multi ? `${n} היריבים יכולים` : 'היריב יכול'} להחזיק: ${Ep}%${implied ? ` – ועוד בונוס Implied Odds של כ-${pct(implied)}% על הדרואו` : ''}.`);
+    if (E >= raiseT){
+      best = 'raise'; ok = ['call'];
+      ex.bottom = 'העלאה לערך – אתה כנראה מוביל.';
+      S.push(`${Ep}% זה הרבה מעל ${pct(req)}%. לא רק שכדאי לקרוא – כדאי להכניס עוד כסף כשאתה מוביל.`);
+      ex.example = `כשה-Equity שלך ${Ep}%, כל bb שנכנס לקופה "שווה" לך בממוצע ${fmt(E)}bb. העלאה מכניסה יותר כסף לקופה שאתה בדרך כלל זוכה בה. קריאה (Slow-play) גם אפשרית, אבל מוותרת על חלק מהרווח.`;
+      ex.rule = 'כשאתה חזק – בונים קופה. כשאתה בינוני – שומרים אותה קטנה.';
+    } else if (Ee >= req){
+      best = 'call';
+      if ((strongDraw && st === 0 && !multi) || E >= betT) ok = ['raise'];
+      ex.bottom = 'קריאה – המחיר שווה את זה.';
+      S.push(`${iso(`${Ep}% ≥ ${pct(req)}%`)}${implied ? ' (כולל Implied Odds)' : ''} ← הקריאה רווחית לאורך זמן.`);
+      ex.example = hundredExample(E, c.toCall, after);
+      ex.rule = 'כלל אצבע: מול הימור של חצי קופה צריך 25% Equity; מול הימור בגודל הקופה – 33%.';
+      if (ok.length) ex.alt = strongDraw ? 'גם העלאה כ-Semi-Bluff (למשל Check-Raise) לגיטימית: היא מוסיפה Fold Equity לאאוטים שלך.' : 'גם העלאה לערך דק אפשרית.';
+    } else {
+      best = 'fold';
+      if (Ee >= req - 0.03) ok = ['call'];
+      ex.bottom = 'קיפול – המחיר יקר מדי.';
+      S.push(`${iso(`${Ep}% < ${pct(req)}%`)} ← בטווח הארוך הקריאה מפסידה כסף.`);
+      ex.example = hundredExample(E, c.toCall, after);
+      ex.rule = 'הכסף שכבר בקופה כבר לא שלך. כל החלטה נמדדת מהרגע הזה ואילך.';
+      if (ok.length) ex.alt = 'ההחלטה גבולית מאוד – קריאה כאן היא לא טעות גדולה.';
+    }
+  } else {
+    const dry = c.tex.dry;
+    S.push(`היד שלך: ${c.made.name}${drawText(c.draws)}.`);
+    S.push(`מול הטווח המשוער ${multi ? `של ${n} היריבים` : 'של היריב'} אתה מנצח בערך ${Ep} מתוך 100 פעמים${multi ? ` (החלק ה"הוגן" מול ${n} יריבים הוא ${pct(fair)}%)` : ''}.`);
+    if (E >= betT){
+      best = 'bet'; if (E >= 0.85 && dry && st < 2 && !multi) ok = ['check'];
+      ex.bottom = 'הימור לערך (Value Bet).';
+      S.push('ידיים חלשות יותר בטווח שלו ישלמו לך. צ׳ק נותן לו קלף חינם, שעלול להפוך אותך למפסיד.');
+      ex.example = 'לדוגמה: יש לך זוג עליון, והיריב מחזיק זוג נמוך יותר או דרואו. מול הימור של חצי קופה הוא יקרא בתקווה – ואתה מרוויח את ההימור הזה ברוב הפעמים.';
+      ex.rule = 'הימור ערך = מהמרים כשידיים גרועות יותר יקראו לך.';
+      if (ok.length) ex.alt = 'על לוח יבש עם יד כמעט בלתי מנוצחת, גם צ׳ק (Slow-play) לגיטימי – הוא נותן ליריב הזדמנות לבלף.';
+      sizeNote = dry ? iso('33–50%') + ' מהקופה (לוח יבש – פחות ידיים ימשיכו מול הימור גדול)' : iso('66–100%') + ' מהקופה (לוח רטוב – גובים מחיר ממי שמחזיק דרואו)';
+    } else if (E >= medT){
+      if (st === 0 && c.isPFR && !multi){
+        best = 'bet'; ok = ['check'];
+        ex.bottom = 'C-Bet קטן.';
+        S.push('כמעלה פרה-פלופ (PFR) יש לך יתרון טווח: ליריב יש פחות ידיים חזקות ברוב הלוחות. הימור קטן מגן על ה-Equity שלך ומקבל ערך מידיים חלשות.');
+        ex.example = 'לדוגמה: פתחת עם AJ, הלוח J-7-3 והיריב קרא מה-BB. הימור של שליש קופה מקבל קריאה מידיים עם 7 ומ-J עם קיקר חלש, ומקפל ידיים כמו KQ – שיש להן 6 אאוטים נגדך.';
+        ex.rule = 'בפלופ, כמעלה, C-Bet קטן הוא ברירת מחדל טובה מול יריב אחד.';
+        sizeNote = iso('25–33%') + ' מהקופה';
+      } else {
+        best = 'check'; ok = ['bet'];
+        ex.bottom = 'צ׳ק – שליטה בגודל הקופה (Pot Control).';
+        S.push('ליד שלך יש ערך הצגה (Showdown Value): היא מנצחת חלק מהטווח, אבל לא את הידיים החזקות.');
+        S.push('אם תהמר: ידיים חלשות יותר יקפלו (לא הרווחת כלום), וידיים חזקות יותר ימשיכו (הפסדת יותר).');
+        ex.example = 'לדוגמה: זוג אמצעי על לוח K-8-3. מי יקרא להימור שלך? בעיקר K, או 8 עם קיקר טוב – ידיים שמנצחות אותך.';
+        ex.rule = 'להימור צריכה להיות מטרה: או שיד גרועה יותר תשלם (ערך), או שיד טובה יותר תקפל (בלוף). אם אף אחת מהן – צ׳ק.';
+      }
+    } else if (strongDraw){
+      best = 'bet'; ok = ['check'];
+      ex.bottom = 'הימור Semi-Bluff.';
+      S.push(`יש לך ${strong} אאוטים חזקים – קלפים שיהפכו אותך ליד חזקה.`);
+      S.push('הימור מנצח בשתי דרכים: היריב מקפל עכשיו (Fold Equity), או שאתה משלים את היד בקלף הבא.');
+      if (multi) S.push('שים לב: מול כמה יריבים יש פחות סיכוי שכולם יקפלו – כאן הדרואו עצמו עושה את רוב העבודה.');
+      ex.example = 'לדוגמה: דרואו לצבע (9 אאוטים) בפלופ ≈ 35% להשלים עד הריבר. אם היריב מקפל להימור שלך 40% מהפעמים – זכית מיד. וכשהוא קורא, עדיין יש לך סיכוי טוב.';
+      ex.rule = 'דרואו חזק (8+ אאוטים) משחקים באגרסיביות; דרואו חלש (Gutshot, 4 אאוטים) – בזהירות.';
+      sizeNote = iso('50–75%') + ' מהקופה';
+    } else if (st === 0 && c.isPFR && dry && !multi){
+      best = 'bet'; ok = ['check'];
+      ex.bottom = 'C-Bet בלוף קטן.';
+      S.push(`הלוח יבש (${c.tex.tags.join(', ')}) – קשה ליריב לפגוע בו.`);
+      S.push('כמעלה יש לך יותר ידיים חזקות בלוח כזה מאשר לו (למשל AA, KK ו-AK). הימור קטן מקפל הרבה מהידיים שלו.');
+      ex.example = 'לוח K-7-2 בצבעים שונים: הימור של שליש קופה צריך שהיריב יקפל רק 25% מהפעמים כדי להרוויח – והוא יקפל הרבה יותר, כי רוב הידיים שלו לא פגעו.';
+      ex.rule = 'C-Bet קטן על לוחות יבשים; זהירות על לוחות מחוברים ורטובים.';
+      sizeNote = iso('25–33%') + ' מהקופה';
+    } else if (st === 2 && E < airT && !multi){
+      best = 'check'; ok = ['bet'];
+      ex.bottom = 'צ׳ק – אין לך ערך הצגה (או בלוף מחושב).';
+      S.push('בריבר אין עוד קלפים לשפר, וכמעט כל יד שהיריב מחזיק מנצחת אותך.');
+      S.push('צ׳ק מוותר על הקופה בזול. בלוף אפשרי – אבל רק אם הקו שלך לאורך היד מספר סיפור של יד חזקה.');
+      ex.example = 'לדוגמה: פספסת דרואו לצבע. אם הימרת בפלופ ובטרן, הימור בריבר ממשיך סיפור עקבי של יד חזקה. אבל מול יריב שאוהב לקרוא – עדיף לוותר.';
+      ex.rule = 'בלופים בריבר – רק עם ידיים שלא יכולות לנצח בשואודאון, ורק מול יריבים שיודעים לקפל.';
+    } else {
+      best = 'check';
+      ex.bottom = 'צ׳ק – לוותר בזול.';
+      S.push(`ה-Equity נמוך (${Ep}%) ואין לך דרואו משמעותי.`);
+      S.push(multi ? 'מול כמה יריבים, בלוף צריך שכולם יקפלו – וזה קורה לעיתים רחוקות.' : 'הימור כאן הוא בלוף שלא יקבל מספיק קיפולים: ידיים שפגעו ימשיכו, וידיים שלא פגעו גם ככה מפסידות לך.');
+      ex.example = 'לדוגמה: 6-5 בלי זוג ובלי דרואו על לוח A-K-9. הימור יקבל קריאה רק מ-A או K – ידיים שמנצחות אותך.';
+      ex.rule = 'כשאין לך יד ואין לך דרואו – צ׳ק, ותוותר בזול.';
+    }
+    if (act === 'bet' && sizeNote) ex.size = `בחרת ${pct(amt / c.pot)}% מהקופה. גודל מומלץ: ${sizeNote}.`;
+    else if (sizeNote && best === 'bet') ex.size = `גודל מומלץ: ${sizeNote}.`;
+  }
+  const grade = act === best ? 'best' : ok.includes(act) ? 'ok' : 'mistake';
+  let mtype = null;
+  if (grade === 'mistake'){
+    if (c.toCall > 0) mtype = act === 'fold' ? 'over_fold' : act === 'call' ? 'bad_call' : best === 'fold' ? 'over_bluff' : 'bad_raise';
+    else mtype = act === 'check' ? (E >= medT ? 'missed_value' : 'missed_bluff') : (E >= airT ? 'bad_bet_sd' : 'over_bluff');
+  }
+  return { grade, best, ok, act, mtype, ex, street: st, eq: E, line: c.line, made: c.made,
+    summary: `${STREET_EN[st]} · ${c.made.en} · ${ACT_EN[act]} (מומלץ: ${ACT_EN[best]})` };
+}
+
+/* =====================================================================
+   7. Pre-flop trainer logic
+   ===================================================================== */
 function newPreScenario(){
   let heroPos, opener = null;
   if (Math.random() < 0.5) heroPos = rnd(['UTG','MP','CO','BTN','SB']);
@@ -586,25 +910,6 @@ function preLabels(scn, info){
     ? { fold: 'Fold', call: `Call ${fmt(info.toCall)}bb`, raise: `⁦3-Bet⁩ ל-${fmt(info.threeTo)}bb` }
     : { fold: 'Fold', call: scn.heroPos === 'SB' ? 'Limp (השלמה)' : 'Limp 1bb', raise: 'Raise ל-2.5bb' };
 }
-function explainPre(scn, chosen, info){
-  const { heroPos, opener, cls, best } = scn, L = [];
-  if (!opener){
-    const n = 5 - ORDER_PRE.indexOf(heroPos);
-    L.push(`כשכולם מקפלים אליך ב-${heroPos}, טווח פתיחה סטנדרטי הוא כ-${rangePct(RFI[heroPos])}% מהידיים. ${n >= 4 ? `יש ${n} שחקנים אחריך שיכולים להתעורר עם יד חזקה, לכן הטווח צר.` : n >= 2 ? `נשארו ${n} שחקנים אחריך – פחות סיכון, אז פותחים רחב יותר.` : 'רק ה-BB נשאר – גונבים את הבליינדים עם טווח רחב.'}`);
-    L.push(best === 'raise' ? `${cls} נמצאת בטווח הפתיחה מכאן.` : `${cls} מחוץ לטווח הפתיחה מכאן.`);
-    if (chosen === 'call') L.push('Open-Limp נחשב טעות בקאש: אתה מוותר על הסיכוי לזכות בקופה מיד ומזמין את הבליינדים לשחק בזול.');
-  } else {
-    L.push(`${opener} פותח כ-${rangePct(RFI[opener])}% מהידיים${grp(opener) === 'EP' ? ' – טווח חזק, ולכן צריך להיות סלקטיביים.' : ' – טווח רחב, אז אפשר להגן ולהעלות מחדש יותר.'}`);
-    if (heroPos === 'BB') L.push(`ב-BB כבר שמת 1bb: אתה משלם ${fmt(info.toCall)}bb כדי לזכות בקופה של ${fmt(info.pot + info.toCall)}bb, כלומר צריך רק ${pct(info.req)}% Equity. לכן מגינים רחב – למרות שתשחק מחוץ לפוזיציה.`);
-    else if (heroPos === 'SB') L.push('מה-SB תשחק מחוץ לפוזיציה וה-BB עוד מאחוריך. אסטרטגיה מומלצת: ⁦3-Bet⁩ או Fold, כמעט בלי קריאות.');
-    else L.push(`Pot Odds: לקרוא ${fmt(info.toCall)}bb לקופה של ${fmt(info.pot + info.toCall)}bb = ${pct(info.req)}% Equity נדרש. בפרה-פלופ זה רק חלק מהתמונה – פוזיציה ומשחקיות קובעות כמה מה-Equity תממש.`);
-    L.push(best === 'raise' ? `${cls} בטווח ה-⁦3-Bet⁩ שלך כאן.` : best === 'call' ? `${cls} בטווח הקריאה: חזקה מכדי לקפל, אבל לא מספיק חזקה (או לא בלוקר טוב) ל-⁦3-Bet⁩.` : `${cls} מחוץ לטווח ההמשך – מול הטווח של ${opener} היא מפסידה יותר מדי.`);
-    if (chosen === 'call' && best === 'raise') L.push('קריאה עם יד ל-⁦3-Bet⁩ משאירה כסף על השולחן ונותנת לשחקנים מאחוריך מחיר טוב להצטרף.');
-    if (chosen === 'raise' && best === 'call') L.push('⁦3-Bet⁩ כאן מקפל ידיים חלשות ומקבל המשך בעיקר מידיים טובות ממך. קריאה שומרת את הטווח שלו רחב.');
-  }
-  handNotes(cls).forEach(x => L.push(x));
-  return L;
-}
 function preMistakeType(best, chosen, opener){
   if (chosen === 'call' && !opener) return 'limp';
   if (best === 'fold') return 'loose_pre';
@@ -614,11 +919,9 @@ function preMistakeType(best, chosen, opener){
 }
 
 /* =====================================================================
-   7. Post-flop hand engine (hero vs one villain, three streets)
+   8. Post-flop trainer engine (hero vs one villain, three streets)
    ===================================================================== */
 const MATCHUPS = [['UTG','BB'],['MP','BB'],['CO','BB'],['BTN','BB'],['SB','BB'],['CO','BTN'],['MP','BTN'],['UTG','CO'],['MP','CO'],['BTN','BB']];
-const STREET_EN = ['Flop','Turn','River'];
-const STREET_KEY = ['flop','turn','river'];
 const visBoard = h => h.board.slice(0, 3 + h.street);
 
 function newPostHand(){
@@ -658,7 +961,7 @@ function heroNode(h){
   h.node = {
     street: h.street, toCall: h.vilIn - h.heroIn, pot: h.pot,
     eq: equityVsRange(h.hero, b, h.vilRange, 2500),
-    outs: computeOuts(h.hero, b), made: describeMade(h.hero, b), draws: drawInfo(h.hero, b), tex: boardTexture(b),
+    outs: outsInfo(h.hero, b), made: describeMade(h.hero, b), draws: drawInfo(h.hero, b), tex: boardTexture(b),
     vilN: h.vilRange.length,
   };
 }
@@ -731,75 +1034,11 @@ function lineName(h, act){
     return h.heroIP ? 'Stab – הימור אחרי צ׳ק' : 'Lead / Donk Bet';
   }
   if (act === 'check') return h.heroIP ? 'Check Back' : 'Check';
-  return { raise: 'Raise', call: 'Call', fold: 'Fold' }[act];
-}
-const ACT_EN = { fold: 'Fold', check: 'Check', call: 'Call', bet: 'Bet', raise: 'Raise' };
-
-function gradePost(h, node, act, amt){
-  const E = node.eq, st = node.street, outs = node.outs.length, strongDraw = outs >= 8 && st < 2, Ep = pct(E);
-  const L = [];
-  let best, ok = [], req = null, sizeNote = null;
-  if (node.toCall > 0){
-    req = node.toCall / (h.pot + node.toCall);
-    const implied = strongDraw ? (st === 0 ? 0.05 : 0.04) : 0;
-    const Ee = E + implied;
-    const evCall = E * (h.pot + node.toCall) - node.toCall;
-    if (E >= 0.72){
-      best = 'raise'; ok = ['call'];
-      L.push(`ה-Equity שלך (${Ep}%) גבוה מאוד מול הטווח המשוער של היריב. העלאה לערך בונה קופה – ידיים חלשות יותר בטווח שלו עדיין ימשיכו.`);
-      L.push('קריאה (Slow-play) סבירה, אבל מוותרת על ערך.');
-    } else if (Ee >= req){
-      best = 'call';
-      if ((strongDraw && st === 0) || E >= 0.6) ok = ['raise'];
-      L.push(`צריך ${pct(req)}% Equity כדי שהקריאה תשתלם, ויש לך ${Ep}%${implied ? ' – ועוד Implied Odds: כשתשלים את הדרואו תרוויח עוד כסף ברחובות הבאים' : ''}. קריאה רווחית לאורך זמן.`);
-      if (ok.length) L.push(strongDraw ? 'העלאה כ-Semi-Bluff (למשל Check-Raise) גם לגיטימית: היא מוסיפה Fold Equity לאאוטים שלך.' : 'העלאה לערך דק גם אפשרית.');
-    } else {
-      best = 'fold';
-      if (Ee >= req - 0.03) ok = ['call'];
-      L.push(`הקופה מציעה לך ${fmt(h.pot / node.toCall)}:1, כלומר צריך ${pct(req)}% Equity – ויש לך רק ${Ep}%. לאורך זמן הקריאה מפסידה כסף, ולכן קיפול הוא ההחלטה הרווחית.`);
-      if (ok.length) L.push('ההחלטה גבולית – קריאה כאן היא לא טעות גדולה.');
-    }
-    L.push(`EV(Call) ≈ ${evCall >= 0 ? '+' : ''}${fmt(evCall)}bb מול EV(Fold) = 0 (חישוב מיידי, בלי רחובות עתידיים).`);
-  } else {
-    const dry = node.tex.dry;
-    if (E >= 0.66){
-      best = 'bet'; if (E >= 0.85 && dry && st < 2) ok = ['check'];
-      L.push(`יד חזקה – ${Ep}% Equity מול הטווח שלו. הימור לערך מקבל תשלום מידיים חלשות יותר ומגן מפני קלפים מסוכנים.`);
-      if (ok.length) L.push('על לוח יבש עם יד כמעט בלתי מנוצחת, צ׳ק (Slow-play) לגיטימי – נותן ליריב הזדמנות לבלף.');
-      sizeNote = dry ? '33–50% מהקופה (לוח יבש – פחות ידיים ימשיכו מול הימור גדול)' : '66–100% מהקופה (לוח רטוב – גובים מחיר מהדרואו)';
-    } else if (E >= 0.45){
-      if (st === 0 && h.heroIsPFR){ best = 'bet'; ok = ['check']; L.push(`כמעלה פרה-פלופ (PFR) יש לך יתרון טווח. עם יד בינונית (${Ep}%), C-Bet קטן מגן על ה-Equity ומקבל ערך דק.`); sizeNote = '25–33% מהקופה'; }
-      else { best = 'check'; ok = ['bet']; L.push(`יד בינונית (${Ep}%) עם ערך הצגה (Showdown Value). צ׳ק שומר על קופה קטנה (Pot Control): הימור מקפל ידיים חלשות ומקבל קריאה בעיקר מידיים טובות יותר.`); }
-    } else if (strongDraw){
-      best = 'bet'; ok = ['check'];
-      L.push(`יש לך ${outs} אאוטים. הימור כ-Semi-Bluff מנצח בשתי דרכים: היריב מקפל עכשיו, או שתשתפר בקלף הבא.`); sizeNote = '50–75% מהקופה';
-    } else if (st === 0 && h.heroIsPFR && dry){
-      best = 'bet'; ok = ['check'];
-      L.push(`לוח יבש (${node.tex.tags.join(', ')}) שמתאים לטווח של המעלה. C-Bet קטן מרוויח גם בלי יד, כי ליריב קשה להמשיך עם רוב הטווח שלו.`); sizeNote = '25–33% מהקופה';
-    } else if (st === 2 && E < 0.2){
-      best = 'check'; ok = ['bet'];
-      L.push(`בריבר אין לך ערך הצגה (${Ep}%). צ׳ק מוותר על הקופה בזול; בלוף אפשרי רק אם קו המשחק שלך מספר סיפור של יד חזקה.`);
-    } else {
-      best = 'check';
-      L.push(`ה-Equity נמוך (${Ep}%) ואין לך דרואו משמעותי. הימור כאן הוא בלוף שלא יקבל מספיק קיפולים – עדיף לוותר בזול.`);
-    }
-    if (act === 'bet' && sizeNote) L.push(`בחרת ${pct(amt / h.pot)}% מהקופה. גודל מומלץ: ${sizeNote}.`);
-    else if (sizeNote && best === 'bet') L.push(`גודל מומלץ: ${sizeNote}.`);
-  }
-  const grade = act === best ? 'best' : ok.includes(act) ? 'ok' : 'mistake';
-  let mtype = null;
-  if (grade === 'mistake'){
-    if (node.toCall > 0) mtype = act === 'fold' ? 'over_fold' : act === 'call' ? 'bad_call' : best === 'fold' ? 'over_bluff' : 'bad_raise';
-    else mtype = act === 'check' ? (E >= 0.45 ? 'missed_value' : 'missed_bluff') : (E >= 0.2 ? 'bad_bet_sd' : 'over_bluff');
-  }
-  return {
-    grade, best, ok, act, mtype, lines: L, street: st, eq: E, req, line: lineName(h, act), made: node.made,
-    summary: `${STREET_EN[st]} · ${node.made.en} · ${ACT_EN[act]} (מומלץ: ${ACT_EN[best]})`,
-  };
+  return ACT_EN[act];
 }
 function heroAct(h0, act, amt){
   const h = structuredClone(h0), node = h.node, b = visBoard(h);
-  const fb = gradePost(h, node, act, amt);
+  const fb = gradeDecision({ E: node.eq, street: node.street, toCall: node.toCall, pot: h.pot, outs: node.outs, made: node.made, tex: node.tex, draws: node.draws, isPFR: h.heroIsPFR, nOpp: 1, line: lineName(h, act) }, act, amt);
   if (act === 'fold'){ h.log.push({ k: 'hero', text: 'אתה מקפל' }); endHand(h, 'heroFold'); }
   else if (act === 'check'){
     h.log.push({ k: 'hero', text: 'אתה – צ׳ק' });
@@ -822,35 +1061,456 @@ function heroAct(h0, act, amt){
 }
 
 /* =====================================================================
-   8. Mistake taxonomy (stats)
+   9. Game vs the computer — 6-max, everyone starts each hand with 100bb
+   ===================================================================== */
+const STYLES = {
+  rock:   { en: 'Rock',   he: 'סלע – משחק מעט ידיים ונזהר מאוד', open: 0.7,  call: 0.6, three: 0.6, bluff: 0.04, slack: -0.03, aggr: 0.75, limp: false },
+  tag:    { en: 'TAG',    he: 'הדוק-אגרסיבי – הסגנון של שחקן טוב', open: 1,  call: 1,   three: 1,   bluff: 0.16, slack: 0,     aggr: 1,    limp: false },
+  lag:    { en: 'LAG',    he: 'רחב-אגרסיבי – משחק הרבה ידיים ולוחץ', open: 1.35, call: 1.2, three: 1.8, bluff: 0.3, slack: 0.03, aggr: 1.3, limp: false },
+  fish:   { en: 'Fish',   he: 'רחב-פסיבי – נכנס להרבה ידיים וקורא כמעט לכל דבר', open: 0.9, call: 2.6, three: 0.5, bluff: 0.06, slack: 0.13, aggr: 0.55, limp: true },
+  maniac: { en: 'Maniac', he: 'אגרסיבי מאוד – מהמר ומעלה בלי הפסקה', open: 2.0, call: 1.6, three: 3, bluff: 0.45, slack: 0.06, aggr: 1.7, limp: false },
+};
+const LEVELS = {
+  easy:  { he: 'קל', d: 'הרבה שחקנים חלשים שקוראים יותר מדי.', styles: ['fish','fish','rock','fish','maniac'] },
+  mixed: { he: 'מעורב', d: 'כמו שולחן אמיתי: קצת מכל סוג.', styles: ['tag','fish','lag','rock','fish'] },
+  hard:  { he: 'קשה', d: 'שחקנים טובים ואגרסיביים.', styles: ['tag','lag','tag','lag','rock'] },
+};
+const BOT_NAMES = ['דני','מאיה','יוסי','רוני','נועה','אבי','שירה','גיל','טל','עומר'];
+const POS_BY_OFFSET = ['BTN','SB','BB','UTG','MP','CO'];
+const BASE_OPEN = { UTG: 0.18, MP: 0.23, CO: 0.33, BTN: 0.48, SB: 0.38, BB: 0.3 };
+const potOf = g => g.players.reduce((t, p) => t + p.total, 0);
+const canAct = p => !p.folded && !p.allIn;
+const simBoard = g => g.board.slice(0, g.street === 0 ? 0 : g.street + 2);
+function put(p, amt){ const add = Math.min(p.stack, amt); p.stack -= add; p.in += add; p.total += add; if (p.stack <= 0){ p.stack = 0; p.allIn = true; } return add; }
+
+function newSession(cfg){
+  const names = shuffle([...BOT_NAMES]);
+  const styles = shuffle([...LEVELS[cfg.level].styles]);
+  const players = [{ name: 'אתה', hero: true, style: 'tag' }, ...styles.map((s, i) => ({ name: names[i], style: s, hero: false }))];
+  return { cfg, players, button: Math.random() * 6 | 0, hands: [] };
+}
+function newSimHand(sessPlayers, button, no){
+  const deck = shuffle([...FULL_DECK]);
+  const players = sessPlayers.map((pl, seat) => ({
+    seat, name: pl.name, style: pl.style, hero: !!pl.hero, pos: POS_BY_OFFSET[(seat - button + 6) % 6],
+    cards: [deck.pop(), deck.pop()], stack: 100, in: 0, total: 0, folded: false, allIn: false, acted: false,
+    band: [0, 1], range: null, last: '', checked: false,
+  }));
+  const g = { no, button, players, board: deck.slice(0, 5), street: 0, bet: 1, minRaise: 1, raises: 0,
+    limpers: 0, callers: 0, opener: null, pfr: null, toAct: null, log: [], done: false, decisions: [],
+    hs: { vpip: false, pfr: false, threeBet: false, sawFlop: false, sd: false, wonSd: false, aggr: 0, calls: 0, cbetOpp: false, cbet: false } };
+  const sb = players.find(p => p.pos === 'SB'), bb = players.find(p => p.pos === 'BB');
+  put(sb, 0.5); put(bb, 1);
+  sb.last = 'SB 0.5'; bb.last = 'BB 1';
+  g.log.push({ k: 'street', text: `יד #${no} · Pre-Flop`, cards: [], pot: 1.5 });
+  g.toAct = players.find(p => p.pos === 'UTG').seat;
+  return g;
+}
+function simSpot(g, p){
+  if (g.raises === 0) return p.pos === 'BB' ? 'bbOption' : 'unopened';
+  return g.raises === 1 ? 'vsOpen' : g.raises === 2 ? 'vs3' : 'vs4';
+}
+function preThresh(spot, pos, st, g){
+  const openerPos = g.opener != null ? g.players[g.opener].pos : null;
+  if (spot === 'unopened'){ const o = Math.min(0.92, BASE_OPEN[pos] * st.open * (g.limpers ? 0.75 : 1)); return { raise: o, call: st.limp ? Math.min(0.85, o * 2.2) : o }; }
+  if (spot === 'bbOption') return { raise: Math.min(0.4, 0.1 * st.three), call: 1 };
+  if (spot === 'vsOpen'){
+    const late = ['CO','BTN','SB'].includes(openerPos);
+    const r = Math.min(0.5, (late ? 0.06 : 0.035) * st.three);
+    let c = pos === 'BB' ? (late ? 0.4 : 0.26) : pos === 'SB' ? 0.03 : (late ? 0.15 : 0.10);
+    c *= st.call * (g.callers ? 0.8 : 1);
+    return { raise: r, call: Math.min(0.9, r + c) };
+  }
+  if (spot === 'vs3'){ const r = Math.min(0.1, 0.022 * st.three); return { raise: r, call: Math.min(0.3, r + 0.05 * st.call) }; }
+  const r = Math.min(0.06, 0.016 * st.three);
+  return { raise: r, call: Math.min(0.15, r + 0.012 * st.call) };
+}
+function preRaiseTo(g, p, spot){
+  const ip = g.opener == null || POST_ORDER.indexOf(p.pos) > POST_ORDER.indexOf(g.players[g.opener].pos);
+  let to;
+  if (spot === 'unopened') to = (p.pos === 'SB' ? 3 : 2.5) + g.limpers;
+  else if (spot === 'bbOption') to = 4 + g.limpers;
+  else if (spot === 'vsOpen') to = g.bet * (ip ? 3 : 3.8) + g.callers * g.bet;
+  else if (spot === 'vs3') to = g.bet * 2.3;
+  else to = p.in + p.stack;
+  to = roundHalf(to);
+  if (to >= 0.4 * (p.in + p.stack)) to = p.in + p.stack;
+  return to;
+}
+// what a player's pre-flop action says about his hand (a percentile band)
+function bandFor(g, p, act){
+  const spot = simSpot(g, p), t = preThresh(spot, p.pos, STYLES[p.hero ? 'tag' : p.style], g);
+  let nb;
+  if (act === 'raise') nb = [0, t.raise];
+  else if (act === 'check') nb = [t.raise, 1];
+  else if (act === 'call') nb = spot === 'unopened' && t.call <= t.raise ? [t.raise, Math.min(0.9, t.raise * 2.2)] : [t.raise, Math.max(t.raise + 0.03, t.call)];
+  else return null;
+  const lo = Math.max(p.band[0], nb[0]), hi = Math.min(p.band[1], nb[1]);
+  return lo < hi ? [lo, hi] : nb;
+}
+function botPre(g, p){
+  const spot = simSpot(g, p), st = STYLES[p.style], t = preThresh(spot, p.pos, st, g);
+  const pc = PCT_RANK[classOf(p.cards[0], p.cards[1])], toCall = g.bet - p.in;
+  if (pc <= t.raise && p.stack > toCall) return { act: 'raise', to: preRaiseTo(g, p, spot) };
+  if (pc <= t.call) return toCall > 0 ? { act: 'call' } : { act: 'check' };
+  return toCall > 0 ? { act: 'fold' } : { act: 'check' };
+}
+function botPost(g, p){
+  const st = STYLES[p.style], b = simBoard(g);
+  const opps = g.players.filter(q => !q.folded && q.seat !== p.seat);
+  const eq = equityMulti(p.cards, b, opps.map(q => q.range || ALL_COMBOS), 300);
+  const n = opps.length, fair = 1 / (n + 1), pot = potOf(g), toCall = g.bet - p.in;
+  const d = drawInfo(p.cards, b), drawy = (d.fd || d.oesd) && g.street < 3;
+  const R = Math.random();
+  if (toCall === 0){
+    const betT = fair + (1 - fair) * 0.32;
+    let pb = eq >= betT ? 0.8 : drawy ? 0.45 : (g.pfr === p.seat && g.street === 1 && n === 1) ? 0.55 : eq >= fair ? 0.22 : st.bluff * (n === 1 ? 1 : 0.4);
+    pb = Math.min(0.95, pb * st.aggr);
+    if (R < pb){
+      const frac = eq >= betT ? rnd([0.5, 0.66, 0.75, 1]) : rnd([0.33, 0.5, 0.66]);
+      let to = Math.max(1, roundHalf(frac * pot));
+      if (to >= 0.7 * p.stack) to = p.stack;
+      return { act: 'bet', to };
+    }
+    return { act: 'check' };
+  }
+  const req = toCall / (pot + toCall), raiseT = fair + (1 - fair) * 0.48;
+  if (eq >= raiseT && g.raises < 3 && p.stack > toCall && R < 0.45 * st.aggr){
+    let to = roundHalf(g.bet * 2.8);
+    if (to >= 0.6 * (p.stack + p.in)) to = p.stack + p.in;
+    return { act: 'raise', to };
+  }
+  if (eq >= req - st.slack - (drawy ? 0.07 : 0.02)) return { act: 'call' };
+  if (n === 1 && g.raises < 2 && p.stack > toCall && R < st.bluff * 0.25) return { act: 'raise', to: Math.min(p.stack + p.in, roundHalf(g.bet * 2.8)) };
+  return { act: 'fold' };
+}
+function trackHero(g, p, act, toCall){
+  const hs = g.hs;
+  if (g.street === 0){
+    if (act === 'call' && toCall > 0) hs.vpip = true;
+    if (act === 'raise'){ hs.vpip = true; hs.pfr = true; if (g.raises >= 1) hs.threeBet = true; }
+  } else {
+    if (act === 'bet' || act === 'raise') hs.aggr++;
+    if (act === 'call') hs.calls++;
+    if (g.street === 1 && g.pfr === p.seat && g.bet === 0 && !hs.cbetOpp){ hs.cbetOpp = true; if (act === 'bet') hs.cbet = true; }
+  }
+}
+function applyAction(g, seat, act, to){
+  const p = g.players[seat], toCall = g.bet - p.in, b = simBoard(g);
+  if (g.street === 0){ const nb = bandFor(g, p, act === 'bet' ? 'raise' : act); if (nb) p.band = nb; }
+  if (p.hero) trackHero(g, p, act, toCall);
+  let text;
+  if (act === 'fold'){ p.folded = true; text = 'Fold'; }
+  else if (act === 'check'){ text = 'Check'; p.checked = true; }
+  else if (act === 'call'){
+    const add = put(p, toCall);
+    text = p.allIn ? `All-in ${fmt(p.in)}` : `Call ${fmt(add)}`;
+    if (g.street === 0 && g.raises === 0) g.limpers++;
+    else if (g.street === 0 && g.raises === 1) g.callers++;
+  } else {
+    const wasBet = g.bet === 0;
+    to = Math.min(Math.max(roundHalf(to), g.bet + g.minRaise), p.in + p.stack);
+    put(p, to - p.in);
+    if (p.in > g.bet){
+      const inc = p.in - g.bet;
+      if (inc >= g.minRaise) g.minRaise = inc;
+      g.bet = p.in; g.raises++; g.aggressor = seat;
+      if (g.street === 0){ g.pfr = seat; if (g.opener == null) g.opener = seat; g.callers = 0; }
+      g.players.forEach(q => { if (q.seat !== seat) q.acted = false; });
+    }
+    text = p.allIn ? `All-in ${fmt(p.in)}` : wasBet ? `Bet ${fmt(p.in)}` : `Raise ל-${fmt(p.in)}`;
+  }
+  p.acted = true; p.last = text;
+  if (g.street > 0 && act !== 'fold' && p.range) p.range = narrow(p.range, b, act, []);
+  g.log.push({ k: p.hero ? 'hero' : 'vil', text: `${p.hero ? 'אתה' : p.name} (${p.pos}): ${text}` });
+  simAdvance(g);
+}
+function simAdvance(g){
+  const alive = g.players.filter(p => !p.folded);
+  if (alive.length === 1) return simFinish(g, alive, false);
+  const pending = g.players.filter(p => canAct(p) && (!p.acted || p.in < g.bet));
+  if (!pending.length) return simEndStreet(g);
+  for (let k = 1; k <= 6; k++){
+    const q = g.players[(g.toAct + k) % 6];
+    if (canAct(q) && (!q.acted || q.in < g.bet)){ g.toAct = q.seat; return; }
+  }
+}
+function simEndStreet(g){
+  g.players.forEach(p => { p.in = 0; p.acted = false; p.checked = false; if (!p.folded && !p.allIn) p.last = ''; });
+  g.bet = 0; g.minRaise = 1; g.raises = 0;
+  if (g.street === 0) g.players.forEach(p => { if (!p.folded) p.range = bandCombos(p.band); });
+  if (g.street === 3) return simShowdown(g);
+  g.street++;
+  if (g.street === 1 && !g.players.find(p => p.hero).folded) g.hs.sawFlop = true;
+  const b = simBoard(g);
+  g.log.push({ k: 'street', text: STREET_EN[g.street - 1], cards: g.street === 1 ? b : [b[b.length - 1]], pot: potOf(g) });
+  if (g.players.filter(canAct).length <= 1){ g.runout = true; return simEndStreet(g); }
+  for (let k = 1; k <= 6; k++){ const s = (g.button + k) % 6; if (canAct(g.players[s])){ g.toAct = s; break; } }
+}
+function simShowdown(g){
+  const alive = g.players.filter(p => !p.folded);
+  const scores = alive.map(p => evalHand([...p.cards, ...g.board]));
+  const best = Math.max(...scores);
+  simFinish(g, alive.filter((p, i) => scores[i] === best), true);
+}
+function simFinish(g, winners, sd){
+  const pot = potOf(g), share = pot / winners.length;
+  winners.forEach(w => w.won = share);
+  g.done = true; g.sd = sd; g.winners = winners.map(w => w.seat);
+  const hero = g.players.find(p => p.hero);
+  g.net = (hero.won || 0) - hero.total;
+  if (sd && !hero.folded){ g.hs.sd = true; g.hs.wonSd = winners.includes(hero); }
+  const names = winners.map(w => w.hero ? 'אתה' : w.name).join(' ו');
+  const made = sd ? ` עם ${describeMade(winners[0].cards, g.board).name}` : '';
+  g.log.push({ k: 'result', text: `${names} ${winners.length > 1 ? 'מתחלקים בקופה' : 'זוכה בקופה'} של ${fmt(pot)}bb${made}.` });
+}
+function botAct(g){
+  const p = g.players[g.toAct];
+  const d = g.street === 0 ? botPre(g, p) : botPost(g, p);
+  applyAction(g, p.seat, d.act, d.to);
+}
+function simHeroNode(g){
+  const p = g.players[g.toAct], b = simBoard(g), toCall = g.bet - p.in, pot = potOf(g);
+  const opps = g.players.filter(q => !q.folded && !q.hero);
+  if (g.street === 0){
+    const shown = opps.filter(q => q.acted || q.in > blindOf(q.pos));
+    const eq = equityMulti(p.cards, [], shown.length ? shown.map(q => bandCombos(q.band)) : [ALL_COMBOS], 900);
+    return { pre: true, toCall, pot, eq, vsN: shown.length, nOpp: opps.length };
+  }
+  return { pre: false, toCall, pot, street: g.street - 1, nOpp: opps.length,
+    eq: equityMulti(p.cards, b, opps.map(q => q.range || ALL_COMBOS), 1500),
+    outs: outsInfo(p.cards, b), made: describeMade(p.cards, b), draws: drawInfo(p.cards, b), tex: boardTexture(b) };
+}
+function simLine(g, p, act){
+  const isPFR = g.pfr === p.seat;
+  if (act === 'raise' && p.checked) return 'Check-Raise';
+  if (act === 'call' && p.checked) return 'Check-Call';
+  if (act === 'fold' && p.checked) return 'Check-Fold';
+  if (act === 'bet') return isPFR ? (g.street === 1 ? 'C-Bet' : 'Barrel') : 'Bet';
+  return ACT_EN[act];
+}
+function explainGenericPre(spot, cls, pc, best, t, g, info, labels){
+  const S = [], ex = { steps: S }, hp = handProfile(cls), top = Math.max(1, Math.round(pc * 100));
+  if (spot === 'bbOption'){
+    ex.bottom = best === 'raise' ? `Raise – ${cls} חזקה מספיק כדי לבנות קופה.` : 'Check – רואים פלופ בחינם.';
+    S.push('אף אחד לא העלה, ואתה ב-BB: כבר שמת 1bb ואפשר לראות פלופ בלי לשלם עוד.');
+    S.push(`${cls} נמצאת בטופ ${top}% של הידיים. מעלים כאן בעיקר עם הידיים החזקות (בערך הטופ 10%).`);
+    ex.example = 'לדוגמה: שני שחקנים עשו Limp ואתה מחזיק AQ – העלאה ל-4bb ומעלה מבודדת אותם, ומשחקת קופה גדולה עם יד טובה. עם 9-4 – פשוט צ׳ק ותראה פלופ בחינם.';
+    ex.rule = 'אף פעם לא מקפלים ב-BB כשאין העלאה – צ׳ק לא עולה כלום.';
+  } else if (spot === 'unopened'){
+    ex.bottom = best === 'raise' ? `Raise (Isolation) – ${cls} מספיק טובה כדי להעניש את הלימפרים.` : `Fold – ${cls} חלשה מדי גם מול לימפרים.`;
+    S.push(`${g.limpers === 1 ? 'שחקן אחד נכנס' : `${g.limpers} שחקנים נכנסו`} רק ב-Limp (השוו לבליינד בלי להעלות). זה בדרך כלל סימן ליד בינונית ולשחקן חלש יותר.`);
+    S.push('עם יד מטווח הפתיחה – מעלים לכ-3.5bb ועוד 1bb לכל לימפר (Isolation Raise), כדי לשחק מולם עם יתרון ועם יוזמה.');
+    S.push('ידיים ספקולטיביות (זוגות קטנים, מחוברים בצבע) יכולות גם להצטרף בזול – אם תפגע חזק, יש כמה שחקנים שישלמו לך.');
+    S.push(hp.note);
+    ex.example = hp.example;
+    ex.rule = 'מול לימפרים: יד טובה ← העלה; יד ספקולטיבית ← אפשר להצטרף; יד חלשה ← קפל.';
+  } else if (spot === 'vsOpen'){
+    ex.bottom = best === 'raise' ? `Raise – ${cls} חזקה מספיק כדי להעלות מחדש.` : best === 'call' ? `Call – ${cls} טובה מספיק כדי להמשיך.` : `Fold – ${cls} לא מספיק טובה מול ההעלאה.`;
+    S.push(`היה העלאה בקופה. ממשיכים בערך עם הטופ ${Math.round(t.call * 100)}% של הידיים, ומעלים מחדש עם הטופ ${Math.max(1, Math.round(t.raise * 100))}%.`);
+    S.push(`${cls} נמצאת בטופ ${top}% של הידיים.`);
+    S.push(hp.note);
+    ex.example = hp.example;
+    ex.rule = 'מול העלאה צריך יד טובה יותר מזו שהיית פותח איתה בעצמך.';
+  } else if (spot === 'vs3'){
+    ex.bottom = best === 'raise' ? `⁦4-Bet⁩ – ${cls} בין הידיים החזקות ביותר.` : best === 'call' ? `Call – ${cls} טובה מספיק להמשיך, אבל לא ל-⁦4-Bet⁩.` : 'Fold – מול ⁦3-Bet⁩ צריך יד חזקה מאוד.';
+    S.push('מישהו העלה מחדש (⁦3-Bet⁩) מעל ההעלאה. טווח של ⁦3-Bet⁩ הוא בדרך כלל רק ⁦4–8%⁩ מהידיים – ידיים חזקות מאוד.');
+    S.push(`ממשיכים רק עם כ-${Math.round(t.call * 100)}% הידיים הטובות: ⁦4-Bet⁩ עם הטופ (QQ+, AK), קריאה עם ידיים כמו JJ, 10-10 ו-AQ בצבע.`);
+    S.push(`${cls} נמצאת בטופ ${top}% של הידיים.`);
+    ex.example = 'לדוגמה: פתחת עם KJo ומישהו עשה ⁦3-Bet⁩. מה הוא יכול להחזיק? AA, KK, QQ, AK, KQ – מול כמעט כל אחת מהן KJ במצב רע. קיפול כאן הוא לא חולשה, זה חיסכון.';
+    ex.rule = 'מול ⁦3-Bet⁩ מקפלים הרבה – וזה בסדר.';
+  } else {
+    ex.bottom = best === 'fold' ? 'Fold – מול ⁦4-Bet⁩ ממשיכים רק עם הטופ.' : `${labels[best]} – ${cls} חזקה מספיק לכל הכסף.`;
+    S.push('⁦4-Bet⁩ ומעלה ב-100bb כמעט תמיד מסמן ידיים כמו QQ+ או AK – וכל הערימה עומדת על הפרק.');
+    S.push(`${cls} נמצאת בטופ ${top}% של הידיים.`);
+    ex.example = 'לדוגמה: JJ מול טווח של QQ+ ו-AK מנצחת רק בכ-40% מהפעמים – לא מספיק כשכל הערימה בסיכון.';
+    ex.rule = 'בשלבי ⁦4-Bet⁩ ו-⁦5-Bet⁩ ממשיכים כמעט רק עם QQ+ ו-AK.';
+  }
+  if (info.req != null && spot !== 'bbOption') S.push(`Pot Odds: לקרוא ${fmt(info.toCall)}bb לקופה של ${fmt(info.pot + info.toCall)}bb ← צריך ${pct(info.req)}% Equity. בפרה-פלופ זה רק חלק מהתמונה – גם הפוזיציה חשובה.`);
+  return ex;
+}
+function gradeSimPre(g, p, act){
+  const cls = classOf(p.cards[0], p.cards[1]), pc = PCT_RANK[cls], spot = simSpot(g, p);
+  const toCall = g.bet - p.in, pot = potOf(g);
+  const openerPos = g.opener != null ? g.players[g.opener].pos : null;
+  const a = act === 'check' ? 'call' : act === 'bet' ? 'raise' : act;
+  const info = { facing: toCall > 0 && spot !== 'unopened', toCall, pot, req: toCall > 0 && spot !== 'unopened' ? toCall / (pot + toCall) : null };
+  const labels = { fold: 'Fold', call: toCall > 0 ? (spot === 'unopened' ? 'Limp' : `Call ${fmt(toCall)}bb`) : 'Check',
+    raise: spot === 'unopened' || spot === 'bbOption' ? 'Raise' : spot === 'vsOpen' ? '⁦3-Bet⁩' : spot === 'vs3' ? '⁦4-Bet⁩' : 'All-in' };
+  let best, ok = [], ex;
+  if (spot === 'unopened' && !g.limpers){
+    best = RFI[p.pos].has(cls) ? 'raise' : 'fold';
+    ex = explainPre({ heroPos: p.pos, opener: null, cls, best }, a, info, labels);
+  } else if (spot === 'vsOpen' && openerPos && ORDER_PRE.indexOf(p.pos) > ORDER_PRE.indexOf(openerPos)){
+    best = preAction(p.pos, openerPos, cls);
+    ex = explainPre({ heroPos: p.pos, opener: openerPos, cls, best }, a, info, labels);
+    if (g.callers || g.limpers) ex.steps.push('שים לב: יש כבר שחקנים נוספים בקופה. ידיים ספקולטיביות (זוגות קטנים, מחוברים בצבע) משתפרות בקופות מרובות שחקנים, וידיים "נשלטות" כמו KJo נחלשות.');
+  } else {
+    const t = preThresh(spot, p.pos, STYLES.tag, g);
+    if (spot === 'unopened'){
+      best = RFI[p.pos].has(cls) ? 'raise' : 'fold';
+      if (best === 'raise') ok = ['call'];
+      else if ((cls.length === 2 || (cls[2] === 's' && ri(cls[0]) - ri(cls[1]) <= 2)) && pc < 0.6) ok = ['call'];
+    } else {
+      best = pc <= t.raise ? 'raise' : pc <= t.call ? 'call' : 'fold';
+      if (Math.abs(pc - t.raise) < 0.015) ok.push(best === 'raise' ? 'call' : 'raise');
+      if (spot !== 'bbOption' && Math.abs(pc - t.call) < 0.015) ok.push(best === 'call' ? 'fold' : 'call');
+      if (spot === 'bbOption' && pc <= 0.25 && best === 'call') ok.push('raise');
+    }
+    ex = explainGenericPre(spot, cls, pc, best, t, g, info, labels);
+  }
+  const grade = a === best ? 'best' : ok.includes(a) ? 'ok' : 'mistake';
+  const mtype = grade === 'mistake' ? preMistakeType(best, a, (spot !== 'unopened' || g.limpers) ? 'x' : null) : null;
+  return { grade, best, ok, act: a, mtype, ex, labels, line: null, summary: `${p.pos} · ${cls} · ${labels[a]} (מומלץ: ${labels[best]})` };
+}
+function handRecord(g){
+  const p = g.players.find(q => q.hero);
+  return {
+    no: g.no, pos: p.pos, cards: p.cards, board: g.board.slice(0, g.sd ? 5 : (g.street === 0 ? 0 : g.street + 2)),
+    net: g.net, pot: potOf(g), sd: g.sd, hs: { ...g.hs }, log: g.log, decisions: g.decisions, folded: p.folded,
+    shown: g.sd ? g.players.filter(q => !q.folded && !q.hero).map(q => ({ name: q.name, cards: q.cards, made: describeMade(q.cards, g.board).name })) : [],
+  };
+}
+
+/* =====================================================================
+   10. Mistake taxonomy, glossary & session analysis
    ===================================================================== */
 const MISTAKES = {
-  loose_pre:   { label: 'משחק יותר מדי ידיים (פרה-פלופ)', tip: 'הקפד על טווחים לפי מיקום. ידיים חלשות בפוזיציה מוקדמת מפסידות כי יש הרבה שחקנים אחריך.' },
+  loose_pre:   { label: 'משחק יותר מדי ידיים (פרה-פלופ)', tip: 'הקפד על טווחים לפי מיקום. ידיים חלשות בפוזיציה מוקדמת מפסידות, כי יש הרבה שחקנים אחריך.' },
   tight_pre:   { label: 'מקפל ידיים רווחיות (פרה-פלופ)', tip: 'בפוזיציות מאוחרות וב-BB צריך לשחק רחב יותר. קיפול-יתר מאפשר ליריבים לגנוב את הבליינדים.' },
   passive_pre: { label: 'קריאה במקום ⁦3-Bet⁩', tip: 'ידיים חזקות (QQ+, AK) ובלופים עם בלוקרים (A5s) מרוויחים יותר כ-⁦3-Bet⁩ מאשר כקריאה.' },
-  aggr_pre:    { label: '⁦3-Bet⁩ עם יד לקריאה', tip: 'ידיים בינוניות עם משחקיות טובה מעדיפות קריאה בפוזיציה: ⁦3-Bet⁩ מבודד אותך מול טווח חזק יותר.' },
+  aggr_pre:    { label: 'העלאה עם יד שמתאימה לקריאה', tip: 'ידיים בינוניות עם משחקיות טובה מעדיפות קריאה בפוזיציה: העלאה מבודדת אותך מול טווח חזק יותר.' },
   limp:        { label: 'Open-Limp', tip: 'כשכולם קיפלו אליך – העלה או קפל. לימפ מוותר על Fold Equity ומזמין את הבליינדים בזול.' },
   bad_call:    { label: 'קריאה בלי Pot Odds', tip: 'לפני קריאה: קריאה ÷ (קופה + קריאה) = ה-Equity הנדרש. אם ה-Equity שלך נמוך יותר – קפל.' },
   over_fold:   { label: 'קיפול כשהיה מחיר טוב', tip: 'מול הימורים קטנים צריך מעט Equity. דרואו או זוג בינוני מספיקים לעיתים קרובות כדי להמשיך.' },
   missed_value:{ label: 'החמצת הימור ערך', tip: 'עם יד חזקה – הֵמר. יריבים עם ידיים חלשות יותר ישלמו, וצ׳ק נותן להם קלף בחינם.' },
-  missed_bluff:{ label: 'ויתור על C-Bet / Semi-Bluff', tip: 'דרואו חזק, או לוח יבש כשאתה המעלה – הימור מנצח כשהיריב מקפל וגם כשאתה משתפר.' },
+  missed_bluff:{ label: 'ויתור על C-Bet / Semi-Bluff', tip: 'עם דרואו חזק, או על לוח יבש כשאתה המעלה – הימור מנצח כשהיריב מקפל וגם כשאתה משתפר.' },
   bad_bet_sd:  { label: 'הימור עם יד שיש לה ערך הצגה', tip: 'יד בינונית מעדיפה צ׳ק: הימור מקפל ידיים חלשות ומקבל קריאה רק מידיים טובות יותר.' },
-  over_bluff:  { label: 'בלוף בלי Equity', tip: 'בלופים טובים מגיעים עם אאוטים או חוסמים. בלי כאלה – צ׳ק או קיפול זולים יותר.' },
-  bad_raise:   { label: 'העלאה עם יד בינונית', tip: 'העלה עם ידיים חזקות מאוד או עם דרואו חזק. ידיים באמצע מעדיפות קריאה.' },
+  over_bluff:  { label: 'בלוף בלי Equity', tip: 'בלופים טובים מגיעים עם אאוטים או חוסמים, ובעיקר מול יריב אחד. בלי אלה – צ׳ק או קיפול זולים יותר.' },
+  bad_raise:   { label: 'העלאה עם יד בינונית', tip: 'מעלים עם ידיים חזקות מאוד או עם דרואו חזק. ידיים באמצע מעדיפות קריאה.' },
 };
 const STREETS = [['preflop','Pre-Flop'],['flop','Flop'],['turn','Turn'],['river','River']];
 
+const GLOSS = [
+  { k: ['Equity'], t: 'Equity – החלק שלך בקופה', d: 'אחוז הפעמים שהיד שלך תנצח אם היד תגיע עד הסוף, בממוצע על כל הקלפים שעוד יכולים לצאת.', e: 'Equity של 60% = מתוך 100 מצבים כאלה תנצח בערך 60.' },
+  { k: ['Pot Odds'], t: 'Pot Odds – המחיר של הקריאה', d: 'איזה חלק מהקופה הסופית אתה משלם. זה ה-Equity המינימלי שצריך כדי שקריאה תשתלם.', e: `בקופה 10bb, היריב מהמר 5bb. אתה קורא 5 כדי שהקופה תהיה 20 ← ${iso('5 ÷ 20 = 25%')}.` },
+  { k: ['Implied Odds'], t: 'Implied Odds – כסף עתידי', d: 'כסף נוסף שתרוויח ברחובות הבאים כשתשלים את היד. מאפשר לקרוא קצת "ביוקר" עם דרואו.', e: 'קורא עם דרואו לצבע כשהמחיר גבולי, כי כשהצבע יגיע – היריב ישלם לך עוד הימור.' },
+  { k: ['Outs','אאוטים'], t: 'Outs (אאוטים)', d: 'הקלפים שנשארו בחפיסה ויהפכו את היד שלך ליד מנצחת.', e: 'יש לך 4 קלפי ♥ אחרי הפלופ ← נשארו 9 קלפי ♥ בחפיסה = 9 אאוטים.' },
+  { k: ['EV'], t: 'EV – Expected Value', d: 'כמה תרוויח או תפסיד בממוצע מהחלטה, אם תחזור עליה הרבה פעמים.', e: 'קריאה עם EV של ‎+2bb = בממוצע מרוויחים 2bb בכל פעם, גם אם בפעם הזו הפסדת.' },
+  { k: ['Fold Equity'], t: 'Fold Equity', d: 'הסיכוי שהיריב יקפל להימור שלך – כסף שאתה זוכה בו בלי להגיע לשואודאון.', e: 'הימור עם דרואו: גם אם תפספס, חלק מהפעמים היריב כבר קיפל.' },
+  { k: ['Showdown Value'], t: 'Showdown Value – ערך הצגה', d: 'יד שיכולה לנצח אם יגיעו לחשיפת קלפים, גם בלי להמר.', e: 'זוג אמצעי בריבר – לפעמים מנצח, אבל לא חזק מספיק כדי להמר.' },
+  { k: ['Showdown','שואודאון'], t: 'Showdown – שואודאון', d: 'סוף היד: חושפים קלפים, והיד הטובה ביותר זוכה בקופה.', e: '' },
+  { k: ['Pot Control'], t: 'Pot Control – שליטה בקופה', d: 'שמירה על קופה קטנה עם יד בינונית (צ׳ק במקום הימור), כדי לא להפסיד הרבה מול יד חזקה.', e: 'זוג אמצעי: צ׳ק בטרן, ולשלם הימור קטן בריבר.' },
+  { k: ['Semi-Bluff'], t: 'Semi-Bluff', d: 'הימור עם יד שעוד לא חזקה, אבל יש לה הרבה אאוטים. מנצח כשהיריב מקפל, או כשאתה משלים את היד.', e: 'הימור בפלופ עם דרואו לצבע.' },
+  { k: ['Bluff','בלוף'], t: 'Bluff – בלוף', d: 'הימור עם יד חלשה, כדי שהיריב יקפל יד טובה יותר.', e: 'פספסת את הדרואו בריבר ומהמר כדי שהיריב יקפל זוג.' },
+  { k: ['Value Bet'], t: 'Value Bet – הימור ערך', d: 'הימור עם יד חזקה, כדי שיד חלשה יותר תקרא ותשלם לך.', e: 'זוג עליון עם קיקר טוב, מהמרים חצי קופה.' },
+  { k: ['C-Bet'], t: 'C-Bet – Continuation Bet', d: 'הימור בפלופ של מי שהעלה אחרון לפני הפלופ – "ממשיך את הסיפור".', e: 'פתחת עם AK, היריב קרא, הלוח 9-5-2 – אתה מהמר שליש קופה.' },
+  { k: ['⁦3-Bet⁩'], t: '⁦3-Bet⁩ – העלאה מחדש', d: 'העלאה על העלאה לפני הפלופ. הבליינד הוא ההימור הראשון, הפתיחה היא השני, וההעלאה עליה היא השלישי.', e: 'CO פותח ל-2.5bb ואתה בכפתור מעלה ל-7.5bb – זה ⁦3-Bet⁩.' },
+  { k: ['⁦4-Bet⁩'], t: '⁦4-Bet⁩', d: 'העלאה על ⁦3-Bet⁩. ב-100bb זה בדרך כלל QQ+ או AK.', e: '' },
+  { k: ['Check-Raise'], t: 'Check-Raise', d: 'עושים צ׳ק, ואחרי שהיריב מהמר – מעלים. מהלך חזק, לערך או כ-Semi-Bluff.', e: '' },
+  { k: ['Check-Call'], t: 'Check-Call', d: 'צ׳ק, ואז קריאה להימור של היריב.', e: '' },
+  { k: ['Slow-play'], t: 'Slow-play', d: 'משחק פסיבי עם יד חזקה מאוד, כדי שהיריב ימשיך להמר או יתפוס משהו.', e: 'סט על לוח יבש – צ׳ק בפלופ כדי לתת ליריב לבלף.' },
+  { k: ['Range','טווח'], t: 'Range – טווח', d: 'כל הידיים שיריב יכול להחזיק במצב מסוים. לא מנחשים יד אחת – חושבים על כל האפשרויות.', e: '"UTG פתח" ← הטווח שלו הוא בערך 18% הידיים הטובות: זוגות, AK, AQ, קלפים גבוהים בצבע.' },
+  { k: ['In Position','IP'], t: 'In Position (IP)', d: 'אתה פועל אחרי היריב ברחובות שאחרי הפלופ. יתרון גדול: אתה רואה מה הוא עשה לפני שאתה מחליט.', e: '' },
+  { k: ['Out of Position','OOP'], t: 'Out of Position (OOP)', d: 'אתה פועל לפני היריב – חסרון: אתה מחליט בלי לדעת מה הוא יעשה.', e: '' },
+  { k: ['PFR'], t: 'PFR – Pre-Flop Raiser', d: 'מי שהעלה אחרון לפני הפלופ. בסטטיסטיקה: אחוז הידיים שבהן העלית לפני הפלופ.', e: '' },
+  { k: ['RFI'], t: 'RFI – Raise First In', d: 'פתיחה בהעלאה כשכולם לפניך קיפלו.', e: '' },
+  { k: ['Open-Limp','Limp','לימפ'], t: 'Limp – לימפ', d: 'רק להשוות לבליינד הגדול במקום להעלות. נחשב חלש כשאתה הראשון שנכנס.', e: '' },
+  { k: ['Blocker','חוסמת'], t: 'Blocker – חוסם', d: 'קלף ביד שלך שמקטין את הסיכוי שליריב יש יד מסוימת.', e: 'יש לך A♠ ← ליריב יש פחות קומבינציות של AA ו-AK.' },
+  { k: ['Dominated','נשלטת','שולטת'], t: 'Dominated – יד נשלטת', d: 'כשליריב יש אותו קלף כמו לך, עם קיקר טוב יותר.', e: 'AJ מול AK: ה-J "נשלט" ע״י ה-K.' },
+  { k: ['Kicker','קיקר'], t: 'Kicker – קיקר', d: 'הקלף השני שלך, ששובר שוויון כשלשניכם אותו זוג.', e: 'AK מול AQ על לוח A-7-2: ה-K מנצח את ה-Q.' },
+  { k: ['Overpair','אוברפייר'], t: 'Overpair – אוברפייר', d: 'זוג בכיס שגבוה מכל הקלפים בלוח.', e: 'QQ על לוח J-7-2.' },
+  { k: ['Top Pair'], t: 'Top Pair – זוג עליון', d: 'זוג עם הקלף הגבוה ביותר בלוח.', e: 'AK על לוח K-8-3.' },
+  { k: ['Set'], t: 'Set – סט', d: 'זוג בכיס + קלף שלישי זהה בלוח. חזק מאוד וקשה לזהות.', e: '77 על לוח K-7-2.' },
+  { k: ['Flush Draw'], t: 'Flush Draw – דרואו לצבע', d: 'ארבעה קלפים באותו צבע – צריך עוד אחד לצבע. 9 אאוטים.', e: '' },
+  { k: ['Gutshot'], t: 'Gutshot', d: 'דרואו לרצף עם "חור" באמצע – רק קלף אחד משלים: 4 אאוטים.', e: '9-8 על לוח 7-5-2: רק 6 משלים.' },
+  { k: ['Open-Ended','OESD'], t: 'Open-Ended Straight Draw', d: 'דרואו פתוח לרצף – אפשר להשלים משני הצדדים: 8 אאוטים.', e: '9-8 על לוח 7-6-2: גם 10 וגם 5 משלימים.' },
+  { k: ['Nut Flush'], t: 'Nut Flush', d: 'הצבע הכי חזק האפשרי (בדרך כלל עם ה-A).', e: '' },
+  { k: ['Suited Connectors'], t: 'Suited Connectors', d: `שני קלפים עוקבים באותו צבע, כמו ${iso('8♥7♥')}.`, e: '' },
+  { k: ['Dry'], t: 'לוח יבש (Dry)', d: 'לוח שקשה לפגוע בו: בלי דרואו לצבע ובלי רצפים קרובים.', e: 'K♠ 7♦ 2♣.' },
+  { k: ['Wet'], t: 'לוח רטוב (Wet)', d: 'לוח עם הרבה דרואים אפשריים – צבעים ורצפים.', e: 'J♥ 10♥ 8♣.' },
+  { k: ['VPIP'], t: 'VPIP', d: 'אחוז הידיים שבהן הכנסת כסף מרצונך לפני הפלופ.', e: '' },
+  { k: ['AF'], t: 'AF – Aggression Factor', d: '(הימורים + העלאות) ÷ קריאות, אחרי הפלופ.', e: '' },
+  { k: ['WTSD'], t: 'WTSD', d: 'מתוך הידיים שבהן ראית פלופ – כמה הגיעו לשואודאון.', e: '' },
+  { k: ['W$SD'], t: 'W$SD', d: 'מתוך הפעמים שהגעת לשואודאון – כמה ניצחת.', e: '' },
+];
+const GLOSS_MAP = {};
+GLOSS.forEach((g, i) => g.k.forEach(k => { GLOSS_MAP[k] = i; }));
+const escRe = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+const GLOSS_RE = new RegExp(`(?<![A-Za-z0-9\\u0590-\\u05FF$])(${Object.keys(GLOSS_MAP).sort((a, b) => b.length - a.length).map(escRe).join('|')})(?![A-Za-z0-9\\u0590-\\u05FF])`, 'g');
+const TermCtx = createContext(() => {});
+function Term({ i, children }){
+  const open = useContext(TermCtx);
+  return html`<button type="button" className="term" title=${GLOSS[i].d} onClick=${e => { e.stopPropagation(); open(i); }}>${children}</button>`;
+}
+// wraps the first occurrence of each glossary term in a tappable definition
+function rich(text){
+  if (typeof text !== 'string') return text;
+  const out = [], seen = new Set();
+  let last = 0, m;
+  GLOSS_RE.lastIndex = 0;
+  while ((m = GLOSS_RE.exec(text))){
+    const idx = GLOSS_MAP[m[1]];
+    if (seen.has(idx)) continue;
+    seen.add(idx);
+    if (m.index > last) out.push(text.slice(last, m.index));
+    out.push(html`<${Term} key=${m.index} i=${idx}>${m[1]}<//>`);
+    last = m.index + m[1].length;
+  }
+  if (!out.length) return text;
+  if (last < text.length) out.push(text.slice(last));
+  return out;
+}
+
+const STAT_DEFS = [
+  { k: 'vpip', n: 'VPIP', he: 'כמה ידיים שיחקת', lo: 0.18, hi: 0.28, max: 0.7, d: 'אחוז הידיים שבהן הכנסת כסף מרצונך לפני הפלופ (קריאה או העלאה). צ׳ק ב-BB לא נחשב.', low: 'אתה משחק מעט מדי ידיים – בפוזיציות מאוחרות אפשר לפתוח הרבה יותר.', high: 'אתה משחק יותר מדי ידיים. ידיים חלשות מפסידות כסף לאורך זמן – התחל מטווחי הפתיחה בלשונית "טווחים".' },
+  { k: 'pfr', n: 'PFR', he: 'כמה פעמים העלית לפני הפלופ', lo: 0.14, hi: 0.23, max: 0.6, d: 'אחוז הידיים שבהן העלית לפני הפלופ. אצל שחקן טוב PFR קרוב ל-VPIP: כשהוא נכנס לקופה – הוא מעלה.', low: 'אתה נכנס לקופות בקריאות במקום בהעלאות. העלאה נותנת יוזמה וסיכוי לזכות מיד.', high: 'אתה מעלה עם הרבה ידיים – ודא שהן מהטווח, ולא סתם.' },
+  { k: 'three', n: '⁦3-Bet⁩', he: 'העלאות מחדש', lo: 0.03, hi: 0.09, max: 0.3, d: 'אחוז הידיים שבהן העלית מחדש מעל העלאה של מישהו אחר.', low: 'כמעט לא עשית ⁦3-Bet⁩. מול פתיחות מפוזיציה מאוחרת כדאי להעלות מחדש עם ידיים חזקות ועם כמה A קטנות בצבע.', high: 'הרבה ⁦3-Bet⁩ – זה עובד מול שחקנים שמקפלים, אבל יקר מול שחקנים שקוראים.' },
+  { k: 'af', n: 'AF', he: 'אגרסיביות אחרי הפלופ', lo: 1.8, hi: 4, max: 8, num: true, d: '(הימורים + העלאות) ÷ קריאות, אחרי הפלופ. ‏1 = קורא בדיוק כמו שמהמר; 3 = מהמר פי 3 ממה שקורא.', low: 'אתה בעיקר קורא. בפוקר הכסף מגיע מהימורים: הֵמר עם ידיים חזקות ועם דרואים טובים.', high: 'אתה מהמר ומעלה הרבה מאוד – כנראה גם עם ידיים שעדיף לעשות איתן צ׳ק.' },
+  { k: 'cbet', n: 'C-Bet', he: 'הימור המשך בפלופ', lo: 0.5, hi: 0.75, max: 1, d: 'כשהעלית לפני הפלופ – באיזה אחוז מהפעמים המשכת להמר בפלופ.', low: 'אתה מוותר הרבה בפלופ אחרי שהעלית. הימור קטן על לוחות יבשים מרוויח גם בלי יד.', high: 'אתה ממשיך להמר כמעט תמיד. על לוחות רטובים ומול כמה יריבים עדיף לפעמים צ׳ק.' },
+  { k: 'wtsd', n: 'WTSD', he: 'כמה פעמים הגעת לשואודאון', lo: 0.24, hi: 0.34, max: 0.8, d: 'מתוך הידיים שבהן ראית פלופ – כמה הגיעו עד חשיפת הקלפים.', low: 'אתה מקפל הרבה אחרי הפלופ – ייתכן שאתה מוותר על ידיים עם ערך הצגה.', high: 'אתה מגיע הרבה לשואודאון – כנראה קורא יותר מדי עם ידיים חלשות.' },
+  { k: 'wsd', n: 'W$SD', he: 'ניצחונות בשואודאון', lo: 0.48, hi: 0.6, max: 1, d: 'מתוך הפעמים שהגעת לשואודאון – כמה ניצחת.', low: 'אתה מגיע לשואודאון עם ידיים חלשות מדי. כשהיד חלשה ויש הימור גדול – קיפול זול יותר.', high: 'אתה מנצח כמעט תמיד בשואודאון – אולי אתה מקפל יותר מדי ידיים טובות בדרך.' },
+];
+function analyzeSession(hands){
+  const N = hands.length, cnt = f => hands.filter(f).length;
+  const sawFlop = cnt(h => h.hs.sawFlop), sdN = cnt(h => h.hs.sd), cbOpp = cnt(h => h.hs.cbetOpp);
+  const aggr = hands.reduce((t, h) => t + h.hs.aggr, 0), calls = hands.reduce((t, h) => t + h.hs.calls, 0);
+  const decisions = hands.flatMap(h => h.decisions.map(d => ({ ...d, no: h.no })));
+  const good = decisions.filter(d => d.grade !== 'mistake').length;
+  const net = hands.reduce((t, h) => t + h.net, 0);
+  return {
+    N, net, bb100: N ? net / N * 100 : 0, won: cnt(h => h.net > 0),
+    vpip: N ? cnt(h => h.hs.vpip) / N : null, pfr: N ? cnt(h => h.hs.pfr) / N : null, three: N ? cnt(h => h.hs.threeBet) / N : null,
+    af: calls ? aggr / calls : (aggr ? aggr : null), cbet: cbOpp ? cnt(h => h.hs.cbet) / cbOpp : null,
+    wtsd: sawFlop ? sdN / sawFlop : null, wsd: sdN ? cnt(h => h.hs.wonSd) / sdN : null,
+    decisions, acc: decisions.length ? good / decisions.length : null,
+    biggestWin: Math.max(0, ...hands.map(h => h.net)), biggestLoss: Math.min(0, ...hands.map(h => h.net)),
+  };
+}
+function playerType(a){
+  const v = a.vpip, r = a.pfr, ratio = v ? r / v : 0;
+  if (v < 0.15) return { t: 'Nit / Rock – הדוק מאוד', d: 'שיחקת מעט מאוד ידיים. זה מגן מטעויות, אבל משאיר כסף על השולחן: מהכפתור ומה-CO אפשר לפתוח הרבה יותר.' };
+  if (v > 0.45 && r > 0.3) return { t: 'Maniac – אגרסיבי מאוד', d: 'שיחקת והעלית עם רוב הידיים. זה עובד לפעמים בטווח הקצר, אבל מול שחקנים שקוראים זה יקר מאוד.' };
+  if (v > 0.32) return ratio >= 0.6
+    ? { t: 'LAG – רחב ואגרסיבי', d: 'שיחקת הרבה ידיים, אבל בעיקר בהעלאות. זה סגנון שמנצח רק עם החלטות מדויקות מאוד אחרי הפלופ.' }
+    : { t: 'Loose-Passive – רחב ופסיבי', d: 'הסגנון היקר ביותר בפוקר: הרבה ידיים, ובעיקר קריאות. קפל יותר לפני הפלופ, ועם הידיים שאתה כן משחק – העדף להעלות.' };
+  return ratio >= 0.6
+    ? { t: 'TAG – הדוק ואגרסיבי', d: 'זה הסגנון המומלץ: מעט ידיים, אבל משחקים אותן באגרסיביות. המשך כך, ושפר את הדיוק אחרי הפלופ.' }
+    : { t: 'Tight-Passive – הדוק ופסיבי', d: 'בחירת הידיים שלך טובה, אבל אתה קורא יותר מדי. כשאתה נכנס לקופה – העדף להעלות.' };
+}
+
 /* =====================================================================
-   9. UI components
+   11. UI components
    ===================================================================== */
 function useHotkeys(handler){
   const ref = useRef(handler); ref.current = handler;
   useEffect(() => {
     const f = e => {
       if (e.metaKey || e.ctrlKey || e.altKey) return;
-      const t = e.target;
+      const t = e.target, k = e.key.toLowerCase();
       if (t && (t.tagName === 'TEXTAREA' || (t.tagName === 'INPUT' && t.type !== 'range' && t.type !== 'checkbox'))) return;
-      ref.current(e.key.toLowerCase(), e);
+      if (t && (t.tagName === 'BUTTON' || t.tagName === 'SUMMARY') && (k === 'enter' || k === ' ')) return;
+      ref.current(k, e);
     };
     window.addEventListener('keydown', f);
     return () => window.removeEventListener('keydown', f);
@@ -863,11 +1523,13 @@ function Card({ c, back, size = 'md', dim }){
   return html`<div className=${`card ${size} s${s}${dim ? ' dim' : ''}`} aria-label=${rankLabel(rankOf(c)) + SUIT_SYM[s]}>
     <span className="cr">${rankLabel(rankOf(c))}</span><span className="cs">${SUIT_SYM[s]}</span></div>`;
 }
+const CardRow = ({ cards, size = 'sm' }) => html`<span className="mini-cards">${cards.map(c => html`<${Card} key=${c} c=${c} size=${size} />`)}</span>`;
+const cardsFrom = str => str.split(' ').map(cardOf);
 function Table({ heroPos, seats, board, pot, total, note }){
   const hi = SEATS.indexOf(heroPos);
   return html`<div className="table-wrap"><div className="table">
     <div className="felt"><div className="center">
-      <div className="pot">קופה <b>${fmt(pot)}bb</b>${total != null && total !== pot ? html` · סה״כ ${fmt(total)}` : ''}</div>
+      <div className="pot">קופה <b>${fmt(pot > 0 || total == null ? pot : total)}bb</b>${total != null && pot > 0 && total !== pot ? html` · סה״כ ${fmt(total)}` : ''}</div>
       <div className="board">${[0,1,2,3,4].map(i => html`<${Card} key=${i + '-' + (board[i] ?? 'x')} c=${board[i]} size="lg" />`)}</div>
       ${note ? html`<div className="table-note">${note}</div>` : null}
     </div></div>
@@ -880,10 +1542,13 @@ function Table({ heroPos, seats, board, pot, total, note }){
       if (s.state === 'hero') cards = s.cards.map(c => html`<${Card} key=${c} c=${c} size="lg" />`);
       else if (s.reveal) cards = s.reveal.map(c => html`<${Card} key=${c} c=${c} size="md" />`);
       else if (s.state === 'villain' || s.state === 'waiting') cards = [0,1].map(i => html`<${Card} key=${i} back=${true} size="md" />`);
+      const title = s.name || (s.pos + (s.state === 'hero' ? ' · אתה' : ''));
+      const sub = s.state === 'folded' && !s.name ? 'Fold' : (s.name ? s.pos + ' · ' : '') + fmt(s.stack) + 'bb';
       return html`<${React.Fragment} key=${s.pos}>
-        <div className=${'seat ' + s.state} style=${{ left: x + '%', top: y + '%' }}>
+        <div className=${'seat ' + s.state + (s.acting ? ' acting' : '')} style=${{ left: x + '%', top: y + '%' }}>
           <div className="cards">${cards}</div>
-          <div className="plate">${s.pos === 'BTN' ? html`<i className="dealer">D</i>` : null}<b>${s.pos}${s.state === 'hero' ? ' · אתה' : ''}</b><span>${s.state === 'folded' ? 'Fold' : fmt(s.stack) + 'bb'}</span></div>
+          <div className="plate">${s.pos === 'BTN' ? html`<i className="dealer">D</i>` : null}<b>${title}</b><span>${sub}</span>${s.tag ? html`<em>${s.tag}</em>` : null}</div>
+          ${s.last ? html`<div className="bubble">${s.last}</div>` : null}
         </div>
         ${s.bet > 0 ? html`<div className="bet" style=${{ left: bx + '%', top: by + '%' }}><i className="chip"></i>${fmt(s.bet)}</div>` : null}
       <//>`;
@@ -912,6 +1577,27 @@ function Verdict({ grade, title, sub }){
   return html`<div className="verdict"><div className=${'badge ' + grade}>${icon}</div>
     <div><h4 className=${grade}>${title}</h4>${sub ? html`<p>${sub}</p>` : null}</div></div>`;
 }
+const VERDICT_TITLE = { best: 'החלטה נכונה (EV+)', ok: 'סבירה – לא הטובה ביותר', mistake: 'טעות' };
+function Explain({ ex }){
+  return html`<div className="explain">
+    <div><span className="ex-lbl">בשורה התחתונה</span><div className="ex-bottom">${rich(ex.bottom)}</div></div>
+    <div><span className="ex-lbl">למה? צעד אחר צעד</span><ol className="ex-steps">${ex.steps.map((s, i) => html`<li key=${i}>${rich(s)}</li>`)}</ol></div>
+    ${ex.alt ? html`<p className="ex-alt">${rich(ex.alt)}</p>` : null}
+    ${ex.size ? html`<p className="ex-alt"><b style=${{ color: 'var(--text)' }}>גודל ההימור: </b>${rich(ex.size)}</p>` : null}
+    ${ex.example ? html`<div className="ex-example"><span className="ex-lbl">דוגמה</span><p>${rich(ex.example)}</p></div>` : null}
+    ${ex.rule ? html`<div className="ex-rule"><span className="ex-lbl">כלל אצבע</span><p>${rich(ex.rule)}</p></div>` : null}
+  </div>`;
+}
+function FeedbackPanel({ fb, labels, streetName }){
+  const L = labels || ACT_EN;
+  return html`<section className="panel">
+    <h3>פידבק${streetName ? ' · ' + streetName : ''}</h3>
+    <${Verdict} grade=${fb.grade} title=${VERDICT_TITLE[fb.grade]}
+      sub=${fb.grade === 'best' ? `${L[fb.act]} היא הפעולה המומלצת.` : `בחרת ${L[fb.act]}. מומלץ: ${L[fb.best]}.`} />
+    ${fb.line ? html`<span className="line-tag">${fb.line}</span>` : null}
+    <${Explain} ex=${fb.ex} />
+  </section>`;
+}
 function EquityBar({ eq, req }){
   return html`<div>
     <div className="eqbar"><i style=${{ width: pct(eq) + '%' }}></i>${req != null ? html`<u style=${{ left: pct(req) + '%' }}></u>` : null}</div>
@@ -919,12 +1605,86 @@ function EquityBar({ eq, req }){
   </div>`;
 }
 function OddsExplainer(){
-  return html`<details className="explain"><summary>מה ההבדל בין Odds ל-Pot Odds?</summary>
-    <p><b>Odds / Equity</b> – הסיכוי שלך לזכות ביד. כשיש לך דרואו סופרים <b>אאוטים</b>: קלפים שישפרו אותך ליד מנצחת.</p>
-    <p><b>Pot Odds</b> – המחיר שהקופה מציעה. אם צריך לקרוא 5 לקופה של 15, אתה משקיע 5 כדי לזכות ב-20 → צריך 25% Equity.</p>
-    <p><b>הכלל:</b> Equity גדול מה-Pot Odds → קריאה רווחית (EV+). קטן יותר → קיפול, אלא אם יש Implied Odds – כסף נוסף שתרוויח כשתשלים את היד.</p>
-    <p><b>כלל 2 ו-4:</b> אאוטים × 2 ≈ % לשיפור בקלף אחד. אאוטים × 4 ≈ % עד הריבר (רק אם רואים את שני הקלפים, למשל ב-All-in).</p>
+  return html`<details className="explain-box"><summary>מה ההבדל בין Odds ל-Pot Odds?</summary>
+    <p><b>Equity</b> – הסיכוי שלך לזכות ביד. כשיש לך דרואו סופרים <b>אאוטים</b>: קלפים שישפרו אותך ליד מנצחת.</p>
+    <p><b>Pot Odds</b> – המחיר שהקופה מציעה. אם צריך לקרוא 5 לקופה של 15, אתה משקיע 5 כדי לזכות ב-20 ← צריך 25% Equity.</p>
+    <p><b>הכלל:</b> Equity גדול מה-Pot Odds ← קריאה רווחית (EV+). קטן יותר ← קיפול, אלא אם יש Implied Odds – כסף נוסף שתרוויח כשתשלים את היד.</p>
+    <p><b>כלל 2 ו-4:</b> כפול את מספר האאוטים ב-2 – זה בערך אחוז הסיכוי להשתפר בקלף הבא. כפול ב-4 – הסיכוי עד הריבר (רק אם תראה את שני הקלפים, למשל אחרי All-in).</p>
   </details>`;
+}
+// equity, pot odds and outs in plain language (shared by the trainers and the game)
+function OddsCore({ eq, eqLabel, toCall, pot, node, boardLen, streetIdx }){
+  const req = toCall > 0 ? toCall / (pot + toCall) : null;
+  const outs = node && node.outs;
+  const unseen = 52 - 2 - boardLen;
+  const k = outs ? outs.strong.length : 0;
+  const one = k / unseen, two = 1 - ((unseen - k) / unseen) * ((unseen - 1 - k) / (unseen - 1));
+  const d = node && node.draws;
+  const drawTags = d ? [d.fd && 'Flush Draw', d.oesd && 'Open-Ended Straight Draw', d.gut && 'Gutshot'].filter(Boolean) : [];
+  return html`<div>
+    ${node && node.made ? html`<dl className="kv" style=${{ marginBottom: '12px' }}>
+      <dt>היד שלך</dt><dd><b>${node.made.name}</b> <span className="muted mono" style=${{ fontSize: '12px' }}>${node.made.en}</span></dd>
+      ${drawTags.length ? html`<dt>דרואו</dt><dd className="chips">${drawTags.map(t => html`<span key=${t} className="tag">${rich(t)}</span>`)}</dd>` : null}
+      ${node.tex ? html`<dt>לוח</dt><dd>${rich(node.tex.label)} <span className="muted">· ${node.tex.tags.join(' · ')}</span></dd>` : null}
+    </dl>` : null}
+    <div className="bignum">${pct(eq)}%</div>
+    <div className="muted small">${rich(eqLabel)}</div>
+    <${EquityBar} eq=${eq} req=${req} />
+    <p className="plain">במילים פשוטות: מתוך 100 מצבים כאלה תנצח בערך ${pct(eq)}.</p>
+    ${req != null ? html`<div style=${{ marginTop: '12px' }}>
+      <dl className="kv">
+        <dt>לקרוא</dt><dd className="mono">${fmt(toCall)}bb לקופה של ${fmt(pot)}bb</dd>
+        <dt>Pot Odds</dt><dd className="mono"><bdi dir="ltr">${fmt(pot / toCall)}:1</bdi> · צריך ${pct(req)}%</dd>
+      </dl>
+      <p className="plain">אתה משלם ${fmt(toCall)} כדי לנסות לזכות ב-${fmt(pot + toCall)}. זה משתלם אם תנצח לפחות ${pct(req)} מתוך 100.</p>
+      <p className="small" style=${{ margin: '6px 0 0', color: eq >= req ? 'var(--good)' : 'var(--bad)' }}>${eq >= req ? 'יש לך את המחיר לקריאה.' : 'אין מספיק Equity לקריאה'}${eq < req && k >= 8 && streetIdx < 2 ? ' – אבל בדוק Implied Odds.' : eq < req ? '.' : ''}</p>
+    </div>` : null}
+    ${outs && streetIdx < 2 ? html`<div style=${{ marginTop: '12px' }}>
+      <dl className="kv">
+        <dt>אאוטים</dt><dd><b className="mono">${k}</b> חזקים${outs.all.length > k ? html` <span className="muted">+ ${outs.all.length - k} לזוג עליון</span>` : null}</dd>
+        ${k ? html`<dt>הקלף הבא</dt><dd className="mono">${fmt(one * 100)}%${streetIdx === 0 ? html` <span className="muted">· עד הריבר ${fmt(two * 100)}%</span>` : null}</dd>` : null}
+        ${k ? html`<dt>כלל 2/4</dt><dd className="mono"><bdi dir="ltr">${k}×2 ≈ ${k * 2}%${streetIdx === 0 ? ` · ${k}×4 ≈ ${Math.min(100, k * 4)}%` : ''}</bdi></dd>` : null}
+      </dl>
+      ${outs.groups.map(gr => html`<div key=${gr.label} className="outs-group">
+        <span>${gr.cards.length} קלפים ← <b>${gr.label}</b>${gr.weak ? html` <span className="muted">(חלש יותר – לא תמיד מנצח)</span>` : null}</span>
+        <${CardRow} cards=${gr.cards} />
+      </div>`)}
+      ${!outs.all.length ? html`<p className="plain">אין קלפים שמשפרים אותך ליד חזקה.</p>` : null}
+    </div>` : null}
+  </div>`;
+}
+function ActionBar({ toCall, callAmt, canRaise, minTo, maxTo, presets, def, pot, aggWord, onAct }){
+  const facing = toCall > 0;
+  const clamp = v => Math.max(minTo, Math.min(maxTo, roundHalf(v)));
+  const [amt, setAmt] = useState(() => clamp(def));
+  const allIn = amt >= maxTo;
+  const doFold = () => facing && onAct('fold');
+  const doCC = () => onAct(facing ? 'call' : 'check');
+  const doBR = () => canRaise && onAct(aggWord, amt);
+  useHotkeys(k => { if (k === 'f') doFold(); else if (k === 'c' || k === 'k') doCC(); else if (k === 'r' || k === 'b') doBR(); });
+  const aggLabel = allIn ? `All-in ${fmt(amt)}` : aggWord === 'bet' ? `Bet ${fmt(amt)}` : `Raise ל-${fmt(amt)}`;
+  return html`<div className="actions">
+    ${canRaise ? html`<div className="sizer">
+      <div className="sizer-top">
+        <span className="amt">${aggWord === 'bet' ? 'הימור: ' : 'העלאה ל-'}<b>${fmt(amt)}bb</b>${aggWord === 'bet' ? html` <span className="muted">(${pct(amt / pot)}% מהקופה)</span>` : null}</span>
+        <div className="presets">${presets.map(([l, v]) => html`<button key=${l} type="button" onClick=${() => setAmt(clamp(v))}>${l}</button>`)}</div>
+      </div>
+      <input id="bet-size" type="range" min=${minTo} max=${maxTo} step="0.5" value=${amt} onInput=${e => setAmt(+e.target.value)} onChange=${e => setAmt(+e.target.value)} aria-label="גודל הימור" />
+    </div>` : null}
+    <div className="btn-row">
+      <button className="btn fold" disabled=${!facing} onClick=${doFold}>Fold<kbd>F</kbd></button>
+      <button className="btn call" onClick=${doCC}>${facing ? (callAmt >= toCall ? `Call ${fmt(callAmt)}bb` : `All-in ${fmt(callAmt)}bb`) : 'Check'}<kbd>C</kbd></button>
+      <button className="btn raise" disabled=${!canRaise} onClick=${doBR}>${aggLabel}<kbd>${aggWord === 'bet' ? 'B' : 'R'}</kbd></button>
+    </div>
+  </div>`;
+}
+function HandLog({ log }){
+  const ref = useRef(null);
+  useEffect(() => { if (ref.current) ref.current.scrollTop = ref.current.scrollHeight; }, [log.length]);
+  return html`<ul className="log" ref=${ref}>${log.map((e, i) => html`<li key=${i}>
+    ${e.k === 'street' ? html`<span className="st">${e.text.toUpperCase()}</span>${e.cards && e.cards.length ? html`<${CardRow} cards=${e.cards} />` : null}<span className="muted mono" style=${{ fontSize: '12px' }}>קופה ${fmt(e.pot)}bb</span>`
+      : html`<span className=${e.k === 'hero' ? 'hero' : e.k === 'result' ? 'res' : 'vil'}>${e.text}</span>`}
+  </li>`)}</ul>`;
 }
 
 /* ----------------------------- Pre-flop trainer ----------------------------- */
@@ -939,7 +1699,7 @@ function PreflopTrainer({ record, intuition }){
     if (ans) return;
     const grade = a === scn.best ? 'best' : 'mistake';
     const mtype = grade === 'mistake' ? preMistakeType(scn.best, a, scn.opener) : null;
-    setAns({ a, grade, lines: explainPre(scn, a, info), mtype });
+    setAns({ a, grade, ex: explainPre(scn, a, info, labels), mtype });
     record({ mode: 'pre', street: 'preflop', grade, mtype, text: `${scn.heroPos}${scn.opener ? ' מול ' + scn.opener : ''} · ${scn.cls} · ${labels[a]} (מומלץ: ${labels[scn.best]})` });
   };
   const next = () => { setScn(newPreScenario()); setAns(null); };
@@ -973,29 +1733,21 @@ function PreflopTrainer({ record, intuition }){
       </section>
     </div>
     <aside className="col">
-      ${ans ? html`<section className="panel">
-          <h3>פידבק</h3>
-          <${Verdict} grade=${ans.grade} title=${ans.grade === 'best' ? 'החלטה נכונה' : 'לא האופציה הטובה'}
-            sub=${ans.grade === 'best' ? `${labels[ans.a]} – בדיוק לפי הטווח.` : `בחרת ${labels[ans.a]}. מומלץ: ${labels[scn.best]}.`} />
-          <ul className="reasons">${ans.lines.map((l, i) => html`<li key=${i}>${l}</li>`)}</ul>
-          <div style=${{ marginTop: '14px' }}>
-            <h3>${scn.opener ? `הטווח שלך: ${scn.heroPos} מול ${scn.opener}` : `טווח פתיחה: ${scn.heroPos} (${rangePct(RFI[scn.heroPos])}%)`}</h3>
-            <${RangeGrid} colorOf=${colorOf} highlight=${scn.cls} />
-            <div style=${{ marginTop: '8px' }}><${Legend} facing=${!!scn.opener} /></div>
-          </div>
-        </section>` : null}
+      ${ans ? html`<${React.Fragment}>
+        <${FeedbackPanel} fb=${{ grade: ans.grade, act: ans.a, best: scn.best, ex: ans.ex }} labels=${labels} streetName="Pre-Flop" />
+        <section className="panel">
+          <h3>${scn.opener ? `הטווח שלך: ${scn.heroPos} מול ${scn.opener}` : `טווח פתיחה: ${scn.heroPos} (${rangePct(RFI[scn.heroPos])}%)`}</h3>
+          <${RangeGrid} colorOf=${colorOf} highlight=${scn.cls} />
+          <div style=${{ marginTop: '8px' }}><${Legend} facing=${!!scn.opener} /></div>
+          <p className="plain">המסגרת הזהובה מסמנת את היד שלך. כל משבצת היא סוג יד – למשל AKs (A ו-K באותו צבע).</p>
+        </section><//>` : null}
       <section className="panel">
         <h3>סיכויים</h3>
         ${showOdds ? html`<div>
-            <div className="bignum">${pct(eq)}%</div>
-            <div className="muted" style=${{ fontSize: '13px' }}>${scn.opener ? `Equity של ${scn.cls} מול טווח הפתיחה של ${scn.opener} (${rangePct(RFI[scn.opener])}%)` : 'Equity מול יד אקראית (שחקן אחד)'}</div>
-            <${EquityBar} eq=${eq} req=${info.req} />
-            ${info.facing ? html`<dl className="kv" style=${{ marginTop: '12px' }}>
-                <dt>לקרוא</dt><dd className="mono">${fmt(info.toCall)}bb</dd>
-                <dt>קופה אחרי קריאה</dt><dd className="mono">${fmt(info.pot + info.toCall)}bb</dd>
-                <dt>Pot Odds</dt><dd className="mono"><bdi dir="ltr">${fmt(info.pot / info.toCall)}:1 → ${pct(info.req)}%</bdi></dd>
-              </dl>` : html`<p className="muted" style=${{ fontSize: '13.5px', margin: '10px 0 0' }}>בפתיחה אין Pot Odds – השאלה היא אם היד מרוויחה מספיק כשהיא מקבלת קריאה, וכמה פעמים כולם פשוט יקפלו.</p>`}
-            ${range && range.call.size === 0 ? html`<p className="muted" style=${{ fontSize: '13px', margin: '8px 0 0' }}>מה-SB: ⁦3-Bet⁩ או Fold.</p>` : null}
+            <${OddsCore} eq=${eq} eqLabel=${scn.opener ? `Equity של ${scn.cls} מול טווח הפתיחה של ${scn.opener} (${rangePct(RFI[scn.opener])}% מהידיים)` : 'Equity מול יד אקראית של שחקן אחד'}
+              toCall=${info.facing ? info.toCall : 0} pot=${info.pot} node=${null} boardLen=${0} streetIdx=${3} />
+            ${!info.facing ? html`<p className="plain">בפתיחה אין Pot Odds – השאלה היא אם היד מרוויחה מספיק כשמקבלים קריאה, וכמה פעמים כולם פשוט יקפלו.</p>` : null}
+            ${range && range.call.size === 0 ? html`<p className="plain">מה-SB: ⁦3-Bet⁩ או Fold.</p>` : null}
           </div>` : html`<div className="hidden-note">מצב אינטואיציה פעיל – הסיכויים יוצגו אחרי ההחלטה.</div>`}
         <${OddsExplainer} />
       </section>
@@ -1004,36 +1756,6 @@ function PreflopTrainer({ record, intuition }){
 }
 
 /* ----------------------------- Post-flop trainer ----------------------------- */
-function BetControls({ h, onAct }){
-  const node = h.node, facing = node.toCall > 0;
-  const maxTo = h.heroIn + h.heroStack;
-  const canRaise = h.heroStack > node.toCall;
-  const minTo = facing ? Math.min(maxTo, h.vilIn * 2) : Math.min(maxTo, 1);
-  const clamp = v => Math.max(minTo, Math.min(maxTo, roundHalf(v)));
-  const presets = facing
-    ? [['x2.5', h.vilIn * 2.5], ['x3', h.vilIn * 3], ['x4', h.vilIn * 4], ['All-in', maxTo]]
-    : [['33%', h.pot * 0.33], ['50%', h.pot * 0.5], ['75%', h.pot * 0.75], ['Pot', h.pot], ['All-in', maxTo]];
-  const [amt, setAmt] = useState(() => clamp(facing ? h.vilIn * 3 : h.pot * 0.5));
-  const callAmt = Math.min(node.toCall, h.heroStack);
-  const doFold = () => facing && onAct('fold');
-  const doCC = () => onAct(facing ? 'call' : 'check');
-  const doBR = () => canRaise && onAct(facing ? 'raise' : 'bet', amt);
-  useHotkeys(k => { if (k === 'f') doFold(); else if (k === 'c' || k === 'k') doCC(); else if (k === 'r' || k === 'b') doBR(); });
-  return html`<div className="actions">
-    ${canRaise ? html`<div className="sizer">
-      <div className="sizer-top">
-        <span className="amt">${facing ? 'העלאה ל-' : 'הימור: '}<b>${fmt(amt)}bb</b>${!facing ? html` <span className="muted">(${pct(amt / h.pot)}% מהקופה)</span>` : null}</span>
-        <div className="presets">${presets.map(([l, v]) => html`<button key=${l} type="button" onClick=${() => setAmt(clamp(v))}>${l}</button>`)}</div>
-      </div>
-      <input id="bet-size" type="range" min=${minTo} max=${maxTo} step="0.5" value=${amt} onInput=${e => setAmt(+e.target.value)} onChange=${e => setAmt(+e.target.value)} aria-label="גודל הימור" />
-    </div>` : null}
-    <div className="btn-row">
-      <button className="btn fold" disabled=${!facing} onClick=${doFold}>Fold<kbd>F</kbd></button>
-      <button className="btn call" onClick=${doCC}>${facing ? `Call ${fmt(callAmt)}bb` : 'Check'}<kbd>C</kbd></button>
-      <button className="btn raise" disabled=${!canRaise} onClick=${doBR}>${facing ? `Raise ל-${fmt(amt)}` : `Bet ${fmt(amt)}`}<kbd>${facing ? 'R' : 'B'}</kbd></button>
-    </div>
-  </div>`;
-}
 function VillainHeat({ range }){
   const frac = useMemo(() => {
     const m = {};
@@ -1042,46 +1764,6 @@ function VillainHeat({ range }){
     return m;
   }, [range]);
   return html`<${RangeGrid} compact=${true} colorOf=${cls => ({ style: frac[cls] ? { background: `color-mix(in srgb, var(--raise) ${Math.round(25 + 75 * frac[cls])}%, var(--fold))` } : undefined })} />`;
-}
-function PostOdds({ h, node }){
-  const b = visBoard(h);
-  const unseen = 52 - 2 - b.length;
-  const outs = node.outs.length;
-  const one = outs / unseen;
-  const two = 1 - ((unseen - outs) / unseen) * ((unseen - 1 - outs) / (unseen - 1));
-  const req = node.toCall > 0 ? node.toCall / (node.pot + node.toCall) : null;
-  const d = node.draws;
-  const drawTags = [d.fd && 'Flush Draw', d.oesd && 'Open-Ended Straight Draw', d.gut && 'Gutshot'].filter(Boolean);
-  return html`<div>
-    <dl className="kv">
-      <dt>היד שלך</dt><dd><b>${node.made.name}</b> <span className="muted mono" style=${{ fontSize: '12px' }}>${node.made.en}</span></dd>
-      ${drawTags.length ? html`<dt>דרואו</dt><dd className="chips">${drawTags.map(t => html`<span key=${t} className="tag">${t}</span>`)}</dd>` : null}
-      <dt>לוח</dt><dd>${node.tex.label} <span className="muted">· ${node.tex.tags.join(' · ')}</span></dd>
-    </dl>
-    <div style=${{ marginTop: '12px' }}>
-      <div className="bignum">${pct(node.eq)}%</div>
-      <div className="muted" style=${{ fontSize: '13px' }}>Equity מול הטווח המשוער של ${h.vilPos}</div>
-      <${EquityBar} eq=${node.eq} req=${req} />
-    </div>
-    ${req != null ? html`<dl className="kv" style=${{ marginTop: '12px' }}>
-        <dt>לקרוא</dt><dd className="mono">${fmt(node.toCall)}bb לקופה של ${fmt(node.pot)}bb</dd>
-        <dt>Pot Odds</dt><dd className="mono"><bdi dir="ltr">${fmt(node.pot / node.toCall)}:1</bdi> · צריך ${pct(req)}%</dd>
-        <dt>מסקנה</dt><dd style=${{ color: node.eq >= req ? 'var(--good)' : 'var(--bad)' }}>${node.eq >= req ? 'יש לך את המחיר לקריאה' : 'אין מספיק Equity לקריאה'}${node.eq < req && outs >= 8 && h.street < 2 ? ' (אבל בדוק Implied Odds)' : ''}</dd>
-      </dl>` : null}
-    ${h.street < 2 ? html`<div style=${{ marginTop: '12px' }}>
-        <dl className="kv">
-          <dt>אאוטים</dt><dd><b className="mono">${outs}</b>${outs ? html` <span className="muted">· ${fmt(one * 100)}% בקלף הבא · ${h.street === 0 ? fmt(two * 100) + '% עד הריבר' : ''}</span>` : html` <span className="muted">– אין קלפים שמשפרים אותך ליד חזקה</span>`}</dd>
-          ${outs ? html`<dt>Odds</dt><dd className="mono"><bdi dir="ltr">${fmt((unseen - outs) / outs)}:1</bdi> נגד שיפור בקלף הבא</dd>` : null}
-          ${outs ? html`<dt>כלל 2/4</dt><dd className="mono"><bdi dir="ltr">${outs}×2 ≈ ${outs * 2}%${h.street === 0 ? ` · ${outs}×4 ≈ ${Math.min(100, outs * 4)}%` : ''}</bdi></dd>` : null}
-        </dl>
-        ${outs ? html`<div className="mini-cards" style=${{ marginTop: '8px' }}>${node.outs.map(c => html`<${Card} key=${c} c=${c} size="sm" />`)}</div>` : null}
-      </div>` : null}
-    <div style=${{ marginTop: '14px' }}>
-      <h3>טווח משוער של ${h.vilPos} · ${node.vilN} קומבינציות (${pct(node.vilN / h.vilStartN)}% מההתחלה)</h3>
-      <${VillainHeat} range=${h.vilRange} />
-      <p className="muted" style=${{ fontSize: '12.5px', margin: '6px 0 0' }}>כל פעולה של היריב מצמצמת את הטווח: הימור מסנן ידיים חלשות, צ׳ק מסנן את החזקות ביותר.</p>
-    </div>
-  </div>`;
 }
 function PostflopTrainer({ record, intuition }){
   const [h, setH] = useState(newPostHand);
@@ -1095,10 +1777,9 @@ function PostflopTrainer({ record, intuition }){
   const next = () => { setH(newPostHand()); setFb(null); };
   useHotkeys(k => { if (h.done && (k === 'n' || k === 'enter' || k === ' ')) next(); });
   const showBoard = h.done && ['win','lose','split'].includes(h.how) ? h.board : visBoard(h);
-  const reveal = h.done;
   const seats = SEATS.map(pos => {
     if (pos === h.heroPos) return { pos, state: 'hero', cards: h.hero, stack: h.heroStack, bet: h.heroIn };
-    if (pos === h.vilPos) return { pos, state: h.how === 'vilFold' ? 'folded' : 'villain', stack: h.vilStack, bet: h.vilIn, reveal: reveal ? h.vil : null };
+    if (pos === h.vilPos) return { pos, state: h.how === 'vilFold' ? 'folded' : 'villain', stack: h.vilStack, bet: h.vilIn, reveal: h.done ? h.vil : null };
     return { pos, state: 'folded', bet: 0, stack: 100 };
   });
   const role = h.heroIsPFR ? 'PFR – פתחת והוא קרא' : 'Caller – קראת לפתיחה שלו';
@@ -1110,6 +1791,7 @@ function PostflopTrainer({ record, intuition }){
     lose: `הפסדת בשואודאון: ${hm.name} מול ${vm.name}.`,
     split: `תיקו – חלוקת קופה (${hm.name}).`,
   }[h.how];
+  const node = h.node, facing = node && node.toCall > 0, maxTo = h.heroIn + h.heroStack;
   return html`<div className="trainer">
     <div className="col">
       <section className="panel">
@@ -1117,43 +1799,305 @@ function PostflopTrainer({ record, intuition }){
           <h2 className="scn-title">${h.done ? 'היד הסתיימה' : STREET_EN[h.street]}</h2>
           <span className="tag">אתה <b>${h.heroPos}</b></span>
           <span className="tag">יריב <b>${h.vilPos}</b></span>
-          <span className="tag">${h.heroIP ? 'In Position' : 'Out of Position'}</span>
-          <span className="tag">${role}</span>
+          <span className="tag">${rich(h.heroIP ? 'In Position' : 'Out of Position')}</span>
+          <span className="tag">${rich(role)}</span>
         </div>
         <${Table} heroPos=${h.heroPos} seats=${seats} board=${showBoard} pot=${h.pot - h.heroIn - h.vilIn} total=${h.pot}
-          note=${!h.done && h.node && h.node.toCall > 0 ? `${h.vilPos} מהמר – ${fmt(h.node.toCall)}bb לקריאה` : null} />
+          note=${!h.done && node && node.toCall > 0 ? `${h.vilPos} מהמר – ${fmt(node.toCall)}bb לקריאה` : null} />
         ${h.done ? html`<div className="result">
             <div><div style=${{ fontWeight: 500 }}>${resultText}</div>
-              <div className=${'net ' + (h.net >= 0 ? 'pos-net' : 'neg-net')}><bdi dir="ltr">${h.net >= 0 ? '+' : '−'}${fmt(Math.abs(h.net))}bb</bdi></div></div>
+              <div className=${'net ' + (h.net >= 0 ? 'pos-net' : 'neg-net')}><bdi dir="ltr">${signed(h.net)}bb</bdi></div></div>
             <button className="btn next" style=${{ flex: '0 0 auto' }} onClick=${next}>יד חדשה<kbd>N / Enter</kbd></button>
           </div>`
-          : h.node ? html`<${BetControls} key=${h.log.length} h=${h} onAct=${act} />` : null}
+          : node ? html`<${ActionBar} key=${h.log.length} toCall=${node.toCall} callAmt=${Math.min(node.toCall, h.heroStack)} canRaise=${h.heroStack > node.toCall}
+              minTo=${facing ? Math.min(maxTo, h.vilIn * 2) : Math.min(maxTo, 1)} maxTo=${maxTo} pot=${h.pot} aggWord=${facing ? 'raise' : 'bet'}
+              presets=${facing ? [['x2.5', h.vilIn * 2.5], ['x3', h.vilIn * 3], ['x4', h.vilIn * 4], ['All-in', maxTo]] : [['33%', h.pot * 0.33], ['50%', h.pot * 0.5], ['75%', h.pot * 0.75], ['Pot', h.pot], ['All-in', maxTo]]}
+              def=${facing ? h.vilIn * 3 : h.pot * 0.5} onAct=${act} />` : null}
       </section>
-      <section className="panel">
-        <h3>מהלך היד</h3>
-        <ul className="log">${h.log.map((e, i) => html`<li key=${i}>
-          ${e.k === 'street' ? html`<span className="st">${e.text.toUpperCase()}</span><span className="mini-cards">${e.cards.map(c => html`<${Card} key=${c} c=${c} size="sm" />`)}</span><span className="muted mono" style=${{ fontSize: '12px' }}>קופה ${fmt(e.pot)}bb</span>`
-            : html`<span className=${e.k === 'hero' ? 'hero' : 'vil'}>${e.text}</span>`}
-        </li>`)}</ul>
-      </section>
+      <section className="panel"><h3>מהלך היד</h3><${HandLog} log=${h.log} /></section>
     </div>
     <aside className="col">
-      ${fb ? html`<section className="panel">
-          <h3>פידבק · ${STREET_EN[fb.street]}</h3>
-          <${Verdict} grade=${fb.grade}
-            title=${fb.grade === 'best' ? 'החלטה נכונה (EV+)' : fb.grade === 'ok' ? 'סבירה – לא הטובה ביותר' : 'טעות'}
-            sub=${fb.grade === 'best' ? `${ACT_EN[fb.act]} היא הפעולה המומלצת.` : `בחרת ${ACT_EN[fb.act]}. מומלץ: ${ACT_EN[fb.best]}.`} />
-          <span className="line-tag">${fb.line}</span>
-          <ul className="reasons">${fb.lines.map((l, i) => html`<li key=${i}>${l}</li>`)}</ul>
-        </section>` : null}
+      ${fb ? html`<${FeedbackPanel} fb=${fb} streetName=${STREET_EN[fb.street]} />` : null}
       <section className="panel">
         <h3>סיכויים ו-Equity</h3>
-        ${h.node ? (intuition ? html`<div className="hidden-note">מצב אינטואיציה פעיל – תחליט לפי תחושה, המספרים יופיעו בפידבק.</div>` : html`<${PostOdds} h=${h} node=${h.node} />`)
+        ${node ? (intuition ? html`<div className="hidden-note">מצב אינטואיציה פעיל – תחליט לפי תחושה, המספרים יופיעו בפידבק.</div>`
+          : html`<div>
+            <${OddsCore} eq=${node.eq} eqLabel=${`Equity מול הטווח המשוער של ${h.vilPos}`} toCall=${node.toCall} pot=${node.pot} node=${node} boardLen=${visBoard(h).length} streetIdx=${node.street} />
+            <div style=${{ marginTop: '14px' }}>
+              <h3>טווח משוער של ${h.vilPos} · ${node.vilN} קומבינציות (${pct(node.vilN / h.vilStartN)}% מההתחלה)</h3>
+              <${VillainHeat} range=${h.vilRange} />
+              <p className="plain">כל פעולה של היריב מצמצמת את הטווח שלו: הימור מסנן ידיים חלשות, צ׳ק מסנן את החזקות ביותר. משבצת כהה = הוא כבר כנראה לא מחזיק את היד הזו.</p>
+            </div>
+          </div>`)
           : html`<div className="hidden-note">${h.done ? 'היד הסתיימה. הקלפים של היריב חשופים על השולחן.' : ''}</div>`}
         <${OddsExplainer} />
       </section>
     </aside>
   </div>`;
+}
+
+/* ----------------------------- Game vs the computer ----------------------------- */
+const SPEED = { slow: 1100, normal: 650, fast: 220 };
+const SIM_KEY = 'felt-lab-sim-v1';
+function SimSetup({ cfg, setCfg, onStart }){
+  const Opt = ({ k, v, title, sub }) => html`<button type="button" className="opt" aria-pressed=${cfg[k] === v} onClick=${() => setCfg({ ...cfg, [k]: v })}><b>${title}</b>${sub ? html`<span>${sub}</span>` : null}</button>`;
+  return html`<div className="col">
+    <section className="panel col" style=${{ gap: '18px' }}>
+      <div className="setup-head">
+        <h2>משחק מול המחשב</h2>
+        <p>שולחן ⁦6-Max⁩ מלא: אתה מול 5 שחקני מחשב עם סגנונות שונים. המיקום שלך מתחלף בכל יד, וכל יד מתחילה עם 100bb לכל שחקן. בסוף הסשן תקבל ניתוח מלא: סגנון המשחק שלך, הטעויות החשובות, והידיים שכדאי ללמוד מהן.</p>
+      </div>
+      <div className="field"><span className="lbl">כמה ידיים</span>
+        <div className="opts"><${Opt} k="hands" v=${10} title="10 ידיים" sub="סשן קצר, כ-5 דקות" /><${Opt} k="hands" v=${25} title="25 ידיים" sub="מומלץ – מספיק לניתוח" /><${Opt} k="hands" v=${50} title="50 ידיים" sub="תמונה מדויקת יותר" /></div></div>
+      <div className="field"><span className="lbl">רמת השולחן</span>
+        <div className="opts">${Object.entries(LEVELS).map(([k, l]) => html`<${Opt} key=${k} k="level" v=${k} title=${l.he} sub=${l.d} />`)}</div></div>
+      <div className="field"><span className="lbl">עזרה בזמן המשחק</span>
+        <div className="opts">
+          <${Opt} k="helpers" v=${false} title="בלי עזרים" sub="משחק אמיתי – רק אתה והקלפים" />
+          <${Opt} k="helpers" v=${true} title="הצג סיכויים" sub="Equity, Pot Odds ואאוטים בכל החלטה" />
+        </div></div>
+      <div className="field"><span className="lbl">פידבק</span>
+        <div className="opts">
+          <${Opt} k="live" v=${false} title="רק בסוף" sub="כל ההחלטות ינותחו בסוף הסשן" />
+          <${Opt} k="live" v=${true} title="אחרי כל החלטה" sub="תראה מיד אם צדקת ולמה" />
+        </div></div>
+      <div className="field"><span className="lbl">מהירות המחשב</span>
+        <div className="seg">${[['slow','איטי'],['normal','רגיל'],['fast','מהיר']].map(([k, n]) => html`<button key=${k} type="button" aria-pressed=${cfg.speed === k} onClick=${() => setCfg({ ...cfg, speed: k })}>${n}</button>`)}</div></div>
+      <div><button className="btn raise" style=${{ maxWidth: '320px' }} onClick=${onStart}>התחל לשחק</button></div>
+    </section>
+    <section className="panel">
+      <h3>סוגי היריבים שתפגוש</h3>
+      <div className="style-list">${Object.values(STYLES).map(s => html`<div key=${s.en}><b>${s.en}</b> – ${s.he}</div>`)}</div>
+      <p className="plain">זיהוי סגנון היריב הוא חלק מהמשחק: מול Fish מהמרים לערך ולא מבלפים, מול Rock מקפלים כשהוא פתאום מעלה, ומול Maniac קוראים עם ידיים טובות יותר.</p>
+    </section>
+  </div>`;
+}
+function SimGame({ sess, setSess, g, setG, onFinish, record }){
+  const cfg = sess.cfg;
+  const [lastFb, setLastFb] = useState(null);
+  const gRef = useRef(g); gRef.current = g;
+  const commit = n => {
+    setG(n);
+    if (n.done && !n.saved){ n.saved = true; setSess(s => ({ ...s, hands: [...s.hands, handRecord(n)] })); }
+  };
+  const hero = g.players.find(p => p.hero);
+  const heroTurn = !g.done && g.players[g.toAct].hero;
+  useEffect(() => {
+    if (g.done || g.players[g.toAct].hero) return;
+    const id = setTimeout(() => { const n = structuredClone(gRef.current); botAct(n); commit(n); }, SPEED[cfg.speed]);
+    return () => clearTimeout(id);
+  }, [g]);
+  const node = useMemo(() => heroTurn ? simHeroNode(g) : null, [g]);
+  const act = (a, to) => {
+    if (!heroTurn) return;
+    const p = g.players[g.toAct];
+    const fb = g.street === 0 ? gradeSimPre(g, p, a)
+      : gradeDecision({ E: node.eq, street: node.street, toCall: node.toCall, pot: node.pot, outs: node.outs, made: node.made, tex: node.tex, draws: node.draws, isPFR: g.pfr === p.seat, nOpp: node.nOpp, line: simLine(g, p, a) }, a, to);
+    const dec = { grade: fb.grade, best: fb.best, act: fb.act, mtype: fb.mtype, ex: fb.ex, line: fb.line, labels: fb.labels || null, summary: fb.summary,
+      street: g.street === 0 ? 'preflop' : STREET_KEY[g.street - 1], pot: potOf(g), board: simBoard(g), cards: p.cards, pos: p.pos, eq: node ? node.eq : null };
+    const n = structuredClone(g);
+    n.decisions.push(dec);
+    applyAction(n, p.seat, a, to);
+    commit(n);
+    setLastFb(dec);
+    record({ mode: 'sim', street: dec.street, grade: fb.grade, mtype: fb.mtype, text: `משחק · ${fb.summary}` });
+  };
+  const nextHand = () => {
+    if (sess.hands.length >= cfg.hands) return onFinish();
+    const nb = (sess.button + 1) % 6;
+    setSess(s => ({ ...s, button: nb }));
+    setG(newSimHand(sess.players, nb, sess.hands.length + 1));
+    setLastFb(null);
+  };
+  useHotkeys(k => { if (g.done && (k === 'n' || k === 'enter' || k === ' ')) nextHand(); });
+  const total = sess.hands.reduce((t, h) => t + h.net, 0);
+  const seats = g.players.map(p => ({
+    pos: p.pos, name: p.hero ? null : p.name, tag: p.hero ? null : STYLES[p.style].en,
+    state: p.hero ? 'hero' : p.folded ? 'folded' : 'villain', cards: p.hero ? p.cards : null,
+    reveal: !p.hero && g.done && g.sd && !p.folded ? p.cards : null,
+    bet: p.in, stack: p.stack, acting: !g.done && g.toAct === p.seat, last: p.last,
+  }));
+  const board = simBoard(g);
+  const inBets = g.players.reduce((t, p) => t + p.in, 0);
+  const toCall = heroTurn ? g.bet - hero.in : 0;
+  let bar = null;
+  if (heroTurn){
+    const pot = potOf(g), maxTo = hero.in + hero.stack, minTo = Math.min(maxTo, g.bet > 0 ? g.bet + g.minRaise : 1);
+    let presets;
+    if (g.street === 0){
+      if (g.raises === 0){ const base = (hero.pos === 'BB' ? 3.5 : hero.pos === 'SB' ? 3 : 2.5) + g.limpers; presets = [[fmt(base) + 'bb', base], [fmt(base + 1) + 'bb', base + 1], [fmt(base + 2) + 'bb', base + 2], ['All-in', maxTo]]; }
+      else if (g.raises === 1) presets = [['x3', g.bet * 3], ['x3.5', g.bet * 3.5], ['x4', g.bet * 4], ['All-in', maxTo]];
+      else presets = [['x2.2', g.bet * 2.2], ['x2.5', g.bet * 2.5], ['All-in', maxTo]];
+    } else if (g.bet === 0) presets = [['33%', pot * 0.33], ['50%', pot * 0.5], ['75%', pot * 0.75], ['Pot', pot], ['All-in', maxTo]];
+    else presets = [['x2.5', g.bet * 2.5], ['x3', g.bet * 3], ['All-in', maxTo]];
+    const def = g.street > 0 && g.bet === 0 ? presets[1][1] : presets[0][1];
+    bar = html`<${ActionBar} key=${g.log.length} toCall=${toCall} callAmt=${Math.min(toCall, hero.stack)} canRaise=${hero.stack > toCall}
+      minTo=${minTo} maxTo=${maxTo} presets=${presets} def=${def} pot=${pot} aggWord=${g.street > 0 && g.bet === 0 ? 'bet' : 'raise'} onAct=${act} />`;
+  }
+  const result = g.done ? g.log[g.log.length - 1].text : null;
+  const isLast = sess.hands.length >= cfg.hands;
+  const handDecisions = g.decisions;
+  return html`<div className="trainer">
+    <div className="col">
+      <section className="panel">
+        <div className="scn">
+          <h2 className="scn-title">יד ${g.no} מתוך ${cfg.hands}</h2>
+          <span className="tag">אתה <b>${hero.pos}</b></span>
+          <span className="tag">${g.street === 0 ? 'Pre-Flop' : STREET_EN[g.street - 1]}</span>
+          <span className="tag">תוצאה בסשן <b><bdi dir="ltr">${signed(total)}bb</bdi></b></span>
+        </div>
+        <${Table} heroPos=${hero.pos} seats=${seats} board=${board} pot=${potOf(g) - inBets} total=${potOf(g)} />
+        ${g.done ? html`<div className="result">
+            <div><div style=${{ fontWeight: 500 }}>${result}</div>
+              <div className=${'net ' + (g.net >= 0 ? 'pos-net' : 'neg-net')}><bdi dir="ltr">${signed(g.net)}bb</bdi></div>
+              ${handDecisions.length && !cfg.live ? html`<div className="muted small">ביד הזו: ${handDecisions.filter(d => d.grade !== 'mistake').length} מתוך ${handDecisions.length} החלטות נכונות. הניתוח המלא – בסוף הסשן.</div>` : null}</div>
+            <button className="btn next" style=${{ flex: '0 0 auto' }} onClick=${nextHand}>${isLast ? 'לניתוח הסשן' : 'יד הבאה'}<kbd>N / Enter</kbd></button>
+          </div>`
+          : heroTurn ? bar
+          : html`<div className="waiting"><span className="dots"><i></i><i></i><i></i></span>${g.players[g.toAct].name} חושב...</div>`}
+      </section>
+      <section className="panel"><h3>מהלך היד</h3><${HandLog} log=${g.log} /></section>
+    </div>
+    <aside className="col">
+      ${cfg.live && lastFb ? html`<${FeedbackPanel} fb=${lastFb} labels=${lastFb.labels} streetName=${lastFb.street === 'preflop' ? 'Pre-Flop' : STREET_EN[STREET_KEY.indexOf(lastFb.street)]} />` : null}
+      ${cfg.helpers ? html`<section className="panel">
+        <h3>סיכויים</h3>
+        ${node ? html`<${OddsCore} eq=${node.eq}
+            eqLabel=${node.pre ? (node.vsN > 1 ? `Equity מול הטווחים של ${node.vsN} השחקנים שכבר נכנסו לקופה` : node.vsN ? 'Equity מול הטווח של השחקן שכבר נכנס לקופה' : 'Equity מול יד אקראית של שחקן אחד') : node.nOpp > 1 ? `Equity מול הטווחים המשוערים של ${node.nOpp} היריבים` : 'Equity מול הטווח המשוער של היריב'}
+            toCall=${node.toCall} pot=${node.pot} node=${node.pre ? null : node} boardLen=${board.length} streetIdx=${node.pre ? 3 : node.street} />`
+          : html`<div className="hidden-note">הסיכויים יופיעו כשתורך לפעול.</div>`}
+        <${OddsExplainer} />
+      </section>` : null}
+      <section className="panel">
+        <h3>היריבים בשולחן</h3>
+        <ul className="mlist">${g.players.filter(p => !p.hero).map(p => html`<li key=${p.seat}><b>${p.name}</b> <span className="mono" style=${{ color: 'var(--brass)', fontSize: '12px' }}>${STYLES[p.style].en}</span><div className="muted">${STYLES[p.style].he}</div></li>`)}</ul>
+      </section>
+      <button className="linkbtn" onClick=${onFinish}>סיים את הסשן עכשיו וקבל ניתוח</button>
+    </aside>
+  </div>`;
+}
+function StatMeter({ def, v }){
+  if (v == null) return html`<div className="statrow"><div className="statrow-top"><span><b>${def.n}</b> · ${def.he}</span><span className="muted small">אין מספיק נתונים</span></div></div>`;
+  const pos = Math.min(1, v / def.max) * 100;
+  const inRange = v >= def.lo && v <= def.hi;
+  const val = def.num ? v.toFixed(1) : pct(v) + '%';
+  const target = def.num ? `${def.lo}–${def.hi}` : `${pct(def.lo)}–${pct(def.hi)}%`;
+  return html`<div className="statrow">
+    <div className="statrow-top"><span>${rich(def.n)} · ${def.he}</span><span><b><bdi dir="ltr">${val}</bdi></b> <span className=${'pill ' + (inRange ? 'in' : 'out')}>${inRange ? 'בטווח המומלץ' : v < def.lo ? 'נמוך מהמומלץ' : 'גבוה מהמומלץ'}</span></span></div>
+    <div className="meter"><div className="zone" style=${{ left: (def.lo / def.max * 100) + '%', width: ((def.hi - def.lo) / def.max * 100) + '%' }}></div><div className="mark" style=${{ left: pos + '%', background: inRange ? 'var(--good)' : 'var(--brass)' }}></div></div>
+    <div className="muted small">${def.d} יעד: <bdi dir="ltr">${target}</bdi>.${!inRange ? ' ' + (v < def.lo ? def.low : def.high) : ''}</div>
+  </div>`;
+}
+function DecisionCard({ d }){
+  const L = d.labels || ACT_EN;
+  return html`<div className="dec">
+    <div className="dec-head">
+      <span><b>יד #${d.no}</b> · ${d.pos} · ${d.street === 'preflop' ? 'Pre-Flop' : STREET_EN[STREET_KEY.indexOf(d.street)]} · קופה ${fmt(d.pot)}bb</span>
+      <span style=${{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' }}><span className="muted small">יד:</span><${CardRow} cards=${d.cards} />${d.board.length ? html`<span className="muted small">לוח:</span><${CardRow} cards=${d.board} />` : null}</span>
+    </div>
+    <div style=${{ marginTop: '8px' }}><${Verdict} grade=${d.grade} title=${VERDICT_TITLE[d.grade]} sub=${`בחרת ${L[d.act]}${d.grade !== 'best' ? `. מומלץ: ${L[d.best]}` : ''}.`} /></div>
+    <${Explain} ex=${d.ex} />
+  </div>`;
+}
+function SimSummary({ sess, onAgain, onSetup }){
+  const a = useMemo(() => analyzeSession(sess.hands), [sess.hands]);
+  if (!a.N) return html`<section className="panel"><div className="empty"><h2>לא שוחקו ידיים</h2><p>הסשן הסתיים לפני שיד אחת הושלמה.</p><button className="linkbtn" onClick=${onSetup}>חזרה להגדרות</button></div></section>`;
+  const type = playerType(a);
+  const byStreet = STREETS.map(([k, n]) => { const ds = a.decisions.filter(d => d.street === k); return { k, n, t: ds.length, a: ds.length ? ds.filter(d => d.grade !== 'mistake').length / ds.length : 0 }; });
+  const mcount = {};
+  a.decisions.forEach(d => { if (d.mtype) mcount[d.mtype] = (mcount[d.mtype] || 0) + 1; });
+  const mlist = Object.entries(mcount).sort((x, y) => y[1] - x[1]);
+  const tips = [];
+  STAT_DEFS.forEach(d => { const v = a[d.k]; if (v == null) return; if (v < d.lo) tips.push({ w: (d.lo - v) / d.max, t: `${d.n}: ${d.low}` }); else if (v > d.hi) tips.push({ w: (v - d.hi) / d.max, t: `${d.n}: ${d.high}` }); });
+  mlist.forEach(([k, c]) => tips.push({ w: c / Math.max(1, a.decisions.length) + (c >= 2 ? 0.2 : 0), t: `${MISTAKES[k].label}: ${MISTAKES[k].tip}` }));
+  tips.sort((x, y) => y.w - x.w);
+  const keyMistakes = a.decisions.filter(d => d.grade === 'mistake').sort((x, y) => y.pot - x.pot).slice(0, 5);
+  const goodBig = a.decisions.filter(d => d.grade === 'best' && d.street !== 'preflop').sort((x, y) => y.pot - x.pot).slice(0, 2);
+  let luck;
+  if (a.acc == null) luck = 'לא התקבלו החלטות שאפשר לנתח בסשן הזה.';
+  else if (a.net < 0 && a.acc >= 0.7) luck = 'הפסדת בסשן הזה, אבל רוב ההחלטות שלך היו נכונות. בטווח הקצר מזל משפיע מאוד – המשך לקבל החלטות כאלה, והתוצאות יגיעו.';
+  else if (a.net > 0 && a.acc < 0.6) luck = 'הרווחת – אבל לא מעט החלטות לא היו מדויקות. אל תיתן לתוצאה לבלבל אותך: בטווח הארוך טעויות עולות כסף.';
+  else if (a.net >= 0) luck = 'תוצאה טובה עם החלטות טובות – כך נראה משחק מנצח.';
+  else luck = 'גם התוצאה וגם ההחלטות דורשות שיפור. התמקד בשלושת הטיפים – שם תרוויח הכי הרבה.';
+  let run = 0;
+  return html`<div className="col">
+    <section className="panel">
+      <div className="scn" style=${{ justifyContent: 'space-between' }}>
+        <h2 className="scn-title" style=${{ fontSize: '26px' }}>ניתוח הסשן</h2>
+        <div className="btn-row"><button className="linkbtn" onClick=${onAgain}>סשן חדש באותן הגדרות</button><button className="linkbtn" onClick=${onSetup}>שינוי הגדרות</button></div>
+      </div>
+      <p className="plain">${a.N} ידיים בשולחן ברמה ${LEVELS[sess.cfg.level].he}.${a.N < 20 ? ' מדגם קטן – המספרים יהיו מדויקים יותר אחרי 50 ידיים ומעלה.' : ''}</p>
+    </section>
+    <div className="stat-tiles">
+      <div className="tile"><div className="lbl">תוצאה</div><div className=${'val ' + (a.net >= 0 ? 'pos-net' : 'neg-net')}><bdi dir="ltr">${signed(a.net)}</bdi></div><div className="sub">bb · ניצחת ב-${a.won} ידיים</div></div>
+      <div className="tile"><div className="lbl">דיוק החלטות</div><div className="val">${a.acc == null ? '—' : pct(a.acc) + '%'}</div><div className="sub">${a.decisions.length} החלטות נבדקו</div></div>
+      <div className="tile"><div className="lbl">bb/100</div><div className="val"><bdi dir="ltr">${signed(a.bb100)}</bdi></div><div className="sub">קצב רווח ל-100 ידיים</div></div>
+      <div className="tile"><div className="lbl">הקופה הגדולה</div><div className="val pos-net"><bdi dir="ltr">${signed(a.biggestWin)}</bdi></div><div className="sub">ההפסד הגדול: <bdi dir="ltr">${signed(a.biggestLoss)}bb</bdi></div></div>
+    </div>
+    <section className="panel"><h3>מזל או החלטות?</h3><p style=${{ margin: 0 }}>${luck}</p></section>
+    <div className="two-col">
+      <section className="panel type-card">
+        <h3>סגנון המשחק שלך</h3>
+        <h2>${type.t}</h2>
+        <p style=${{ margin: 0 }}>${type.d}</p>
+        <div style=${{ marginTop: '8px' }}>${STAT_DEFS.map(d => html`<${StatMeter} key=${d.k} def=${d} v=${a[d.k]} />`)}</div>
+      </section>
+      <div className="col">
+        <section className="panel">
+          <h3>מה הכי כדאי לשפר</h3>
+          ${tips.length ? html`<ol className="tips">${tips.slice(0, 3).map((t, i) => html`<li key=${i}>${rich(t.t)}</li>`)}</ol>` : html`<p className="muted" style=${{ margin: 0 }}>לא נמצאו חולשות בולטות בסשן הזה. כל הכבוד!</p>`}
+        </section>
+        <section className="panel">
+          <h3>דיוק לפי שלב במשחק</h3>
+          <div className="bars">${byStreet.map(s => html`<div key=${s.k} className="barrow">
+            <span>${s.n}</span>
+            <span className="track"><i style=${{ width: (s.t ? pct(s.a) : 0) + '%', background: s.a >= 0.8 ? 'var(--good)' : s.a >= 0.6 ? 'var(--brass)' : 'var(--bad)' }}></i></span>
+            <span className="num">${s.t ? pct(s.a) + '%' : '—'} · ${s.t}</span>
+          </div>`)}</div>
+        </section>
+        ${mlist.length ? html`<section className="panel">
+          <h3>סוגי הטעויות</h3>
+          <div className="bars">${mlist.map(([k, n]) => html`<div key=${k} className="barrow">
+            <span>${MISTAKES[k].label}</span>
+            <span className="track"><i style=${{ width: (n / mlist[0][1] * 100) + '%', background: 'var(--bad)' }}></i></span>
+            <span className="num">${n}</span>
+          </div>`)}</div>
+        </section>` : null}
+      </div>
+    </div>
+    <section className="panel">
+      <h3>הידיים החשובות ללמוד מהן</h3>
+      <p className="plain" style=${{ marginBottom: '12px' }}>הטעויות בקופות הגדולות ביותר – שם טעות עולה הכי הרבה.</p>
+      ${keyMistakes.length ? html`<div className="col">${keyMistakes.map((d, i) => html`<${DecisionCard} key=${i} d=${d} />`)}</div>` : html`<p className="muted" style=${{ margin: 0 }}>לא היו טעויות בסשן הזה.</p>`}
+      ${goodBig.length ? html`<div style=${{ marginTop: '16px' }}><h3>החלטות טובות בקופות גדולות</h3><div className="col">${goodBig.map((d, i) => html`<${DecisionCard} key=${i} d=${d} />`)}</div></div>` : null}
+    </section>
+    <section className="panel">
+      <h3>כל הידיים</h3>
+      <div className="hands">${sess.hands.map(h => { run += h.net; const r = run; return html`<details key=${h.no}>
+        <summary><span className="mono muted">#${h.no}</span><span>${h.pos}</span><${CardRow} cards=${h.cards} /><span className="hboard">${h.board.length ? html`<${CardRow} cards=${h.board} />` : html`<span className="muted small">${h.folded ? 'קיפלת לפני הפלופ' : 'הסתיים לפני הפלופ'}</span>`}</span>
+          <span className="mono" style=${{ textAlign: 'left' }}><bdi dir="ltr" className=${h.net > 0 ? 'pos-net' : h.net < 0 ? 'neg-net' : 'muted'}>${signed(h.net)}</bdi> <span className="muted small"><bdi dir="ltr">(${signed(r)})</bdi></span></span></summary>
+        <div className="hbody">
+          <${HandLog} log=${h.log} />
+          ${h.shown.length ? html`<div className="small">${h.shown.map(s => html`<div key=${s.name} style=${{ display: 'flex', gap: '8px', alignItems: 'center', marginBottom: '4px' }}><b>${s.name}:</b><${CardRow} cards=${s.cards} /><span className="muted">${s.made}</span></div>`)}</div>` : null}
+          ${h.decisions.map((d, i) => html`<${DecisionCard} key=${i} d=${{ ...d, no: h.no }} />`)}
+        </div>
+      </details>`; })}</div>
+    </section>
+  </div>`;
+}
+function SimView({ record }){
+  const [cfg, setCfg] = useState(() => ({ hands: 25, level: 'mixed', helpers: false, live: false, speed: 'normal', ...load(SIM_KEY, {}) }));
+  const [phase, setPhase] = useState('setup');
+  const [sess, setSess] = useState(null);
+  const [g, setG] = useState(null);
+  const start = () => {
+    save(SIM_KEY, cfg);
+    const s = newSession(cfg);
+    setSess(s); setG(newSimHand(s.players, s.button, 1)); setPhase('play');
+  };
+  if (phase === 'setup' || !sess) return html`<${SimSetup} cfg=${cfg} setCfg=${setCfg} onStart=${start} />`;
+  if (phase === 'summary') return html`<${SimSummary} sess=${sess} onAgain=${start} onSetup=${() => setPhase('setup')} />`;
+  return html`<${SimGame} sess=${sess} setSess=${setSess} g=${g} setG=${setG} onFinish=${() => setPhase('summary')} record=${record} />`;
 }
 
 /* ----------------------------- Range explorer ----------------------------- */
@@ -1175,6 +2119,7 @@ function RangeExplorer(){
   const eqVs = useMemo(() => mode === 'facing' ? classEquity(picked, cachedCombos('rfi' + op, RFI[op])) : null, [picked, mode, op]);
   const a = act(picked);
   const actName = a === 'raise' ? (mode === 'rfi' ? 'Raise (Open)' : '⁦3-Bet⁩') : a === 'call' ? 'Call' : 'Fold';
+  const hp = handProfile(picked);
   return html`<div className="trainer">
     <div className="col">
       <section className="panel">
@@ -1186,12 +2131,12 @@ function RangeExplorer(){
           </div>
         </div>
         <div style=${{ display: 'flex', gap: '18px', flexWrap: 'wrap', marginBottom: '14px' }}>
-          ${mode === 'rfi' ? html`<div className="field"><label>המיקום שלך</label><div className="seg">
+          ${mode === 'rfi' ? html`<div className="field"><span className="lbl">המיקום שלך</span><div className="seg">
               ${['UTG','MP','CO','BTN','SB'].map(p => html`<button key=${p} aria-pressed=${pos === p} onClick=${() => setPos(p)}>${p}</button>`)}</div></div>`
             : html`<${React.Fragment}>
-              <div className="field"><label>המיקום שלך</label><div className="seg">
+              <div className="field"><span className="lbl">המיקום שלך</span><div className="seg">
                 ${['MP','CO','BTN','SB','BB'].map(p => html`<button key=${p} aria-pressed=${hero === p} onClick=${() => setHero(p)}>${p}</button>`)}</div></div>
-              <div className="field"><label>מי פתח</label><div className="seg">
+              <div className="field"><span className="lbl">מי פתח</span><div className="seg">
                 ${['UTG','MP','CO','BTN','SB'].map(p => html`<button key=${p} disabled=${!validOpeners.includes(p)} aria-pressed=${op === p} onClick=${() => setOpener(p)}>${p}</button>`)}</div></div>
             <//>`}
         </div>
@@ -1208,27 +2153,206 @@ function RangeExplorer(){
       <section className="panel">
         <h3>פרטי יד</h3>
         <div style=${{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '10px' }}>
-          <div className="mini-cards">${combosOf(picked)[0].map(c => html`<${Card} key=${c} c=${c} size="md" />`)}</div>
-          <div><div className="bignum" style=${{ fontSize: '26px' }}>${picked}</div><div className="muted" style=${{ fontSize: '13px' }}>${comboCount(picked)} קומבינציות</div></div>
+          <${CardRow} cards=${combosOf(picked)[0]} size="md" />
+          <div><div className="bignum" style=${{ fontSize: '26px' }}>${picked}</div><div className="muted small">${comboCount(picked)} קומבינציות</div></div>
         </div>
         <dl className="kv">
           <dt>פעולה</dt><dd><b style=${{ color: a === 'raise' ? 'var(--raise)' : a === 'call' ? 'var(--call)' : 'var(--muted)' }}>${actName}</b></dd>
           <dt>מול יד אקראית</dt><dd className="mono">${pct(eqRandom)}% Equity</dd>
           ${eqVs != null ? html`<dt>מול הטווח של ${op}</dt><dd className="mono">${pct(eqVs)}% Equity</dd>` : null}
         </dl>
-        <ul className="reasons">${handNotes(picked).map((l, i) => html`<li key=${i}>${l}</li>`)}</ul>
+        <div className="explain">
+          <p style=${{ margin: 0 }}>${rich(hp.note)}</p>
+          <div className="ex-example"><span className="ex-lbl">דוגמה</span><p>${rich(hp.example)}</p></div>
+        </div>
       </section>
       <section className="panel">
         <h3>איך לקרוא את המפה</h3>
         <ul className="reasons" style=${{ marginTop: 0 }}>
           <li>האלכסון: זוגות (AA עד 22).</li>
-          <li>מעל האלכסון: ידיים בצבע אחד (s – Suited), 4 קומבינציות כל אחת.</li>
-          <li>מתחת לאלכסון: ידיים בצבעים שונים (o – Offsuit), 12 קומבינציות כל אחת.</li>
+          <li>מעל האלכסון: ידיים באותו צבע (s – Suited), 4 קומבינציות לכל אחת.</li>
+          <li>מתחת לאלכסון: ידיים בצבעים שונים (o – Offsuit), 12 קומבינציות לכל אחת.</li>
           <li>ככל שמתקדמים לכפתור הטווח מתרחב – פחות שחקנים נשארו לפעול אחריך.</li>
         </ul>
-        <p className="muted" style=${{ fontSize: '12.5px', margin: '10px 0 0' }}>הטווחים הם בסיס פשוט ל-⁦6-Max⁩, ‏100bb, בהשראת פתרונות GTO. בשולחנות חלשים אפשר להרחיב מעט ערך ולצמצם בלופים.</p>
+        <p className="plain">הטווחים הם בסיס פשוט ל-⁦6-Max⁩, ‏100bb, בהשראת פתרונות GTO. בשולחנות חלשים אפשר להרחיב מעט ידיים לערך ולצמצם בלופים.</p>
       </section>
     </aside>
+  </div>`;
+}
+
+/* ----------------------------- Learn ----------------------------- */
+function PotOddsCalc(){
+  const [pot, setPot] = useState(10);
+  const [bet, setBet] = useState(5);
+  const [outs, setOuts] = useState(9);
+  const after = pot + bet * 2, req = bet / after, one = outs / 46, two = 1 - ((47 - outs) / 47) * ((46 - outs) / 46);
+  return html`<div className="calc">
+    <label htmlFor="c-pot">בקופה לפני ההימור <b>${pot}bb</b></label>
+    <input id="c-pot" type="range" min="2" max="100" step="1" value=${pot} onInput=${e => setPot(+e.target.value)} onChange=${e => setPot(+e.target.value)} />
+    <label htmlFor="c-bet">היריב מהמר <b>${bet}bb</b> <span className="muted">(${pct(bet / pot)}% מהקופה)</span></label>
+    <input id="c-bet" type="range" min="1" max="100" step="1" value=${bet} onInput=${e => setBet(+e.target.value)} onChange=${e => setBet(+e.target.value)} />
+    <label htmlFor="c-outs">האאוטים שלך <b>${outs}</b></label>
+    <input id="c-outs" type="range" min="0" max="20" step="1" value=${outs} onInput=${e => setOuts(+e.target.value)} onChange=${e => setOuts(+e.target.value)} />
+    <${EquityBar} eq=${one} req=${req} />
+    <p style=${{ margin: 0 }}>אתה צריך לשלם <b>${bet}bb</b> כדי לזכות בקופה של <b>${after}bb</b> ← <b><bdi dir="ltr">${bet} ÷ ${after} = ${pct(req)}%</bdi></b>. עם ${outs} אאוטים יש לך כ-<b>${fmt(one * 100)}%</b> להשלים בקלף הבא (ועד הריבר: ${fmt(two * 100)}%, אם תראה את שני הקלפים).</p>
+    <p style=${{ margin: 0, color: one >= req ? 'var(--good)' : 'var(--bad)' }}>${one >= req ? 'מספיק – קריאה רווחית.' : 'לא מספיק לקלף אחד – קריאה רק אם יש Implied Odds (כסף נוסף שתרוויח כשתשלים).'}</p>
+  </div>`;
+}
+const RANK_EXAMPLES = [
+  ['רצף בצבע', 'Straight Flush', 'חמישה קלפים עוקבים באותו צבע. נדיר מאוד.', '9h 8h 7h 6h 5h'],
+  ['רביעייה', 'Four of a Kind', 'ארבעה קלפים מאותו ערך.', 'Qs Qh Qd Qc 7s'],
+  ['פול האוס', 'Full House', 'שלישייה + זוג.', 'Ks Kh Kd 4c 4s'],
+  ['צבע', 'Flush', 'חמישה קלפים באותו צבע (לא עוקבים).', 'Ad Jd 8d 6d 2d'],
+  ['רצף', 'Straight', 'חמישה קלפים עוקבים בצבעים שונים. ה-A יכול להיות גם 1: ‏A-2-3-4-5.', 'Ts 9d 8c 7h 6s'],
+  ['שלישייה', 'Three of a Kind', 'שלושה קלפים מאותו ערך.', '7s 7h 7d Kc 2s'],
+  ['שני זוגות', 'Two Pair', 'שני זוגות שונים.', 'Js Jd 5c 5h As'],
+  ['זוג', 'One Pair', 'שני קלפים מאותו ערך.', 'Ah Ad 9c 6s 3h'],
+  ['קלף גבוה', 'High Card', 'בלי שום צירוף – הקלף הגבוה קובע.', 'Ks Jd 8c 5h 2s'],
+];
+function LearnContent({ id, goTo }){
+  if (id === 'basics') return html`<div className="lesson">
+    <h2>איך משחקים – בקצרה</h2>
+    <p>בטקסס הולדם כל שחקן מקבל 2 קלפים סגורים, ועל השולחן נפתחים עד 5 קלפים משותפים. היד שלך היא 5 הקלפים הטובים ביותר מתוך 7 (2 שלך + 5 בלוח).</p>
+    <h3>סדר היד</h3>
+    <ol>
+      <li><b>בליינדים:</b> שני השחקנים משמאל לכפתור שמים כסף חובה – SB (חצי) ו-BB (אחד). כך תמיד יש על מה לשחק.</li>
+      <li><b>Pre-Flop:</b> כל אחד מקבל 2 קלפים, וסבב הימורים ראשון.</li>
+      <li><b>Flop:</b> נפתחים 3 קלפים משותפים, וסבב הימורים.</li>
+      <li><b>Turn:</b> קלף רביעי, וסבב הימורים.</li>
+      <li><b>River:</b> קלף חמישי, וסבב הימורים אחרון.</li>
+      <li><b>Showdown:</b> מי שנשאר חושף קלפים – היד הטובה ביותר זוכה.</li>
+    </ol>
+    <h3>הפעולות</h3>
+    <ul>
+      <li><b>Fold</b> – לקפל: לוותר על היד ועל מה שכבר שמת.</li>
+      <li><b>Check</b> – להעביר את התור בלי לשים כסף (רק כשאף אחד לא הימר).</li>
+      <li><b>Call</b> – להשוות להימור של מישהו אחר.</li>
+      <li><b>Bet</b> – להמר ראשון בסבב.</li>
+      <li><b>Raise</b> – להעלות מעל הימור קיים.</li>
+    </ul>
+    <div className="callout"><b>יחידת המידה: bb.</b> בקאש מודדים הכל בבליינדים גדולים. "100bb" = ערימה של פי 100 מהבליינד הגדול. כך הכל נשאר נכון גם בשולחן של ₪1 וגם בשולחן של ₪100.</div>
+  </div>`;
+  if (id === 'hands') return html`<div className="lesson">
+    <h2>דירוג הידיים</h2>
+    <p>מהחזקה לחלשה. אם לשני שחקנים יש אותו סוג יד – הקלפים הגבוהים קובעים.</p>
+    <div>${RANK_EXAMPLES.map((r, i) => html`<div key=${r[1]} className="rank-row"><span className="n">${i + 1}</span><div><b>${r[0]} <span className="muted mono" style=${{ fontSize: '12px' }}>${r[1]}</span></b><span>${r[2]}</span></div><${CardRow} cards=${cardsFrom(r[3])} /></div>`)}</div>
+    <div className="ex-example"><span className="ex-lbl">דוגמה: קיקר</span><p>לך A♠K♦, ליריב A♥Q♣, בלוח A♣ 9♦ 6♠ 4♥ 2♣. לשניכם זוג A – אבל ה-K שלך מנצח את ה-Q שלו. הקלף הנוסף הזה נקרא <b>קיקר</b>, והוא מכריע הרבה קופות.</p></div>
+  </div>`;
+  if (id === 'position') return html`<div className="lesson">
+    <h2>מיקום בשולחן</h2>
+    <p>סדר הפעולה לפני הפלופ: UTG ← MP ← CO ← BTN ← SB ← BB. אחרי הפלופ ה-BTN (הכפתור) תמיד פועל אחרון. לפעול אחרון זה יתרון ענק: אתה רואה מה כולם עשו לפני שאתה מחליט.</p>
+    <div className="tbl-wrap"><table className="tbl"><thead><tr><th>מיקום</th><th>שם מלא</th><th>שחקנים אחריך</th><th>פותחים בערך</th></tr></thead><tbody>
+      ${[['UTG','Under the Gun – הראשון לפעול'],['MP','Middle Position'],['CO','Cutoff – אחד לפני הכפתור'],['BTN','Button – הכפתור'],['SB','Small Blind'],['BB','Big Blind']].map(([p, n], i) => html`<tr key=${p}><td><b>${p}</b></td><td>${n}</td><td className="mono">${5 - i}</td><td className="mono">${RFI[p] ? rangePct(RFI[p]) + '%' : 'מגן על הבליינד'}</td></tr>`)}
+    </tbody></table></div>
+    <div className="ex-example"><span className="ex-lbl">דוגמה</span><p>עם K♣10♦ מ-UTG, חמישה שחקנים עוד יפעלו אחריך – ולאחד מהם יש לעיתים קרובות AK, KQ או זוג גבוה. אותה יד מהכפתור היא פתיחה טובה: נשארו רק שני הבליינדים, ותשחק מולם עם פוזיציה.</p></div>
+    <div className="ex-rule"><span className="ex-lbl">כלל אצבע</span><p>ככל שאתה קרוב יותר לכפתור – אפשר לשחק יותר ידיים.</p></div>
+  </div>`;
+  if (id === 'starting') return html`<div className="lesson">
+    <h2>באילו ידיים לשחק</h2>
+    <p>רוב הידיים מקפלים. שחקן טוב משחק בערך ⁦20–28%⁩ מהידיים, ובעיקר בהעלאות.</p>
+    <div className="rank-row"><span className="n">1</span><div><b>פרימיום</b><span>AA, KK, QQ, AK – מעלים ומעלים מחדש מכל מקום.</span></div><${CardRow} cards=${cardsFrom('As Ah')} /></div>
+    <div className="rank-row"><span className="n">2</span><div><b>חזקות</b><span>JJ, 10-10, AQ, AJ בצבע, KQ בצבע – פותחים מכל מקום, זהירות מול ⁦3-Bet⁩.</span></div><${CardRow} cards=${cardsFrom('Kh Qh')} /></div>
+    <div className="rank-row"><span className="n">3</span><div><b>ספקולטיביות</b><span>זוגות קטנים, מחוברים בצבע, A קטנה בצבע – מרוויחות כשהן פוגעות חזק. מתאימות לפוזיציה מאוחרת.</span></div><${CardRow} cards=${cardsFrom('8s 7s')} /></div>
+    <div className="rank-row"><span className="n">4</span><div><b>מלכודות</b><span>A או K עם קיקר חלש בצבעים שונים (A7o, K9o) – נראות טוב, אבל נשלטות ע״י ידיים טובות יותר.</span></div><${CardRow} cards=${cardsFrom('Ad 7c')} /></div>
+    <div className="rank-row"><span className="n">5</span><div><b>חלשות</b><span>כל השאר – קיפול, כמעט תמיד.</span></div><${CardRow} cards=${cardsFrom('9c 3d')} /></div>
+    <div><button className="linkbtn" onClick=${() => goTo('range')}>לפתוח את מפת הטווחים</button></div>
+  </div>`;
+  if (id === 'odds') return html`<div className="lesson">
+    <h2>Pot Odds ו-Equity</h2>
+    <p>זו השאלה הכי חשובה בפוקר: <b>האם המחיר של הקריאה שווה את הסיכוי שלי לנצח?</b></p>
+    <h3>דוגמה צעד אחר צעד</h3>
+    <ol>
+      <li>בקופה 10bb. היריב מהמר 5bb.</li>
+      <li>אם תקרא, הקופה תהיה ⁦10 + 5 + 5 = 20bb⁩.</li>
+      <li>אתה משלם 5 מתוך 20 ← צריך לנצח לפחות 25% מהפעמים (זה ה-Pot Odds).</li>
+      <li>יש לך דרואו לצבע: 9 אאוטים ≈ 19% לקלף הבא.</li>
+      <li>19% קטן מ-25% ← לפי המספרים הקריאה מפסידה. היא תשתלם רק אם כשתשלים את הצבע, היריב ישלם לך עוד (Implied Odds).</li>
+    </ol>
+    <div className="ex-example"><span className="ex-lbl">למה זה עובד? 100 פעמים</span><p>אם תקרא 5bb מאה פעמים ותנצח 19 מהן בקופה של 20bb: שילמת 500, קיבלת 380. הפסד של 120bb – בממוצע ‎−1.2bb לכל קריאה. זה ה-EV.</p></div>
+    <h3>נסה בעצמך</h3>
+    <${PotOddsCalc} />
+    <div className="tbl-wrap"><table className="tbl"><thead><tr><th>גודל ההימור</th><th>Equity נדרש לקריאה</th></tr></thead><tbody>
+      ${[['רבע קופה', 0.25], ['שליש קופה', 0.33], ['חצי קופה', 0.5], ['שני שליש', 0.66], ['קופה מלאה', 1], ['פי 2 מהקופה', 2]].map(([n, b]) => html`<tr key=${n}><td>${n}</td><td className="mono">${pct(b / (1 + 2 * b))}%</td></tr>`)}
+    </tbody></table></div>
+    <div className="ex-rule"><span className="ex-lbl">כלל אצבע</span><p>הימור קטן = מחיר זול = אפשר לקרוא עם פחות. הימור גדול = צריך יד טובה באמת.</p></div>
+  </div>`;
+  if (id === 'outs'){
+    const hole = cardsFrom('Ah Kh'), board = cardsFrom('Qh 7h 2c'), oi = outsInfo(hole, board);
+    return html`<div className="lesson">
+      <h2>אאוטים וכלל 2 ו-4</h2>
+      <p><b>אאוטים</b> הם הקלפים שנשארו בחפיסה ויהפכו את היד שלך ליד מנצחת. אחרי שסופרים אותם, הכלל הפשוט נותן את הסיכוי:</p>
+      <ul><li><b>כפול 2</b> – הסיכוי להשלים בקלף הבא.</li><li><b>כפול 4</b> – הסיכוי להשלים עד הריבר (רק כשתראה את שני הקלפים בוודאות, למשל אחרי All-in).</li></ul>
+      <h3>דוגמה: A♥K♥ על לוח Q♥ 7♥ 2♣</h3>
+      <div style=${{ display: 'flex', gap: '12px', alignItems: 'center', flexWrap: 'wrap' }}><span>היד:</span><${CardRow} cards=${hole} size="md" /><span>הלוח:</span><${CardRow} cards=${board} size="md" /></div>
+      <div>${oi.groups.map(gr => html`<div key=${gr.label} className="outs-group"><span>${gr.cards.length} קלפים ← <b>${gr.label}</b>${gr.weak ? html` <span className="muted">(חלש יותר – לא תמיד מנצח)</span>` : null}</span><${CardRow} cards=${gr.cards} /></div>`)}</div>
+      <p>9 קלפי ♥ נותנים לך את הצבע הכי חזק האפשרי (Nut Flush): ⁦9 × 2 ≈ 18%⁩ לקלף הבא, ו-⁦9 × 4 ≈ 36%⁩ עד הריבר. ה-A וה-K נותנים זוג עליון – גם הם עוזרים, אבל פחות בטוחים.</p>
+      <div className="tbl-wrap"><table className="tbl"><thead><tr><th>דרואו</th><th>אאוטים</th><th>קלף אחד</th><th>עד הריבר</th></tr></thead><tbody>
+        ${[['Flush Draw – דרואו לצבע', 9], ['Open-Ended – דרואו פתוח לרצף', 8], ['Gutshot – דרואו לרצף עם חור', 4], ['צבע + רצף פתוח', 15], ['שני קלפים גבוהים מהלוח', 6], ['זוג בכיס ← סט', 2]].map(([n, o]) => html`<tr key=${n}><td>${rich(n)}</td><td className="mono">${o}</td><td className="mono">${fmt(o / 47 * 100)}%</td><td className="mono">${fmt((1 - (47 - o) / 47 * (46 - o) / 46) * 100)}%</td></tr>`)}
+      </tbody></table></div>
+      <div className="ex-rule"><span className="ex-lbl">כלל אצבע</span><p>8 אאוטים ומעלה = דרואו חזק, אפשר לשחק אגרסיבי. 4 אאוטים = דרואו חלש, ממשיכים רק במחיר זול.</p></div>
+    </div>`;
+  }
+  if (id === 'betting') return html`<div className="lesson">
+    <h2>למה מהמרים?</h2>
+    <p>לכל הימור צריכה להיות סיבה. יש בדיוק שתיים:</p>
+    <h3>1. ערך (Value Bet)</h3>
+    <p>מהמרים כי ידיים <b>חלשות</b> משלך יקראו. דוגמה: יש לך A♠K♦ על לוח K♣ 8♥ 3♦. ידיים כמו KQ, KJ, 88 או 99 ימשיכו – וכולן מפסידות לך.</p>
+    <h3>2. בלוף (Bluff)</h3>
+    <p>מהמרים כי ידיים <b>טובות</b> משלך יקפלו. דוגמה: פספסת דרואו בריבר, אבל הסיפור שלך לאורך היד נראה כמו יד חזקה.</p>
+    <h3>ומה עם Semi-Bluff?</h3>
+    <p>הימור עם דרואו – שילוב של השניים: אולי היריב יקפל עכשיו, ואם לא – עדיין יש לך אאוטים. זה הבלוף הכי בטוח שיש.</p>
+    <h3>מתי לא להמר: Pot Control</h3>
+    <p>עם יד בינונית (למשל זוג אמצעי), הימור יקפל ידיים חלשות ויקבל קריאה רק מידיים חזקות. לכן עושים צ׳ק ושומרים על קופה קטנה.</p>
+    <h3>מהלכים נפוצים</h3>
+    <ul>
+      <li><b>C-Bet</b> – מי שהעלה לפני הפלופ ממשיך להמר בפלופ. עובד טוב על לוחות יבשים.</li>
+      <li><b>Check-Raise</b> – צ׳ק, ואחרי שהיריב מהמר – העלאה. מראה כוח (או דרואו חזק).</li>
+      <li><b>Slow-play</b> – משחק פסיבי עם יד חזקה מאוד, כדי שהיריב ימשיך.</li>
+    </ul>
+    <div className="tbl-wrap"><table className="tbl"><thead><tr><th>מצב</th><th>גודל מקובל</th></tr></thead><tbody>
+      <tr><td>C-Bet על לוח יבש</td><td className="mono">25–33%</td></tr>
+      <tr><td>ערך על לוח רטוב (יש דרואים)</td><td className="mono">66–100%</td></tr>
+      <tr><td>Semi-Bluff עם דרואו חזק</td><td className="mono">50–75%</td></tr>
+      <tr><td>פתיחה לפני הפלופ</td><td className="mono">2.5bb</td></tr>
+      <tr><td>⁦3-Bet⁩</td><td className="mono">פי 3 (בפוזיציה) עד פי 4</td></tr>
+    </tbody></table></div>
+    <div className="ex-rule"><span className="ex-lbl">כלל אצבע</span><p>לפני כל הימור שאל: "איזו יד גרועה יותר תקרא לי? איזו יד טובה יותר תקפל?" אם אין תשובה – צ׳ק.</p></div>
+  </div>`;
+  if (id === 'stats') return html`<div className="lesson">
+    <h2>איך לקרוא את הניתוח</h2>
+    <p>בסוף כל סשן במשחק מול המחשב תקבל מספרים שמתארים את סגנון המשחק שלך. אלה אותם מספרים ששחקנים מקצועיים בודקים על עצמם.</p>
+    <div>${STAT_DEFS.map(d => html`<div key=${d.k} className="statrow"><div className="statrow-top"><span><b>${d.n}</b> · ${d.he}</span><span className="mono muted"><bdi dir="ltr">${d.num ? `${d.lo}–${d.hi}` : `${pct(d.lo)}–${pct(d.hi)}%`}</bdi></span></div><div className="muted small">${d.d}</div></div>`)}</div>
+    <h3>סוגי שחקנים</h3>
+    <ul>
+      <li><b>TAG</b> (הדוק-אגרסיבי) – מעט ידיים, משחק אותן בהעלאות. היעד שלך.</li>
+      <li><b>LAG</b> (רחב-אגרסיבי) – הרבה ידיים בהעלאות. עובד רק עם משחק מדויק מאוד.</li>
+      <li><b>Rock / Nit</b> – מעט מאוד ידיים. קשה להפסיד, אבל גם קשה להרוויח.</li>
+      <li><b>Fish / Calling Station</b> – הרבה ידיים, בעיקר קריאות. הסגנון היקר ביותר.</li>
+      <li><b>Maniac</b> – מהמר ומעלה כמעט תמיד.</li>
+    </ul>
+    <div className="ex-rule"><span className="ex-lbl">חשוב לזכור</span><p>בסשן קצר מזל משפיע מאוד על התוצאה. לכן תמדוד את עצמך לפי איכות ההחלטות – לא לפי כמה הרווחת היום.</p></div>
+  </div>`;
+  return html`<div className="lesson">
+    <h2>מילון מונחים</h2>
+    <p>בכל ההסברים באפליקציה, מונח עם קו מנוקד ניתן ללחיצה ויציג את ההגדרה שלו.</p>
+    <div className="gloss">${GLOSS.map(g => html`<div key=${g.t}><b>${g.t}</b><p>${g.d}</p>${g.e ? html`<p className="ex">לדוגמה: ${g.e}</p>` : null}</div>`)}</div>
+  </div>`;
+}
+const LESSONS = [['basics','איך משחקים – בקצרה'],['hands','דירוג הידיים'],['position','מיקום בשולחן'],['starting','באילו ידיים לשחק'],['odds','Pot Odds ו-Equity'],['outs','אאוטים וכלל 2 ו-4'],['betting','למה מהמרים?'],['stats','איך לקרוא את הניתוח'],['glossary','מילון מונחים']];
+function LearnView({ goTo }){
+  const [l, setL] = useState(() => load(PREF_KEY, {}).lesson || 'basics');
+  useEffect(() => { const p = load(PREF_KEY, {}); save(PREF_KEY, { ...p, lesson: l }); }, [l]);
+  const i = Math.max(0, LESSONS.findIndex(x => x[0] === l));
+  const go = id => { setL(id); window.scrollTo({ top: 0 }); };
+  return html`<div className="learn">
+    <nav className="panel lesson-nav" aria-label="שיעורים">${LESSONS.map(([k, n]) => html`<button key=${k} type="button" aria-current=${l === k} onClick=${() => go(k)}>${n}</button>`)}</nav>
+    <section className="panel col" style=${{ gap: '16px' }}>
+      <${LearnContent} id=${l} goTo=${goTo} />
+      <div className="lesson-pager">
+        ${i > 0 ? html`<button className="linkbtn" onClick=${() => go(LESSONS[i - 1][0])}>→ ${LESSONS[i - 1][1]}</button>` : html`<span></span>`}
+        ${i < LESSONS.length - 1 ? html`<button className="linkbtn" onClick=${() => go(LESSONS[i + 1][0])}>${LESSONS[i + 1][1]} ←</button>` : html`<button className="linkbtn" onClick=${() => goTo('sim')}>לשחק מול המחשב ←</button>`}
+      </div>
+    </section>
   </div>`;
 }
 
@@ -1237,8 +2361,8 @@ function StatsView({ records, onReset, goTo }){
   const [confirm, setConfirm] = useState(false);
   if (!records.length) return html`<section className="panel"><div className="empty">
       <h2>עוד אין נתונים</h2>
-      <p>כל החלטה במאמני הפרה-פלופ והפוסט-פלופ נרשמת כאן: אחוז הדיוק, דיוק לפי רחוב, וסוגי הטעויות הנפוצים שלך.</p>
-      <div className="btn-row"><button className="linkbtn" onClick=${() => goTo('pre')}>להתחיל ב-Pre-Flop</button><button className="linkbtn" onClick=${() => goTo('post')}>להתחיל ב-Post-Flop</button></div>
+      <p>כל החלטה במאמנים ובמשחק מול המחשב נרשמת כאן: אחוז הדיוק, דיוק לפי שלב במשחק, וסוגי הטעויות הנפוצים שלך.</p>
+      <div className="btn-row"><button className="linkbtn" onClick=${() => goTo('pre')}>להתחיל ב-Pre-Flop</button><button className="linkbtn" onClick=${() => goTo('sim')}>לשחק מול המחשב</button></div>
     </div></section>`;
   const t = records.length;
   const good = records.filter(r => r.grade !== 'mistake').length;
@@ -1274,7 +2398,7 @@ function StatsView({ records, onReset, goTo }){
           <span className="track"><i style=${{ width: (s.t ? pct(s.a) : 0) + '%', background: accColor(s.a) }}></i></span>
           <span className="num">${s.t ? pct(s.a) + '%' : '—'} · ${s.t}</span>
         </div>`)}</div>
-        ${worstStreet ? html`<p className="muted" style=${{ fontSize: '13.5px', margin: '12px 0 0' }}>השלב החלש ביותר כרגע: <b style=${{ color: 'var(--text)' }}>${worstStreet.n}</b> (${pct(worstStreet.a)}%). כדאי לתרגל אותו ממוקד.</p>` : null}
+        ${worstStreet ? html`<p className="plain" style=${{ marginTop: '12px' }}>השלב החלש ביותר כרגע: <b style=${{ color: 'var(--text)' }}>${worstStreet.n}</b> (${pct(worstStreet.a)}%). כדאי לתרגל אותו ממוקד.</p>` : null}
       </section>
       <section className="panel">
         <h3>טעויות נפוצות</h3>
@@ -1283,7 +2407,7 @@ function StatsView({ records, onReset, goTo }){
             <span className="track"><i style=${{ width: (n / maxM * 100) + '%', background: 'var(--bad)' }}></i></span>
             <span className="num">${n}</span>
           </div>`)}</div>
-          <p style=${{ fontSize: '13.5px', margin: '12px 0 0' }}><b style=${{ color: 'var(--brass)' }}>טיפ: </b>${MISTAKES[mlist[0][0]].tip}</p>`
+          <p style=${{ fontSize: '13.5px', margin: '12px 0 0' }}><b style=${{ color: 'var(--brass)' }}>טיפ: </b>${rich(MISTAKES[mlist[0][0]].tip)}</p>`
           : html`<p className="muted">אין טעויות עדיין. יפה!</p>`}
       </section>
     </div>
@@ -1305,35 +2429,54 @@ const STORE_KEY = 'felt-lab-stats-v1';
 const PREF_KEY = 'felt-lab-prefs-v1';
 function load(key, fallback){ try { const v = localStorage.getItem(key); return v ? JSON.parse(v) : fallback; } catch (e){ return fallback; } }
 function save(key, v){ try { localStorage.setItem(key, JSON.stringify(v)); } catch (e){} }
-const TABS = [['pre','Pre-Flop'],['post','Post-Flop'],['range','Range Explorer'],['stats','התקדמות']];
-
+const TABS = [['learn','מדריך'],['pre','Pre-Flop'],['post','Post-Flop'],['sim','משחק מול המחשב'],['range','טווחים'],['stats','התקדמות']];
+function TermSheet({ i, onClose }){
+  useEffect(() => {
+    const f = e => { if (e.key === 'Escape') onClose(); };
+    const c = () => onClose();
+    window.addEventListener('keydown', f);
+    window.addEventListener('click', c);
+    return () => { window.removeEventListener('keydown', f); window.removeEventListener('click', c); };
+  }, [i]);
+  const g = GLOSS[i];
+  return html`<div className="sheet" role="dialog" aria-label=${g.t} onClick=${e => e.stopPropagation()}>
+    <button className="close" type="button" aria-label="סגירה" onClick=${onClose}>✕</button>
+    <h4>${g.t}</h4><p>${g.d}</p>${g.e ? html`<p className="ex">לדוגמה: ${g.e}</p>` : null}
+  </div>`;
+}
 function App(){
   const prefs = load(PREF_KEY, {});
-  const [tab, setTab] = useState(TABS.some(t => t[0] === prefs.tab) ? prefs.tab : 'pre');
+  const [tab, setTab] = useState(TABS.some(t => t[0] === prefs.tab) ? prefs.tab : 'learn');
   const [intuition, setIntuition] = useState(!!prefs.intuition);
   const [records, setRecords] = useState(() => load(STORE_KEY, []));
-  useEffect(() => save(PREF_KEY, { tab, intuition }), [tab, intuition]);
+  const [term, setTerm] = useState(null);
+  useEffect(() => { const p = load(PREF_KEY, {}); save(PREF_KEY, { ...p, tab, intuition }); }, [tab, intuition]);
   const record = useCallback(r => setRecords(rs => { const n = [...rs, { ...r, ts: Date.now() }].slice(-1000); save(STORE_KEY, n); return n; }), []);
   const reset = () => { setRecords([]); save(STORE_KEY, []); };
+  const goTo = t => { setTab(t); window.scrollTo({ top: 0 }); };
   const good = records.filter(r => r.grade !== 'mistake').length;
-  return html`<div className="app">
+  return html`<${TermCtx.Provider} value=${setTerm}><div className="app">
     <header className="top">
       <div className="brand"><div className="logo" aria-hidden="true"></div>
         <div><h1>Felt <span>Lab</span></h1><small>מאמן Texas Hold'em · קאש ⁦6-Max⁩ · 100bb</small></div></div>
-      <nav className="tabs" role="tablist">${TABS.map(([k, n]) => html`<button key=${k} role="tab" aria-selected=${tab === k} onClick=${() => setTab(k)}>${n}</button>`)}</nav>
+      <nav className="tabs" role="tablist">${TABS.map(([k, n]) => html`<button key=${k} role="tab" aria-selected=${tab === k} onClick=${() => goTo(k)}>${n}</button>`)}</nav>
       <div className="hdr-right">
         ${(tab === 'pre' || tab === 'post') ? html`<label className="switch" title="הסתר אחוזים עד אחרי ההחלטה"><input id="intuition" type="checkbox" checked=${intuition} onChange=${e => setIntuition(e.target.checked)} />מצב אינטואיציה</label>` : null}
         <span className="acc-pill">דיוק <b>${records.length ? pct(good / records.length) + '%' : '—'}</b> · ${records.length} החלטות</span>
       </div>
     </header>
     <main>
+      ${tab === 'learn' ? html`<${LearnView} goTo=${goTo} />` : null}
       ${tab === 'pre' ? html`<${PreflopTrainer} record=${record} intuition=${intuition} />` : null}
       ${tab === 'post' ? html`<${PostflopTrainer} record=${record} intuition=${intuition} />` : null}
+      ${tab === 'sim' ? html`<${SimView} record=${record} />` : null}
       ${tab === 'range' ? html`<${RangeExplorer} />` : null}
-      ${tab === 'stats' ? html`<${StatsView} records=${records} onReset=${reset} goTo=${setTab} />` : null}
+      ${tab === 'stats' ? html`<${StatsView} records=${records} onReset=${reset} goTo=${goTo} />` : null}
     </main>
-    <p className="foot">קיצורי מקלדת: F = Fold · C = Check/Call · R/B = Raise/Bet · N = יד הבאה. ההמלצות מבוססות על טווחי בסיס מפושטים וחישובי Equity מול טווח משוער – כלי לימוד, לא Solver.</p>
-  </div>`;
+    <p className="foot">מונח עם קו מנוקד – לחץ עליו להסבר. קיצורי מקלדת: F = Fold · C = Check/Call · R/B = Raise/Bet · N = יד הבאה. ההמלצות מבוססות על טווחי בסיס מפושטים וחישובי Equity מול טווח משוער – כלי לימוד, לא Solver.</p>
+  </div>
+  ${term != null ? html`<${TermSheet} i=${term} onClose=${() => setTerm(null)} />` : null}
+  <//>`;
 }
 
 ReactDOM.createRoot(document.getElementById('root')).render(html`<${App} />`);
